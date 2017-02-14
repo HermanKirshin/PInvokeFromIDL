@@ -1,0 +1,68 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly Name="EnvDTE80" #>
+<#@ assembly Name="VSLangProj" #>
+<#@ assembly name="Microsoft.VisualStudio.OLE.Interop" #>
+<#@ assembly name="Microsoft.VisualStudio.Shell" #>
+<#@ assembly name="Microsoft.VisualStudio.Shell.Interop" #>
+<#@ assembly name="Microsoft.VisualStudio.Shell.Interop.8.0" #>
+<#@ import namespace="Microsoft.VisualStudio.Shell" #>
+<#@ import namespace="Microsoft.VisualStudio.Shell.Interop" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Serialization" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#
+    IServiceProvider hostServiceProvider = (IServiceProvider)Host;    
+    EnvDTE80.DTE2 dte = (EnvDTE80.DTE2)hostServiceProvider.GetService(typeof(EnvDTE.DTE));    
+    EnvDTE.OutputWindow outputWin = dte.ToolWindows.OutputWindow;
+    EnvDTE.OutputWindowPane pane = outputWin.OutputWindowPanes.Item("Build");
+    pane.Clear();
+
+    pane.OutputString("Transforming " + Host.TemplateFile + Environment.NewLine);
+
+    string solutionFolder = Path.GetDirectoryName(dte.Solution.FileName);
+
+    string codeFile = Path.Combine(Path.GetTempPath(), Path.GetFileNameWithoutExtension(Host.TemplateFile) + "_" + DateTime.Now.Ticks + ".cs");
+    
+    string result = "Error";
+    try
+    {
+
+        using(Process process = Process.Start(new ProcessStartInfo
+        {        
+            FileName = Path.Combine(solutionFolder, "InternalTools", "idl2cs.exe"),
+            Arguments = string.Format("\"/idl:{0}\" \"/cs:{1}\"", Host.TemplateFile, codeFile),
+            UseShellExecute = false,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            CreateNoWindow = true
+        }))
+        {
+            process.WaitForExit();
+
+            pane.OutputString(process.StandardOutput.ReadToEnd() + Environment.NewLine);
+            pane.OutputString(process.StandardError.ReadToEnd() + Environment.NewLine);
+            
+            if (process.ExitCode != 0)
+                pane.OutputString("idl2cs.exe returned " + process.ExitCode + "." + Environment.NewLine);
+        }
+
+        if(File.Exists(codeFile))
+            result = File.ReadAllText(codeFile);
+    }
+    finally
+    {
+	    if(File.Exists(codeFile))
+            File.Delete(codeFile);
+    }
+
+    return result;
+#>

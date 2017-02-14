@@ -1,0 +1,3 @@
+All source code here is under public domain license, 
+except hooking library (main.c) code which is based on third-party project and probably is under some other kind of license (link to this third-party project is in the source code, so search for details there if needed) 
+and all .idl files contain declarations that are copy-pasted from Windows 8.1 SDK (I'm not sure about how they are licensed).

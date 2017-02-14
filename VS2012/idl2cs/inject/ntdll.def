@@ -1,0 +1,12 @@
+LIBRARY NTDLL
+EXPORTS
+    LdrLoadDll
+    LdrGetProcedureAddress
+    LdrUnloadDll
+    RtlCopyMemory
+    NtAllocateVirtualMemory
+    NtFreeVirtualMemory
+    NtProtectVirtualMemory
+    NtQueryVirtualMemory
+    ZwQueryVirtualMemory
+    memset

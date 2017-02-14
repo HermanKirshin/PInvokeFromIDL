@@ -1,0 +1,5215 @@
+#ifdef __cplusplus
+#define EXTERN_C    extern "C"
+#else
+#define EXTERN_C    extern
+#endif
+#define FAR
+#define __MIDL_CONST
+#define DECLSPEC_SELECTANY  __declspec(selectany)
+#define __LPGUID_DEFINED__
+#define __LPCGUID_DEFINED__
+#define __IID_DEFINED__
+#define _REFGUID_DEFINED
+#define _REFIID_DEFINED
+#define _REFCLSID_DEFINED
+#define _REFFMTID_DEFINED
+#define BUILDING_UNKNWN_IDL
+#define DISABLE_CONSISTENCY_CHK 
+#define POINTER_32
+#define POINTER_64
+#define FIRMWARE_PTR
+#define POINTER_SIGNED
+#define POINTER_UNSIGNED
+#define SPOINTER_32
+#define UPOINTER_32
+#define _W64
+#define GUID_DEFINED
+
+#define CALLBACK    __stdcall
+#define WINAPI      __stdcall
+#define WINAPIV     __cdecl
+#define APIENTRY    WINAPI
+#define APIPRIVATE  __stdcall
+#define PASCAL      __stdcall
+#define CONST       const
+
+//[local, object, uuid(00000000-0000-0000-C000-000000000046), pointer_default(unique)]
+interface __Delegate
+{
+}
+
+interface __UserImplemented
+{
+}
+
+interface __IgnoreIdentifier
+{
+}
+
+typedef enum VARENUM
+{
+    VT_EMPTY           = 0,
+    VT_NULL            = 1,
+    VT_I2              = 2,
+    VT_I4              = 3,
+    VT_R4              = 4,
+    VT_R8              = 5,
+    VT_CY              = 6,
+    VT_DATE            = 7,
+    VT_BSTR            = 8,
+    VT_DISPATCH        = 9,
+    VT_ERROR           = 10,
+    VT_BOOL            = 11,
+    VT_VARIANT         = 12,
+    VT_UNKNOWN         = 13,
+    VT_DECIMAL         = 14,
+
+    VT_I1              = 16,
+    VT_UI1             = 17,
+    VT_UI2             = 18,
+    VT_UI4             = 19,
+    VT_I8              = 20,
+    VT_UI8             = 21,
+    VT_INT             = 22,
+    VT_UINT            = 23,
+    VT_VOID            = 24,
+    VT_HRESULT         = 25,
+    VT_PTR             = 26,
+    VT_SAFEARRAY       = 27,
+    VT_CARRAY          = 28,
+    VT_USERDEFINED     = 29,
+    VT_LPSTR           = 30,
+    VT_LPWSTR          = 31,
+
+    VT_RECORD          = 36,
+    VT_INT_PTR         = 37,
+    VT_UINT_PTR        = 38,	
+
+    VT_FILETIME        = 64,
+    VT_BLOB            = 65,
+    VT_STREAM          = 66,
+    VT_STORAGE         = 67,
+    VT_STREAMED_OBJECT = 68,
+    VT_STORED_OBJECT   = 69,
+    VT_BLOB_OBJECT     = 70,
+    VT_CF              = 71,
+    VT_CLSID           = 72,
+    VT_VERSIONED_STREAM= 73,
+
+    VT_BSTR_BLOB       = 0x0fff,
+
+    VT_VECTOR          = 0x1000,
+    VT_ARRAY           = 0x2000,
+    VT_BYREF           = 0x4000,
+    VT_RESERVED        = 0x8000,
+
+    VT_ILLEGAL         = 0xffff,
+    VT_ILLEGALMASKED   = 0x0fff,
+    VT_TYPEMASK        = 0x0fff
+} VARENUM;
+
+typedef enum MEMCTX
+{
+    MEMCTX_TASK = 1,      
+    MEMCTX_SHARED = 2,    
+    MEMCTX_MACSYSTEM = 3, 
+    MEMCTX_UNKNOWN = -1,  
+    MEMCTX_SAME = -2,     
+} MEMCTX;
+
+typedef enum CLSCTX
+{
+    CLSCTX_INPROC_SERVER = 0x01,    
+    CLSCTX_INPROC_HANDLER = 0x02,   
+    CLSCTX_LOCAL_SERVER = 0x04,     
+    CLSCTX_INPROC_SERVER16 = 0x08,  
+    CLSCTX_REMOTE_SERVER = 0x10,    
+    CLSCTX_INPROC_HANDLER16 = 0x20, 
+    CLSCTX_RESERVED1 = 0x40,        
+    CLSCTX_RESERVED2 = 0x80,        
+    CLSCTX_RESERVED3 = 0x100,       
+    CLSCTX_RESERVED4 = 0x200,       
+    CLSCTX_NO_CODE_DOWNLOAD = 0x400,
+    CLSCTX_RESERVED5 = 0x800,       
+    CLSCTX_NO_CUSTOM_MARSHAL = 0x1000,
+    CLSCTX_ENABLE_CODE_DOWNLOAD = 0x2000,
+    CLSCTX_NO_FAILURE_LOG = 0x4000, 
+    CLSCTX_DISABLE_AAA   = 0x8000,  
+    CLSCTX_ENABLE_AAA   = 0x10000,  
+    CLSCTX_FROM_DEFAULT_CONTEXT = 0x20000,   
+    CLSCTX_ACTIVATE_32_BIT_SERVER = 0x40000, 
+    CLSCTX_ACTIVATE_64_BIT_SERVER = 0x80000, 
+    CLSCTX_ENABLE_CLOAKING = 0x100000, 	     
+    CLSCTX_ACTIVATE_SBX_SANDBOX = 0x200000,  
+    CLSCTX_APPCONTAINER = 0x400000, 
+    CLSCTX_ACTIVATE_AAA_AS_IU = 0x800000, 
+    CLSCTX_PS_DLL = (int) 0x80000000,
+} CLSCTX;
+
+typedef enum MSHLFLAGS
+{
+    MSHLFLAGS_NORMAL = 0,     
+    MSHLFLAGS_TABLESTRONG = 1,
+    MSHLFLAGS_TABLEWEAK = 2,  
+    MSHLFLAGS_NOPING = 4,     
+    MSHLFLAGS_RESERVED1 = 8,  
+    MSHLFLAGS_RESERVED2 = 16, 
+    MSHLFLAGS_RESERVED3 = 32, 
+    MSHLFLAGS_RESERVED4 = 64  
+} MSHLFLAGS;
+
+typedef enum MSHCTX
+{
+    MSHCTX_LOCAL = 0,           
+    MSHCTX_NOSHAREDMEM = 1,     
+    MSHCTX_DIFFERENTMACHINE = 2,
+    MSHCTX_INPROC = 3,          
+    MSHCTX_CROSSCTX = 4         
+} MSHCTX;
+
+typedef enum DVASPECT
+{
+    DVASPECT_CONTENT = 1,
+    DVASPECT_THUMBNAIL = 2,
+    DVASPECT_ICON = 4,
+    DVASPECT_DOCPRINT = 8
+} DVASPECT;
+
+typedef enum STGC
+{
+    STGC_DEFAULT        = 0,
+    STGC_OVERWRITE      = 1,
+    STGC_ONLYIFCURRENT  = 2,
+    STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE = 4,
+    STGC_CONSOLIDATE    = 8
+} STGC;
+
+typedef enum STGMOVE
+{
+    STGMOVE_MOVE    = 0,
+    STGMOVE_COPY    = 1,
+    STGMOVE_SHALLOWCOPY = 2
+} STGMOVE;
+
+typedef enum STATFLAG
+{
+    STATFLAG_DEFAULT = 0,
+    STATFLAG_NONAME = 1,
+    STATFLAG_NOOPEN = 2
+} STATFLAG;
+
+typedef enum TYSPEC {
+    TYSPEC_CLSID,
+    TYSPEC_FILEEXT,
+    TYSPEC_MIMETYPE,
+    TYSPEC_FILENAME,
+    TYSPEC_PROGID,
+    TYSPEC_PACKAGENAME,
+    TYSPEC_OBJECTID
+} TYSPEC;
+
+typedef enum tagEXTCONN
+{
+    EXTCONN_STRONG      = 0x0001,
+    EXTCONN_WEAK        = 0x0002,
+    EXTCONN_CALLABLE    = 0x0004
+} EXTCONN;
+
+typedef enum STGTY
+{
+    STGTY_STORAGE   = 1,
+    STGTY_STREAM    = 2,
+    STGTY_LOCKBYTES = 3,
+    STGTY_PROPERTY  = 4
+} STGTY;
+
+typedef enum STREAM_SEEK
+{
+    STREAM_SEEK_SET = 0,
+    STREAM_SEEK_CUR = 1,
+    STREAM_SEEK_END = 2
+} STREAM_SEEK;
+
+typedef enum LOCKTYPE
+{
+    LOCK_WRITE      = 1,
+    LOCK_EXCLUSIVE  = 2,
+    LOCK_ONLYONCE   = 4
+} LOCKTYPE;
+
+typedef enum EOLE_AUTHENTICATION_CAPABILITIES
+{
+    EOAC_NONE             = 0x0,
+    EOAC_MUTUAL_AUTH      = 0x1,
+    EOAC_STATIC_CLOAKING  = 0x20,
+    EOAC_DYNAMIC_CLOAKING = 0x40,
+    EOAC_ANY_AUTHORITY    = 0x80,
+    EOAC_MAKE_FULLSIC     = 0x100,
+    EOAC_DEFAULT          = 0x800,
+    EOAC_SECURE_REFS       = 0x2,
+    EOAC_ACCESS_CONTROL    = 0x4,
+    EOAC_APPID             = 0x8,
+    EOAC_DYNAMIC           = 0x10,
+    EOAC_REQUIRE_FULLSIC   = 0x200,
+    EOAC_AUTO_IMPERSONATE  = 0x400,
+    EOAC_NO_CUSTOM_MARSHAL = 0x2000,
+    EOAC_DISABLE_AAA       = 0x1000
+} EOLE_AUTHENTICATION_CAPABILITIES;
+
+typedef enum RPCOPT_PROPERTIES
+{
+    COMBND_RPCTIMEOUT = 0x01,
+    COMBND_SERVER_LOCALITY = 0x02, 
+    COMBND_RESERVED1 = 0x04
+} RPCOPT_PROPERTIES;  
+
+typedef enum RPCOPT_SERVER_LOCALITY_VALUES
+{
+    SERVER_LOCALITY_PROCESS_LOCAL=0,
+    SERVER_LOCALITY_MACHINE_LOCAL=1,
+    SERVER_LOCALITY_REMOTE=2     
+} RPCOPT_SERVER_LOCALITY_VALUES;
+
+typedef enum GLOBALOPT_PROPERTIES
+{
+    COMGLB_EXCEPTION_HANDLING = 1,
+    COMGLB_APPID = 2, 
+    COMGLB_RPC_THREADPOOL_SETTING = 3, 
+    COMGLB_RO_SETTINGS = 4,  
+    COMGLB_UNMARSHALING_POLICY = 5
+} GLOBALOPT_PROPERTIES;
+
+typedef enum GLOBALOPT_EH_VALUES
+{
+    COMGLB_EXCEPTION_HANDLE=0,
+    COMGLB_EXCEPTION_DONOT_HANDLE_FATAL=1,
+    COMGLB_EXCEPTION_DONOT_HANDLE=COMGLB_EXCEPTION_DONOT_HANDLE_FATAL, 
+    COMGLB_EXCEPTION_DONOT_HANDLE_ANY=2
+} GLOBALOPT_EH_VALUES;
+
+typedef enum GLOBALOPT_RPCTP_VALUES
+{
+    COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL = 0, 
+    COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL = 1,
+} GLOBALOPT_RPCTP_VALUES;
+
+typedef enum GLOBALOPT_RO_FLAGS
+{
+    COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES = 0x1,
+    COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES = 0x2,
+    COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES = 0x4,
+    COMGLB_FAST_RUNDOWN = 0x8,
+    COMGLB_RESERVED1 = 0x10,
+    COMGLB_RESERVED2 = 0x20,
+    COMGLB_RESERVED3 = 0x40,
+    COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES = 0x80
+} GLOBALOPT_RO_FLAGS;
+
+typedef enum GLOBALOPT_UNMARSHALING_POLICY_VALUES
+{
+    COMGLB_UNMARSHALING_POLICY_NORMAL = 0,
+    COMGLB_UNMARSHALING_POLICY_STRONG = 1,
+    COMGLB_UNMARSHALING_POLICY_HYBRID = 2
+} GLOBALOPT_UNMARSHALING_POLICY_VALUES;
+
+typedef enum DCOM_CALL_STATE
+{
+    DCOM_NONE           = 0x0,
+    DCOM_CALL_COMPLETE  = 0x1,
+    DCOM_CALL_CANCELED  = 0x2,
+} DCOM_CALL_STATE;
+
+typedef enum APTTYPEQUALIFIER
+{
+    APTTYPEQUALIFIER_NONE               = 0,
+    APTTYPEQUALIFIER_IMPLICIT_MTA       = 1,
+    APTTYPEQUALIFIER_NA_ON_MTA          = 2,
+    APTTYPEQUALIFIER_NA_ON_STA          = 3,
+    APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA = 4,
+    APTTYPEQUALIFIER_NA_ON_MAINSTA      = 5,
+    APTTYPEQUALIFIER_APPLICATION_STA    = 6,
+} APTTYPEQUALIFIER;
+
+typedef enum APTTYPE
+{
+    APTTYPE_CURRENT         = -1,
+    APTTYPE_STA             = 0,
+    APTTYPE_MTA             = 1,
+    APTTYPE_NA              = 2,
+    APTTYPE_MAINSTA         = 3
+} APTTYPE;
+
+typedef enum THDTYPE
+{
+    THDTYPE_BLOCKMESSAGES   = 0,
+    THDTYPE_PROCESSMESSAGES = 1
+} THDTYPE;
+
+typedef enum CO_MARSHALING_CONTEXT_ATTRIBUTES
+{
+    CO_MARSHALING_SOURCE_IS_APP_CONTAINER = 0
+} CO_MARSHALING_CONTEXT_ATTRIBUTES;
+
+typedef enum BIND_FLAGS
+{
+    BIND_MAYBOTHERUSER = 1,
+    BIND_JUSTTESTEXISTENCE = 2
+} BIND_FLAGS;
+
+typedef enum MKSYS
+{
+    MKSYS_NONE = 0,
+    MKSYS_GENERICCOMPOSITE = 1,
+    MKSYS_FILEMONIKER = 2,
+    MKSYS_ANTIMONIKER = 3,
+    MKSYS_ITEMMONIKER = 4,
+    MKSYS_POINTERMONIKER = 5,
+    //  MKSYS_URLMONIKER = 6,
+    MKSYS_CLASSMONIKER = 7,
+    MKSYS_OBJREFMONIKER = 8,
+    MKSYS_SESSIONMONIKER = 9,
+    MKSYS_LUAMONIKER = 10
+}MKSYS;
+
+typedef enum MKREDUCE
+{
+    MKRREDUCE_ONE           =   3<<16,
+    MKRREDUCE_TOUSER        =   2<<16,
+    MKRREDUCE_THROUGHUSER   =   1<<16,
+    MKRREDUCE_ALL           =   0
+} MKRREDUCE;
+
+typedef enum ADVF
+{
+    ADVF_NODATA = 1,
+    ADVF_PRIMEFIRST = 2,
+    ADVF_ONLYONCE = 4,
+    ADVF_DATAONSTOP = 64,
+    ADVFCACHE_NOHANDLER = 8,
+    ADVFCACHE_FORCEBUILTIN = 16,
+    ADVFCACHE_ONSAVE = 32
+} ADVF;
+
+typedef enum TYMED 
+{
+    TYMED_HGLOBAL = 1,
+    TYMED_FILE = 2,
+    TYMED_ISTREAM = 4,
+    TYMED_ISTORAGE = 8,
+    TYMED_GDI = 16,
+    TYMED_MFPICT = 32,
+    TYMED_ENHMF = 64,
+    TYMED_NULL = 0
+} TYMED;
+
+typedef enum DATADIR
+{
+    DATADIR_GET = 1,
+    DATADIR_SET = 2
+} DATADIR;
+
+typedef enum CALLTYPE
+{
+    CALLTYPE_TOPLEVEL = 1, 
+    CALLTYPE_NESTED   = 2, 
+    CALLTYPE_ASYNC    = 3, 
+    CALLTYPE_TOPLEVEL_CALLPENDING = 4, 
+    CALLTYPE_ASYNC_CALLPENDING    = 5  
+} CALLTYPE;
+
+typedef enum SERVERCALL
+{
+    SERVERCALL_ISHANDLED    = 0,
+    SERVERCALL_REJECTED     = 1,
+    SERVERCALL_RETRYLATER   = 2
+} SERVERCALL;
+
+typedef enum PENDINGTYPE
+{
+    PENDINGTYPE_TOPLEVEL = 1, 
+    PENDINGTYPE_NESTED   = 2  
+} PENDINGTYPE;
+
+typedef enum PENDINGMSG
+{
+    PENDINGMSG_CANCELCALL  = 0, 
+    PENDINGMSG_WAITNOPROCESS  = 1, 
+    PENDINGMSG_WAITDEFPROCESS = 2 
+
+} PENDINGMSG;
+    
+typedef enum ApplicationType 
+{ 
+    ServerApplication, 
+    LibraryApplication 
+} ApplicationType;
+
+typedef enum ShutdownType 
+{ 
+    IdleShutdown, 
+    ForcedShutdown
+} ShutdownType;
+
+typedef enum SF_TYPE 
+{
+    SF_ERROR    = VT_ERROR,
+    SF_I1       = VT_I1,
+    SF_I2       = VT_I2,
+    SF_I4       = VT_I4,
+    SF_I8       = VT_I8,
+    SF_BSTR     = VT_BSTR,
+    SF_UNKNOWN  = VT_UNKNOWN,
+    SF_DISPATCH = VT_DISPATCH,
+    SF_VARIANT  = VT_VARIANT,
+    SF_RECORD   = VT_RECORD,
+    SF_HAVEIID  = VT_UNKNOWN|VT_RESERVED,
+} SF_TYPE;
+
+typedef enum TYPEKIND 
+{
+    TKIND_ENUM = 0,
+    TKIND_RECORD,
+    TKIND_MODULE,
+    TKIND_INTERFACE,
+    TKIND_DISPATCH,
+    TKIND_COCLASS,
+    TKIND_ALIAS,
+    TKIND_UNION,
+    TKIND_MAX 
+} TYPEKIND;
+
+typedef enum CALLCONV 
+{
+    CC_FASTCALL = 0,
+    CC_CDECL = 1,
+    CC_MSCPASCAL,
+    CC_PASCAL = CC_MSCPASCAL,
+    CC_MACPASCAL,
+    CC_STDCALL,
+    CC_FPFASTCALL,
+    CC_SYSCALL,
+    CC_MPWCDECL,
+    CC_MPWPASCAL,
+    CC_MAX    
+} CALLCONV;
+
+typedef enum FUNCKIND
+{
+    FUNC_VIRTUAL,
+    FUNC_PUREVIRTUAL,
+    FUNC_NONVIRTUAL,
+    FUNC_STATIC,
+    FUNC_DISPATCH
+} FUNCKIND;
+
+typedef enum INVOKEKIND 
+{
+    INVOKE_FUNC = 1,
+    INVOKE_PROPERTYGET = 2,
+    INVOKE_PROPERTYPUT = 4,
+    INVOKE_PROPERTYPUTREF = 8
+} INVOKEKIND;
+
+typedef enum VARKIND 
+{
+    VAR_PERINSTANCE,
+    VAR_STATIC,
+    VAR_CONST,
+    VAR_DISPATCH
+} VARKIND;
+
+typedef enum TYPEFLAGS 
+{
+    TYPEFLAG_FAPPOBJECT = 0x01,
+    TYPEFLAG_FCANCREATE = 0x02,
+    TYPEFLAG_FLICENSED = 0x04,
+    TYPEFLAG_FPREDECLID = 0x08,
+    TYPEFLAG_FHIDDEN = 0x10,
+    TYPEFLAG_FCONTROL = 0x20,
+    TYPEFLAG_FDUAL = 0x40,
+    TYPEFLAG_FNONEXTENSIBLE = 0x80,
+    TYPEFLAG_FOLEAUTOMATION = 0x100,
+    TYPEFLAG_FRESTRICTED = 0x200,
+    TYPEFLAG_FAGGREGATABLE = 0x400,
+    TYPEFLAG_FREPLACEABLE = 0x800,
+    TYPEFLAG_FDISPATCHABLE = 0x1000,
+    TYPEFLAG_FREVERSEBIND = 0x2000,
+    TYPEFLAG_FPROXY = 0x4000
+} TYPEFLAGS;
+
+typedef enum FUNCFLAGS 
+{
+    FUNCFLAG_FRESTRICTED = 0x1,
+    FUNCFLAG_FSOURCE = 0x2,
+    FUNCFLAG_FBINDABLE = 0x4,
+    FUNCFLAG_FREQUESTEDIT = 0x8,
+    FUNCFLAG_FDISPLAYBIND = 0x10,
+    FUNCFLAG_FDEFAULTBIND = 0x20,
+    FUNCFLAG_FHIDDEN = 0x40,
+    FUNCFLAG_FUSESGETLASTERROR = 0x80,
+    FUNCFLAG_FDEFAULTCOLLELEM = 0x100,
+    FUNCFLAG_FUIDEFAULT = 0x200,
+    FUNCFLAG_FNONBROWSABLE = 0x400,
+    FUNCFLAG_FREPLACEABLE = 0x800,
+    FUNCFLAG_FIMMEDIATEBIND = 0x1000
+} FUNCFLAGS;
+
+typedef enum VARFLAGS 
+{
+    VARFLAG_FREADONLY = 0x1,
+    VARFLAG_FSOURCE = 0x2,
+    VARFLAG_FBINDABLE = 0x4,
+    VARFLAG_FREQUESTEDIT = 0x8,
+    VARFLAG_FDISPLAYBIND = 0x10,
+    VARFLAG_FDEFAULTBIND = 0x20,
+    VARFLAG_FHIDDEN = 0x40,
+    VARFLAG_FRESTRICTED = 0x80,
+    VARFLAG_FDEFAULTCOLLELEM = 0x100,
+    VARFLAG_FUIDEFAULT = 0x200,
+    VARFLAG_FNONBROWSABLE = 0x400,
+    VARFLAG_FREPLACEABLE = 0x800,
+    VARFLAG_FIMMEDIATEBIND = 0x1000
+} VARFLAGS;
+
+typedef enum DESCKIND 
+{
+    DESCKIND_NONE = 0,
+    DESCKIND_FUNCDESC,
+    DESCKIND_VARDESC,
+    DESCKIND_TYPECOMP,
+    DESCKIND_IMPLICITAPPOBJ,
+    DESCKIND_MAX
+} DESCKIND;
+
+typedef enum SYSKIND 
+{
+    SYS_WIN16 = 0,
+    SYS_WIN32,
+    SYS_MAC,
+    SYS_WIN64
+} SYSKIND;
+
+typedef enum LIBFLAGS 
+{
+    LIBFLAG_FRESTRICTED = 0x01,
+    LIBFLAG_FCONTROL = 0x02,
+    LIBFLAG_FHIDDEN = 0x04,
+    LIBFLAG_FHASDISKIMAGE = 0x08
+} LIBFLAGS;
+
+typedef enum CHANGEKIND 
+{
+    CHANGEKIND_ADDMEMBER,
+    CHANGEKIND_DELETEMEMBER,
+    CHANGEKIND_SETNAMES,
+    CHANGEKIND_SETDOCUMENTATION,
+    CHANGEKIND_GENERAL,
+    CHANGEKIND_INVALIDATE,
+    CHANGEKIND_CHANGEFAILED,
+    CHANGEKIND_MAX
+} CHANGEKIND;
+
+typedef struct IntPtr
+{
+    [hidden]
+    void* Value;
+} IntPtr;
+
+typedef struct HRESULT 
+{
+    [hidden]
+    unsigned int Data1;
+} HRESULT;
+  
+typedef struct BOOL
+{
+    [hidden]
+    long Value;
+} BOOL;
+
+typedef struct BOOLEAN
+{
+    [hidden]
+    unsigned char Value;
+} BOOLEAN;
+
+typedef struct Guid
+{
+    unsigned long Data1;
+    unsigned short Data2;
+    unsigned short Data3;
+    byte Data4[8];
+} Guid;
+
+typedef Guid GUID;
+
+struct LUID;
+struct FILETIME;
+struct SYSTEMTIME;
+struct SECURITY_ATTRIBUTES;
+struct ACL;
+struct SECURITY_DESCRIPTOR;
+struct COAUTHIDENTITY;
+struct COAUTHINFO;
+struct OBJECTID;
+struct BYTE_BLOB;
+struct WORD_BLOB;
+struct DWORD_BLOB;
+struct FLAGGED_BYTE_BLOB;
+struct FLAGGED_WORD_BLOB;
+struct BYTE_SIZEDARR;
+struct WORD_SIZEDARR;
+struct SHORT_SIZEDARR;
+struct DWORD_SIZEDARR;
+struct LONG_SIZEDARR;
+struct HYPER_SIZEDARR;
+struct BLOB;
+struct SID_IDENTIFIER_AUTHORITY;
+struct SID;
+struct SID_AND_ATTRIBUTES;
+struct RemHGLOBAL;
+struct RemHMETAFILEPICT;
+struct tRemHENHMETAFILE;
+struct RemHBITMAP;
+struct RemHPALETTE;
+struct RemBRUSH;
+struct RECTL;
+struct POINT;
+struct POINTL;
+struct SIZE;
+struct SIZEL;
+struct PALETTEENTRY;
+struct LOGPALETTE;
+struct RECT;
+struct TEXTMETRICW;
+//struct MSG;
+struct CY;
+struct DEC;
+struct BSTRBLOB;
+struct CLIPDATA;
+struct PROPERTYKEY;
+struct CSPLATFORM;
+struct QUERYCONTEXT;
+struct COSERVERINFO;
+struct MULTI_QI;
+struct STATSTG;
+struct RPCOLEMESSAGE ;
+struct SChannelHookCallInfo;
+struct SOLE_AUTHENTICATION_SERVICE;
+struct SOLE_AUTHENTICATION_INFO;
+struct SOLE_AUTHENTICATION_LIST;
+struct ContextProperty;
+struct BIND_OPTS;
+struct BIND_OPTS2;
+struct BIND_OPTS3;
+struct RemSNB;
+struct DVTARGETDEVICE;
+struct FORMATETC;
+struct STATDATA;
+struct RemSTGMEDIUM;
+struct STGMEDIUM;
+struct INTERFACEINFO;
+struct CONNECTDATA;
+struct StorageLayout;
+struct SAFEARRAYBOUND;
+struct SAFEARR_BSTR;
+struct SAFEARR_UNKNOWN;
+struct SAFEARR_DISPATCH;
+struct SAFEARR_VARIANT;
+struct SAFEARR_BRECORD;
+struct SAFEARR_HAVEIID;
+struct SAFEARRAY;
+struct VARIANT;
+struct BRECORD;
+struct TYPEDESC;
+struct ARRAYDESC;
+struct PARAMDESCEX;
+struct PARAMDESC;
+struct IDLDESC;
+struct ELEMDESC;
+struct TYPEATTR;
+struct DISPPARAMS;
+struct EXCEPINFO;
+struct FUNCDESC;
+struct VARDESC;
+struct CLEANLOCALSTORAGE;
+struct tagCUSTDATAITEM;
+struct CUSTDATA;
+struct TLIBATTR;
+struct FLAG_STGMEDIUM;
+struct BITMAP;
+union BINDPTR;
+union GDI_NONREMOTE;
+union GDI_OBJECT;
+union SAFEARRAYUNION;
+
+typedef void *POINTER_64_INT;
+typedef signed char         INT8, *PINT8;
+typedef signed short        INT16, *PINT16;
+typedef signed int          INT32, *PINT32;
+typedef signed __int64      INT64, *PINT64;
+typedef unsigned char       UINT8, *PUINT8;
+typedef unsigned short      UINT16, *PUINT16;
+typedef unsigned int        UINT32, *PUINT32;
+typedef unsigned __int64    UINT64, *PUINT64;
+typedef signed int LONG32, *PLONG32;
+typedef unsigned int ULONG32, *PULONG32;
+typedef unsigned int DWORD32, *PDWORD32;
+typedef void* INT_PTR, *PINT_PTR;
+typedef void* UINT_PTR, *PUINT_PTR;
+typedef void* LONG_PTR, *PLONG_PTR;
+typedef void* ULONG_PTR, *PULONG_PTR;
+#define __int3264 void* 
+typedef void* SHANDLE_PTR;
+typedef void* HANDLE_PTR;
+typedef IntPtr SIZE_T;
+typedef IntPtr *PSIZE_T;
+typedef IntPtr SSIZE_T;
+typedef IntPtr *PSSIZE_T;
+typedef IntPtr size_t;
+typedef ULONG_PTR DWORD_PTR, *PDWORD_PTR;
+typedef __int64 LONG64, *PLONG64;
+typedef LONG *LPLONG;
+typedef unsigned __int64 ULONG64, *PULONG64;
+typedef unsigned __int64 DWORD64, *PDWORD64;
+typedef ULONG_PTR KAFFINITY;
+typedef KAFFINITY *PKAFFINITY;
+typedef GUID *LPGUID;
+typedef GUID *LPCGUID;
+typedef GUID IID;
+typedef IID *LPIID;
+typedef GUID CLSID;
+typedef CLSID *LPCLSID;
+typedef GUID FMTID;
+typedef FMTID *LPFMTID;
+typedef GUID* REFGUID;
+typedef IID* REFIID;
+typedef IID* REFCLSID;
+typedef IID* REFFMTID;
+typedef byte BYTE;
+typedef unsigned short WORD;
+typedef unsigned int UINT;
+typedef int  INT;
+typedef long LONG;
+typedef unsigned long DWORD;
+typedef WORD *LPWORD;
+typedef DWORD *LPDWORD;
+typedef char CHAR;
+typedef CHAR *LPSTR;
+typedef CHAR *LPCSTR;
+typedef wchar_t WCHAR;
+typedef WCHAR TCHAR;
+typedef WCHAR OLECHAR;
+typedef [string] WCHAR *PWSTR;
+typedef [string] CHAR *PSTR;
+typedef [string] TCHAR *PTSTR;
+typedef [string] WCHAR *PCWSTR;
+typedef [string] CHAR *PCSTR;
+typedef [string] TCHAR *PCTSTR;
+typedef [string] WCHAR *LPWSTR;
+typedef [string] TCHAR *LPTSTR;
+typedef [string] WCHAR *LPCWSTR;
+typedef [string] TCHAR *LPCTSTR;
+typedef [string] OLECHAR *LPOLESTR;
+typedef [string] OLECHAR *LPCOLESTR;
+typedef void *PVOID, *LPVOID;
+typedef const void *PCVOID, *LPCVOID;
+typedef float FLOAT;
+typedef unsigned char UCHAR;
+typedef short SHORT;
+typedef unsigned short USHORT;
+typedef DWORD ULONG;
+typedef double DOUBLE;
+typedef unsigned __int64 DWORDLONG;
+typedef DWORDLONG *PDWORDLONG;
+typedef __int64 LONGLONG;
+typedef unsigned __int64 ULONGLONG;
+typedef LONGLONG *PLONGLONG;
+typedef ULONGLONG *PULONGLONG;
+typedef LONGLONG LARGE_INTEGER;
+typedef ULONGLONG ULARGE_INTEGER;
+typedef LARGE_INTEGER *PLARGE_INTEGER;
+typedef USHORT SECURITY_DESCRIPTOR_CONTROL, *PSECURITY_DESCRIPTOR_CONTROL;
+typedef PVOID PSID;  
+typedef ACL *PACL;
+typedef LONG SCODE;
+typedef SCODE *PSCODE;
+typedef IntPtr WPARAM;
+typedef IntPtr LPARAM;
+typedef IntPtr LRESULT;
+typedef DWORD COLORREF;
+typedef DWORD *LPCOLORREF;
+typedef RECTL *LPCRECTL;
+typedef RECT *LPCRECT;
+typedef DWORD LCID;
+typedef USHORT LANGID;    
+typedef WORD CLIPFORMAT;
+typedef double DATE;
+typedef CY *LPCY;
+typedef DECIMAL *LPDECIMAL;
+typedef FLAGGED_WORD_BLOB *wireBSTR;
+typedef [string] OLECHAR *BSTR;
+typedef [string] BSTR * LPBSTR;
+typedef short VARIANT_BOOL;
+typedef VARIANT_BOOL _VARIANT_BOOL;
+typedef unsigned short VARTYPE;
+typedef ULONG PROPID;
+typedef unsigned long RPCOLEDATAREP;
+typedef RPCOLEMESSAGE *PRPCOLEMESSAGE;
+typedef SOLE_AUTHENTICATION_SERVICE *PSOLE_AUTHENTICATION_SERVICE;
+typedef DWORD CPFLAGS; 
+typedef CLIPFORMAT *LPCLIPFORMAT;
+typedef STATDATA *LPSTATDATA;
+typedef STGMEDIUM ASYNC_STGMEDIUM;
+typedef STGMEDIUM *LPSTGMEDIUM;
+typedef LPOLESTR *SNB;
+typedef CONNECTDATA *PCONNECTDATA;
+typedef CONNECTDATA *LPCONNECTDATA;
+typedef CY CURRENCY;
+typedef SAFEARRAY *LPSAFEARRAY;
+typedef VARIANT *LPVARIANT;
+typedef VARIANT VARIANTARG;
+typedef VARIANT *LPVARIANTARG;
+typedef VARIANT *REFVARIANT;
+typedef LONG DISPID;
+typedef DISPID MEMBERID;
+typedef DWORD HREFTYPE;
+typedef BYTE_BLOB *UP_BYTE_BLOB;
+typedef WORD_BLOB *UP_WORD_BLOB;
+typedef DWORD_BLOB *UP_DWORD_BLOB;
+typedef FLAGGED_BYTE_BLOB *UP_FLAGGED_BYTE_BLOB;
+typedef FLAGGED_WORD_BLOB *UP_FLAGGED_WORD_BLOB;
+typedef DWORD APARTMENTID;
+typedef WORD ATOM;
+
+typedef IntPtr HANDLE;
+typedef HANDLE *LPHANDLE;
+typedef IntPtr HMODULE;
+typedef IntPtr HINSTANCE;
+typedef IntPtr HTASK;
+typedef IntPtr HKEY;
+typedef IntPtr HDESK;
+typedef IntPtr HMF;
+typedef IntPtr HEMF;
+typedef IntPtr HPEN;
+typedef IntPtr HRSRC;
+typedef IntPtr HSTR;
+typedef IntPtr HWINSTA;
+typedef IntPtr HKL;
+typedef IntPtr HGDIOBJ;    
+typedef IntPtr HWND;
+typedef IntPtr HMENU;
+typedef IntPtr HACCEL;
+typedef IntPtr HBRUSH;
+typedef IntPtr HFONT;
+typedef IntPtr HDC;
+typedef IntPtr HICON;
+typedef IntPtr HRGN;
+typedef IntPtr HMONITOR;
+typedef IntPtr HCURSOR;  
+typedef IntPtr HDWP;
+typedef IntPtr HCONTEXT;
+typedef IntPtr HGLOBAL;
+typedef IntPtr HBITMAP;
+typedef IntPtr HPALETTE;
+typedef IntPtr HENHMETAFILE;
+typedef IntPtr HMETAFILE;
+typedef IntPtr HMETAFILEPICT;
+typedef IntPtr HLOCAL;
+typedef INT HFILE;     
+
+typedef IUnknown *LPUNKNOWN;
+typedef IClassFactory * LPCLASSFACTORY;
+typedef IMarshal *LPMARSHAL;
+typedef IMarshal2 *LPMARSHAL2;
+typedef IMalloc *LPMALLOC;
+typedef IStdMarshalInfo * LPSTDMARSHALINFO;
+typedef IExternalConnection* LPEXTERNALCONNECTION;
+typedef IMultiQI* LPMULTIQI;
+typedef IEnumUnknown *LPENUMUNKNOWN;
+typedef IEnumString *LPENUMSTRING;
+typedef IStream *LPSTREAM;
+typedef ISurrogate* LPSURROGATE;
+typedef IGlobalInterfaceTable *LPGLOBALINTERFACETABLE;
+typedef ICancelMethodCalls *LPCANCELMETHODCALLS;
+typedef IAddrTrackingControl* LPADDRTRACKINGCONTROL;
+typedef IAddrExclusionControl* LPADDREXCLUSIONCONTROL;
+typedef IMallocSpy *LPMALLOCSPY;
+typedef IBindCtx *LPBC;
+typedef IBindCtx *LPBINDCTX;
+typedef IEnumMoniker *LPENUMMONIKER;    
+typedef IRunnableObject *LPRUNNABLEOBJECT;    
+typedef IRunningObjectTable *LPRUNNINGOBJECTTABLE;    
+typedef IPersist *LPPERSIST;    
+typedef IPersistStream *LPPERSISTSTREAM;    
+typedef IMoniker *LPMONIKER;
+typedef IEnumSTATSTG *LPENUMSTATSTG;  
+typedef IStorage * LPSTORAGE;
+typedef IPersistFile *LPPERSISTFILE;
+typedef IPersistStorage *LPPERSISTSTORAGE;
+typedef ILockBytes *LPLOCKBYTES;
+typedef IEnumFORMATETC *LPENUMFORMATETC;
+typedef IEnumSTATDATA *LPENUMSTATDATA;
+typedef IRootStorage *LPROOTSTORAGE;
+typedef IAdviseSink *LPADVISESINK;
+typedef IAdviseSink2 *LPADVISESINK2;
+typedef IDataObject *LPDATAOBJECT;
+typedef IDataAdviseHolder *LPDATAADVISEHOLDER;
+typedef IMessageFilter *LPMESSAGEFILTER;
+typedef IConnectionPoint * PCONNECTIONPOINT;
+typedef IConnectionPoint * LPCONNECTIONPOINT;
+typedef IConnectionPointContainer * PCONNECTIONPOINTCONTAINER;
+typedef IConnectionPointContainer * LPCONNECTIONPOINTCONTAINER;
+typedef IEnumConnections * PENUMCONNECTIONS;
+typedef IEnumConnections * LPENUMCONNECTIONS;    
+typedef IEnumContextProps *LPENUMCONTEXTPROPS;
+typedef IEnumConnectionPoints * PENUMCONNECTIONPOINTS;
+typedef IEnumConnectionPoints * LPENUMCONNECTIONPOINTS;
+typedef IInitializeSpy *LPINITIALIZESPY;
+typedef ICreateTypeInfo * LPCREATETYPEINFO;
+typedef ICreateTypeInfo2 * LPCREATETYPEINFO2;
+typedef ICreateTypeLib * LPCREATETYPELIB;
+typedef ICreateTypeLib2 * LPCREATETYPELIB2;
+typedef IDispatch * LPDISPATCH;
+typedef IEnumVARIANT* LPENUMVARIANT;
+typedef ITypeComp * LPTYPECOMP;
+typedef ITypeInfo * LPTYPEINFO;
+typedef ITypeInfo2 * LPTYPEINFO2;
+typedef ITypeLib * LPTYPELIB;
+typedef ITypeLib2 * LPTYPELIB2;
+typedef ITypeChangeEvents * LPTYPECHANGEEVENTS;
+typedef IErrorInfo * LPERRORINFO;
+typedef ICreateErrorInfo * LPCREATEERRORINFO;
+typedef ISupportErrorInfo * LPSUPPORTERRORINFO;
+typedef IRecordInfo * LPRECORDINFO;
+typedef IErrorLog * LPERRORLOG;
+typedef IPropertyBag * LPPROPERTYBAG;    
+    //typedef [unique] IContext *LPCONTEXT;
+
+
+interface IUnknown;
+interface IStream;
+interface IEnumString;
+interface IAsyncManager;
+interface ICallFactory;
+interface ISynchronize;
+interface IMoniker;
+interface IEnumMoniker;
+interface IRunningObjectTable;
+interface IStorage;
+interface IEnumSTATSTG;
+interface IAdviseSink;
+interface IBindCtx;
+interface IEnumMoniker;
+interface IConnectionPointContainer;
+interface IConnectionPoint;
+interface IEnumConnections;
+interface IEnumConnectionPoints;
+interface ICreateTypeInfo;
+interface ICreateTypeInfo2;
+interface ICreateTypeLib;
+interface ICreateTypeLib2;
+interface IDispatch;
+interface IEnumVARIANT;
+interface ITypeComp;
+interface ITypeInfo;
+interface ITypeInfo2;
+interface ITypeLib;
+interface ITypeLib2;
+interface ITypeChangeEvents;
+interface IErrorInfo;
+interface ICreateErrorInfo;
+interface ISupportErrorInfo;
+interface ITypeFactory;
+interface ITypeMarshal;
+interface IRecordInfo;
+
+#define IID_NULL            GUID_NULL
+#define CLSID_NULL          GUID_NULL
+#define FMTID_NULL          GUID_NULL
+extern const IID GUID_NULL;
+
+extern const FMTID FMTID_SummaryInformation;
+extern const FMTID FMTID_DocSummaryInformation;
+extern const FMTID FMTID_UserDefinedProperties;
+extern const FMTID FMTID_DiscardableInformation;
+extern const FMTID FMTID_ImageSummaryInformation;
+extern const FMTID FMTID_AudioSummaryInformation;
+extern const FMTID FMTID_VideoSummaryInformation;
+extern const FMTID FMTID_MediaFileSummaryInformation;
+
+#define MAXUINT_PTR  (~((UINT_PTR)0))
+#define MAXINT_PTR   ((INT_PTR)(MAXUINT_PTR >> 1))
+#define MININT_PTR   (~MAXINT_PTR)
+
+#define MAXULONG_PTR (~((ULONG_PTR)0))
+#define MAXLONG_PTR  ((LONG_PTR)(MAXULONG_PTR >> 1))
+#define MINLONG_PTR  (~MAXLONG_PTR)
+
+#define MAXUHALF_PTR ((UHALF_PTR)~0)
+#define MAXHALF_PTR  ((HALF_PTR)(MAXUHALF_PTR >> 1))
+#define MINHALF_PTR  (~MAXHALF_PTR)
+    
+const DISPID DISPID_UNKNOWN = -1;
+const DISPID DISPID_VALUE = 0;
+const DISPID DISPID_PROPERTYPUT = -3;
+const DISPID DISPID_NEWENUM = -4;
+const DISPID DISPID_EVALUATE = -5;
+const DISPID DISPID_CONSTRUCTOR = -6;
+const DISPID DISPID_DESTRUCTOR = -7;
+const DISPID DISPID_COLLECT = -8;
+
+const USHORT PARAMFLAG_NONE         = 0x00;
+const USHORT PARAMFLAG_FIN          = 0x01;
+const USHORT PARAMFLAG_FOUT         = 0x02;
+const USHORT PARAMFLAG_FLCID        = 0x04;
+const USHORT PARAMFLAG_FRETVAL      = 0x08;
+const USHORT PARAMFLAG_FOPT         = 0x10;
+const USHORT PARAMFLAG_FHASDEFAULT  = 0x20;
+const USHORT PARAMFLAG_FHASCUSTDATA = 0x40;
+
+const USHORT IDLFLAG_NONE    = PARAMFLAG_NONE;
+const USHORT IDLFLAG_FIN     = PARAMFLAG_FIN;
+const USHORT IDLFLAG_FOUT    = PARAMFLAG_FOUT;
+const USHORT IDLFLAG_FLCID   = PARAMFLAG_FLCID;
+const USHORT IDLFLAG_FRETVAL = PARAMFLAG_FRETVAL;
+
+const USHORT IMPLTYPEFLAG_FDEFAULT      = 0x1;
+const USHORT IMPLTYPEFLAG_FSOURCE       = 0x2;
+const USHORT IMPLTYPEFLAG_FRESTRICTED   = 0x4;
+const USHORT IMPLTYPEFLAG_FDEFAULTVTABLE= 0x8;
+
+const USHORT FADF_AUTO       = 0x0001;  
+const USHORT FADF_STATIC     = 0x0002;  
+const USHORT FADF_EMBEDDED   = 0x0004;  
+const USHORT FADF_FIXEDSIZE  = 0x0010;  
+const USHORT FADF_RECORD     = 0x0020;  
+const USHORT FADF_HAVEIID    = 0x0040;  
+const USHORT FADF_HAVEVARTYPE= 0x0080;  
+const USHORT FADF_BSTR       = 0x0100;  
+const USHORT FADF_UNKNOWN    = 0x0200;  
+const USHORT FADF_DISPATCH   = 0x0400;  
+const USHORT FADF_VARIANT    = 0x0800;  
+const USHORT FADF_RESERVED   = 0xF008;  
+    
+#define MAXUINT8    ((UINT8)~((UINT8)0))
+#define MAXINT8     ((INT8)(MAXUINT8 >> 1))
+#define MININT8     ((INT8)~MAXINT8)
+
+#define MAXUINT16   ((UINT16)~((UINT16)0))
+#define MAXINT16    ((INT16)(MAXUINT16 >> 1))
+#define MININT16    ((INT16)~MAXINT16)
+
+#define MAXUINT32   ((UINT32)~((UINT32)0))
+#define MAXINT32    ((INT32)(MAXUINT32 >> 1))
+#define MININT32    ((INT32)~MAXINT32)
+
+#define MAXUINT64   ((UINT64)~((UINT64)0))
+#define MAXINT64    ((INT64)(MAXUINT64 >> 1))
+#define MININT64    ((INT64)~MAXINT64)
+
+#define MAXULONG32  ((ULONG32)~((ULONG32)0))
+#define MAXLONG32   ((LONG32)(MAXULONG32 >> 1))
+#define MINLONG32   ((LONG32)~MAXLONG32)
+
+#define MAXULONG64  ((ULONG64)~((ULONG64)0))
+#define MAXLONG64   ((LONG64)(MAXULONG64 >> 1))
+#define MINLONG64   ((LONG64)~MAXLONG64)
+
+#define MAXULONGLONG ((ULONGLONG)~((ULONGLONG)0))
+#define MINLONGLONG ((LONGLONG)~MAXLONGLONG)
+
+#define MAXSIZE_T   ((SIZE_T)~((SIZE_T)0))
+#define MAXSSIZE_T  ((SSIZE_T)(MAXSIZE_T >> 1))
+#define MINSSIZE_T  ((SSIZE_T)~MAXSSIZE_T)
+
+#define MAXUINT     ((UINT)~((UINT)0))
+#define MAXINT      ((INT)(MAXUINT >> 1))
+#define MININT      ((INT)~MAXINT)
+
+#define MAXDWORD32  ((DWORD32)~((DWORD32)0))
+#define MAXDWORD64  ((DWORD64)~((DWORD64)0))
+
+const unsigned long WDT_INPROC_CALL   = 0x48746457;
+const unsigned long WDT_REMOTE_CALL   = 0x52746457;
+const unsigned long WDT_INPROC64_CALL = 0x50746457;
+
+const OLECHAR *COLE_DEFAULT_PRINCIPAL = (OLECHAR *)((INT_PTR) -1);
+const void    *COLE_DEFAULT_AUTHINFO  = (void *)((INT_PTR) -1);
+
+#define OBJ_PEN             1
+#define OBJ_BRUSH           2
+#define OBJ_DC              3
+#define OBJ_METADC          4
+#define OBJ_PAL             5
+#define OBJ_FONT            6
+#define OBJ_BITMAP          7
+#define OBJ_REGION          8
+#define OBJ_METAFILE        9
+#define OBJ_MEMDC           10
+#define OBJ_EXTPEN          11
+#define OBJ_ENHMETADC       12
+#define OBJ_ENHMETAFILE     13
+    
+#define DEFINE_GUID(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) EXTERN_C const GUID FAR name
+
+#define DEFINE_OLEGUID(name, l, w1, w2) DEFINE_GUID(name, l, w1, w2, 0xC0,0,0,0,0,0,0,0x46)
+#define HandleToULong( h ) ((ULONG)(ULONG_PTR)(h) )
+#define HandleToLong( h )  ((LONG)(LONG_PTR) (h) )
+#define ULongToHandle( ul ) ((HANDLE)(ULONG_PTR) (ul) )
+#define LongToHandle( h )   ((HANDLE)(LONG_PTR) (h) )
+#define PtrToUlong( p ) ((ULONG)(ULONG_PTR) (p) )
+#define PtrToLong( p )  ((LONG)(LONG_PTR) (p) )
+#define PtrToUint( p ) ((UINT)(UINT_PTR) (p) )
+#define PtrToInt( p )  ((INT)(INT_PTR) (p) )
+#define PtrToUshort( p ) ((unsigned short)(ULONG_PTR)(p) )
+#define PtrToShort( p )  ((short)(LONG_PTR)(p) )
+#define IntToPtr( i )    ((VOID *)(INT_PTR)((int)i))
+#define UIntToPtr( ui )  ((VOID *)(UINT_PTR)((unsigned int)ui))
+#define LongToPtr( l )   ((VOID *)(LONG_PTR)((long)l))
+#define ULongToPtr( ul ) ((VOID *)(ULONG_PTR)((unsigned long)ul))
+
+#define Ptr32ToPtr( p )         ((void *) p)
+#define Handle32ToHandle( h )   (Ptr32ToPtr( h ))
+#define PtrToPtr32( p )         ((void * POINTER_32) p)
+#define HandleToHandle32( h )   (PtrToPtr32( h ))
+
+#define HandleToUlong(h)  HandleToULong(h)
+#define UlongToHandle(ul) ULongToHandle(ul)
+#define UlongToPtr(ul) ULongToPtr(ul)
+#define UintToPtr(ui)  UIntToPtr(ui)
+
+#define PIPE_ASYNC_UUID(async_iid) async_uuid(async_iid),
+
+#define NEW_PIPE_INTERFACE(iid, async_iid, name, type)                          \
+    [                                                                               \
+    object,                                                                     \
+    uuid(iid),                                                                  \
+    PIPE_ASYNC_UUID(async_iid)                                                  \
+    pointer_default(unique)                                                     \
+    ]                                                                               \
+    interface IPipe##name : IUnknown                                            \
+{                                                                           \
+    HRESULT Pull                                                            \
+    (                                                                       \
+    [out, size_is(cRequest), length_is(*pcReturned)] type *buf,         \
+    [in]  ULONG  cRequest,                                         \
+    [out] ULONG *pcReturned                                             \
+    );                                                                      \
+    \
+    HRESULT Push                                                            \
+    (                                                                       \
+    [in, size_is(cSent)] type  *buf,                                    \
+    [in] ULONG cSent                                                    \
+    );                                                                      \
+}
+
+NEW_PIPE_INTERFACE( DB2F3ACA-2F86-11d1-8E04-00C04FB9989A,
+                   DB2F3ACB-2F86-11d1-8E04-00C04FB9989A,
+                   Byte,
+                   BYTE)
+                   NEW_PIPE_INTERFACE( DB2F3ACC-2F86-11d1-8E04-00C04FB9989A,
+                   DB2F3ACD-2F86-11d1-8E04-00C04FB9989A,
+                   Long,
+                   LONG)
+                   NEW_PIPE_INTERFACE( DB2F3ACE-2F86-11d1-8E04-00C04FB9989A,
+                   DB2F3ACF-2F86-11d1-8E04-00C04FB9989A,
+                   Double,
+                   DOUBLE)
+
+typedef struct LUID 
+{
+    DWORD LowPart;
+    LONG HighPart;
+} LUID;
+
+typedef struct FILETIME
+{
+    DWORD dwLowDateTime;
+    DWORD dwHighDateTime;
+} FILETIME, *PFILETIME, *LPFILETIME;
+
+typedef struct SYSTEMTIME 
+{
+    WORD wYear;
+    WORD wMonth;
+    WORD wDayOfWeek;
+    WORD wDay;
+    WORD wHour;
+    WORD wMinute;
+    WORD wSecond;
+    WORD wMilliseconds;
+} SYSTEMTIME, *PSYSTEMTIME, *LPSYSTEMTIME;
+
+typedef struct SECURITY_ATTRIBUTES 
+{
+    DWORD nLength;
+    LPVOID lpSecurityDescriptor;
+    BOOL bInheritHandle;
+} SECURITY_ATTRIBUTES, *PSECURITY_ATTRIBUTES, *LPSECURITY_ATTRIBUTES;
+
+typedef struct ACL 
+{
+    UCHAR AclRevision;
+    UCHAR Sbz1;
+    USHORT AclSize;
+    USHORT AceCount;
+    USHORT Sbz2;
+} ACL;
+
+typedef struct SECURITY_DESCRIPTOR
+{
+    UCHAR Revision;
+    UCHAR Sbz1;
+    SECURITY_DESCRIPTOR_CONTROL Control;
+    PSID Owner;
+    PSID Group;
+    PACL Sacl;
+    PACL Dacl;
+} SECURITY_DESCRIPTOR, *PISECURITY_DESCRIPTOR;
+
+typedef struct COAUTHIDENTITY
+{
+    [size_is(UserLength+1)] USHORT *      User;
+    [range(0,256)]ULONG                   UserLength;
+    [size_is(DomainLength+1)] USHORT *    Domain;
+    [range(0,256)]ULONG                   DomainLength;
+    [size_is(PasswordLength+1)] USHORT *  Password;
+    [range(0,256)]ULONG                   PasswordLength;
+    ULONG                                 Flags;
+} COAUTHIDENTITY;
+
+typedef struct COAUTHINFO
+{
+    DWORD               dwAuthnSvc;
+    DWORD               dwAuthzSvc;
+    LPWSTR              pwszServerPrincName;
+    DWORD               dwAuthnLevel;
+    DWORD               dwImpersonationLevel;
+    COAUTHIDENTITY *    pAuthIdentityData;
+    DWORD               dwCapabilities;
+} COAUTHINFO;
+
+typedef struct OBJECTID     
+{                            
+    GUID Lineage;            
+    unsigned long Uniquifier;
+} OBJECTID;                  
+
+typedef struct BYTE_BLOB 
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   
+    byte            abData[];
+} BYTE_BLOB;
+
+typedef struct WORD_BLOB 
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   
+    unsigned short  asData[];
+} WORD_BLOB;
+
+typedef struct DWORD_BLOB 
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   unsigned long   alData[];
+} DWORD_BLOB;
+
+typedef struct FLAGGED_BYTE_BLOB 
+{
+    unsigned long   fFlags;
+    unsigned long   clSize;
+    [size_is(clSize)]   byte            abData[];
+} FLAGGED_BYTE_BLOB;
+
+typedef struct FLAGGED_WORD_BLOB 
+{
+    unsigned long   fFlags;
+    unsigned long   clSize;
+    [size_is(clSize)]   unsigned short  asData[];
+} FLAGGED_WORD_BLOB;
+
+typedef struct BYTE_SIZEDARR
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   byte     *      pData ;
+} BYTE_SIZEDARR;
+
+typedef struct WORD_SIZEDARR 
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   unsigned short* pData ;
+} WORD_SIZEDARR;
+
+typedef struct SHORT_SIZEDARR 
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   unsigned short* pData ;
+} SHORT_SIZEDARR;
+
+typedef struct DWORD_SIZEDARR 
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   unsigned long * pData ;
+} DWORD_SIZEDARR;
+
+typedef struct LONG_SIZEDARR 
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   unsigned long * pData ;
+} LONG_SIZEDARR;
+
+typedef struct HYPER_SIZEDARR
+{
+    unsigned long   clSize;
+    [size_is(clSize)]   hyper         * pData ;
+} HYPER_SIZEDARR;
+    
+typedef struct BLOB 
+{
+    ULONG cbSize;
+    [size_is(cbSize)]
+    BYTE  *pBlobData;
+} BLOB, * LPBLOB;
+
+typedef struct SID_IDENTIFIER_AUTHORITY 
+{
+    UCHAR Value[6];
+} SID_IDENTIFIER_AUTHORITY, *PSID_IDENTIFIER_AUTHORITY;
+
+typedef struct SID 
+{
+    BYTE Revision;
+    BYTE SubAuthorityCount;
+    SID_IDENTIFIER_AUTHORITY IdentifierAuthority;
+    [size_is(SubAuthorityCount)] ULONG SubAuthority[*];
+} SID, *PISID;
+
+typedef struct SID_AND_ATTRIBUTES 
+{
+    SID * Sid;
+    DWORD Attributes;
+} SID_AND_ATTRIBUTES, * PSID_AND_ATTRIBUTES;
+
+typedef struct RemHGLOBAL
+{
+    long fNullHGlobal;
+    unsigned long cbData;
+    [size_is(cbData)] byte data[];
+} RemHGLOBAL;
+
+typedef struct RemHMETAFILEPICT
+{
+    long        mm;
+    long        xExt;
+    long        yExt;
+    unsigned long cbData;
+    [size_is(cbData)] byte data[];
+} RemHMETAFILEPICT;
+
+typedef struct tRemHENHMETAFILE
+{
+    unsigned long cbData;
+    [size_is(cbData)] byte data[];
+} RemHENHMETAFILE;
+
+typedef struct RemHBITMAP
+{
+    unsigned long cbData;
+    [size_is(cbData)] byte data[];
+} RemHBITMAP;
+
+typedef struct RemHPALETTE
+{
+    unsigned long cbData;
+    [size_is(cbData)] byte data[];
+} RemHPALETTE;
+
+typedef struct RemBRUSH
+{
+    unsigned long cbData;
+    [size_is(cbData)] byte data[];
+} RemHBRUSH;
+
+typedef struct RECTL
+{
+    LONG    left;
+    LONG    top;
+    LONG    right;
+    LONG    bottom;
+} RECTL, *PRECTL, *LPRECTL;
+
+typedef struct POINT
+{
+    LONG  x;
+    LONG  y;
+} POINT, *PPOINT, *LPPOINT;
+
+typedef struct POINTL
+{
+    LONG  x;
+    LONG  y;
+} POINTL, *PPOINTL;
+
+typedef struct SIZE
+{
+    LONG        cx;
+    LONG        cy;
+} SIZE, *PSIZE, *LPSIZE;
+
+typedef struct SIZEL
+{
+    LONG cx;
+    LONG cy;
+} SIZEL, *PSIZEL, *LPSIZEL;
+
+typedef struct PALETTEENTRY 
+{
+    BYTE        peRed;
+    BYTE        peGreen;
+    BYTE        peBlue;
+    BYTE        peFlags;
+} PALETTEENTRY, *PPALETTEENTRY, *LPPALETTEENTRY;
+
+typedef struct LOGPALETTE
+{
+    WORD        palVersion;
+    WORD        palNumEntries;
+    [size_is(palNumEntries)] PALETTEENTRY        palPalEntry[];
+} LOGPALETTE, *PLOGPALETTE, *LPLOGPALETTE;
+
+typedef struct RECT
+{
+    LONG    left;
+    LONG    top;
+    LONG    right;
+    LONG    bottom;
+} RECT, *PRECT, *LPRECT;
+
+typedef struct TEXTMETRICW {
+    LONG  tmHeight;
+    LONG  tmAscent;
+    LONG  tmDescent;
+    LONG  tmInternalLeading;
+    LONG  tmExternalLeading;
+    LONG  tmAveCharWidth;
+    LONG  tmMaxCharWidth;
+    LONG  tmWeight;
+    LONG  tmOverhang;
+    LONG  tmDigitizedAspectX;
+    LONG  tmDigitizedAspectY;
+    WCHAR tmFirstChar;
+    WCHAR tmLastChar;
+    WCHAR tmDefaultChar;
+    WCHAR tmBreakChar;
+    BYTE  tmItalic;
+    BYTE  tmUnderlined;
+    BYTE  tmStruckOut;
+    BYTE  tmPitchAndFamily;
+    BYTE  tmCharSet;
+} TEXTMETRICW, *PTEXTMETRICW, *LPTEXTMETRICW;
+
+typedef struct MSG
+{
+    HWND        hwnd;
+    UINT        message;
+    WPARAM      wParam;
+    LPARAM      lParam;
+    DWORD       time;
+    POINT       pt;
+} MSG, *PMSG, *NPMSG, *LPMSG;
+
+typedef struct CY 
+{
+    LONGLONG    int64;
+} CY;
+
+typedef struct DEC 
+{
+    USHORT wReserved;
+    BYTE  scale;
+    BYTE  sign;
+    ULONG Hi32;
+    ULONGLONG Lo64;
+} DECIMAL;
+
+typedef struct BSTRBLOB
+{
+    ULONG   cbSize;
+    [size_is(cbSize)]     BYTE    *pData;
+} BSTRBLOB, *LPBSTRBLOB;
+
+typedef struct CLIPDATA 
+{
+    ULONG cbSize;       
+    long ulClipFmt;     
+    [size_is(cbSize-4)]
+    BYTE * pClipData;   
+} CLIPDATA;
+
+typedef struct PROPERTYKEY
+{
+    GUID    fmtid;
+    DWORD   pid;
+} PROPERTYKEY;
+
+typedef struct CSPLATFORM
+{
+    DWORD dwPlatformId;     
+    DWORD dwVersionHi;      
+    DWORD dwVersionLo;      
+    DWORD dwProcessorArch;  
+} CSPLATFORM;
+
+typedef struct QUERYCONTEXT 
+{
+    DWORD      dwContext;   
+    CSPLATFORM Platform;    
+    LCID       Locale;      
+    DWORD      dwVersionHi; 
+    DWORD      dwVersionLo; 
+} QUERYCONTEXT;
+
+typedef struct COSERVERINFO
+{
+    DWORD             dwReserved1;
+    LPWSTR            pwszName;
+    COAUTHINFO *      pAuthInfo;
+    DWORD             dwReserved2;
+} COSERVERINFO;
+
+typedef struct MULTI_QI
+{
+    const IID  *pIID; 
+    IUnknown   *pItf; 
+    HRESULT     hr;
+} MULTI_QI;
+
+typedef struct STATSTG
+{
+    LPOLESTR pwcsName;
+    DWORD type;
+    ULARGE_INTEGER cbSize;
+    FILETIME mtime;
+    FILETIME ctime;
+    FILETIME atime;
+    DWORD grfMode;
+    DWORD grfLocksSupported;
+    CLSID clsid;
+    DWORD grfStateBits;
+    DWORD reserved;
+} STATSTG;
+
+typedef struct RPCOLEMESSAGE
+{
+    void             *reserved1;
+    RPCOLEDATAREP     dataRepresentation;
+    void             *Buffer;
+    ULONG             cbBuffer;
+    ULONG             iMethod;
+    void             *reserved2[5];
+    ULONG             rpcFlags;
+} RPCOLEMESSAGE;
+    
+typedef struct SChannelHookCallInfo
+{
+    IID               iid;
+    DWORD             cbSize;
+    GUID              uCausality;
+    DWORD             dwServerPid;
+    DWORD             iMethod;
+    void             *pObject;
+} SChannelHookCallInfo;
+
+typedef struct SOLE_AUTHENTICATION_SERVICE
+{
+    DWORD    dwAuthnSvc;
+    DWORD    dwAuthzSvc;
+    OLECHAR *pPrincipalName;
+    HRESULT  hr;
+} SOLE_AUTHENTICATION_SERVICE;
+
+typedef struct SOLE_AUTHENTICATION_INFO
+{
+    DWORD  dwAuthnSvc;
+    DWORD  dwAuthzSvc;
+    void  *pAuthInfo;
+} SOLE_AUTHENTICATION_INFO, *PSOLE_AUTHENTICATION_INFO;
+
+typedef struct SOLE_AUTHENTICATION_LIST
+{
+    DWORD                     cAuthInfo;
+    SOLE_AUTHENTICATION_INFO *aAuthInfo;
+} SOLE_AUTHENTICATION_LIST, *PSOLE_AUTHENTICATION_LIST;
+    
+typedef struct ContextProperty 
+{
+    GUID policyId;
+    CPFLAGS flags;
+    [unique] IUnknown *pUnk;
+} ContextProperty;
+
+typedef struct BIND_OPTS 
+{
+    DWORD       cbStruct;  
+    DWORD       grfFlags;
+    DWORD       grfMode;
+    DWORD       dwTickCountDeadline;
+} BIND_OPTS, * LPBIND_OPTS;
+
+typedef struct BIND_OPTS2 
+{
+    DWORD           cbStruct;  
+    DWORD           grfFlags;
+    DWORD           grfMode;
+    DWORD           dwTickCountDeadline;
+    DWORD           dwTrackFlags;
+    DWORD           dwClassContext;
+    LCID            locale;
+    COSERVERINFO *  pServerInfo;
+} BIND_OPTS2, * LPBIND_OPTS2;
+
+typedef struct BIND_OPTS3
+{
+    DWORD           cbStruct; 
+    DWORD           grfFlags;
+    DWORD           grfMode;
+    DWORD           dwTickCountDeadline;
+    DWORD           dwTrackFlags;
+    DWORD           dwClassContext;
+    LCID            locale;
+    COSERVERINFO *  pServerInfo;
+    HWND            hwnd;
+} BIND_OPTS3, * LPBIND_OPTS3;
+
+typedef struct RemSNB
+{
+    unsigned long ulCntStr;
+    unsigned long ulCntChar;
+    [size_is(ulCntChar)] OLECHAR rgString[];
+} RemSNB;
+
+typedef struct DVTARGETDEVICE 
+{
+    DWORD tdSize;
+    WORD tdDriverNameOffset;
+    WORD tdDeviceNameOffset;
+    WORD tdPortNameOffset;
+    WORD tdExtDevmodeOffset;
+    [size_is(tdSize - sizeof(DWORD) - 4*sizeof(WORD))]
+    BYTE tdData[];
+} DVTARGETDEVICE;
+
+typedef struct FORMATETC 
+{
+    CLIPFORMAT cfFormat;
+    [unique] DVTARGETDEVICE * ptd;
+    DWORD dwAspect;
+    LONG lindex;
+    DWORD tymed;
+}FORMATETC, *LPFORMATETC;
+
+typedef struct STATDATA
+{                             
+    FORMATETC formatetc;      
+    DWORD advf;               
+    [unique] IAdviseSink * pAdvSink; 
+    DWORD dwConnection; 
+} STATDATA;
+
+typedef struct RemSTGMEDIUM
+{
+    DWORD tymed;
+    DWORD dwHandleType;
+    unsigned long pData;
+    unsigned long pUnkForRelease;
+    unsigned long cbData;
+    [size_is(cbData)] byte data[];
+} RemSTGMEDIUM;
+
+typedef struct STGMEDIUM 
+{
+    DWORD tymed;
+    [switch_type(DWORD), switch_is((DWORD) tymed)]
+    union
+    {
+        [case(TYMED_GDI)]
+        HBITMAP hBitmap;
+        [case(TYMED_MFPICT)]
+        HMETAFILEPICT hMetaFilePict;
+        [case(TYMED_ENHMF)]
+        HENHMETAFILE hEnhMetaFile;
+        [case(TYMED_HGLOBAL)]
+        HGLOBAL hGlobal;
+        [case(TYMED_FILE)]
+        LPOLESTR lpszFileName;
+        [case(TYMED_ISTREAM)]
+        IStream *pstm;
+        [case(TYMED_ISTORAGE)]
+        IStorage *pstg;
+        [default]
+        ;
+    };
+    [unique] IUnknown *pUnkForRelease;
+} STGMEDIUM;
+    
+typedef struct INTERFACEINFO
+{
+    IUnknown    *pUnk;     
+    IID         iid;       
+    WORD        wMethod;  
+} INTERFACEINFO, *LPINTERFACEINFO;
+
+typedef struct CONNECTDATA
+{
+    IUnknown *  pUnk;
+    DWORD       dwCookie;
+} CONNECTDATA;
+
+typedef struct StorageLayout
+{
+    DWORD LayoutType;
+    OLECHAR *pwcsElementName;
+    LARGE_INTEGER cOffset;
+    LARGE_INTEGER cBytes;
+} StorageLayout;
+
+typedef struct SAFEARRAYBOUND 
+{
+    ULONG cElements;
+    LONG  lLbound;
+} SAFEARRAYBOUND, * LPSAFEARRAYBOUND;
+
+typedef struct SAFEARR_BSTR 
+{
+    ULONG Size;
+    [size_is(Size), ref] wireBSTR * aBstr;
+} SAFEARR_BSTR;
+
+typedef struct SAFEARR_UNKNOWN 
+{
+    ULONG Size;
+    [size_is(Size), ref] IUnknown ** apUnknown;
+} SAFEARR_UNKNOWN;
+
+typedef struct SAFEARR_DISPATCH 
+{
+    ULONG Size;
+    [size_is(Size), ref] IDispatch ** apDispatch;
+} SAFEARR_DISPATCH;
+
+typedef struct SAFEARRAY 
+{
+    USHORT cDims;
+    USHORT fFeatures;
+    ULONG  cbElements;
+    ULONG  cLocks;
+    PVOID  pvData;
+    /*[size_is(cDims)]*/ SAFEARRAYBOUND rgsabound[1];
+} SAFEARRAY;
+
+typedef struct VARIANT 
+{
+    union 
+    {
+        struct //__tagVARIANT 
+        {
+            VARTYPE vt;
+            WORD    wReserved1;
+            WORD    wReserved2;
+            WORD    wReserved3;
+            union 
+            {
+                LONGLONG      llVal;       
+                LONG          lVal;        
+                BYTE          bVal;        
+                SHORT         iVal;        
+                FLOAT         fltVal;      
+                DOUBLE        dblVal;      
+                VARIANT_BOOL  boolVal;     
+                //_VARIANT_BOOL bool;        
+                SCODE         scode;       
+                CY            cyVal;       
+                DATE          date;        
+                BSTR          bstrVal;     
+                IUnknown *    punkVal;     
+                /*IDispatch*/ void *   pdispVal;    
+                SAFEARRAY *   parray;      
+                BYTE *        pbVal;       
+                SHORT *       piVal;       
+                LONG *        plVal;       
+                LONGLONG *    pllVal;      
+                FLOAT *       pfltVal;     
+                DOUBLE *      pdblVal;     
+                VARIANT_BOOL *pboolVal;    
+                //_VARIANT_BOOL *pbool;      
+                SCODE *       pscode;      
+                CY *          pcyVal;      
+                DATE *        pdate;       
+                BSTR *        pbstrVal;    
+                IUnknown **   ppunkVal;    
+                /*IDispatch*/ void **  ppdispVal;   
+                SAFEARRAY **  pparray;     
+                LPVARIANT     pvarVal;     
+                PVOID         byref;       
+                CHAR          cVal;        
+                USHORT        uiVal;       
+                ULONG         ulVal;       
+                ULONGLONG     ullVal;      
+                INT           intVal;      
+                UINT          uintVal;     
+                DECIMAL *     pdecVal;     
+                CHAR *        pcVal;       
+                USHORT *      puiVal;      
+                ULONG *       pulVal;      
+                ULONGLONG *   pullVal;     
+                INT *         pintVal;     
+                UINT *        puintVal;    
+                struct //__tagBRECORD 
+                {
+                    PVOID         pvRecord;
+                    IRecordInfo * pRecInfo;
+                };        
+            } ;
+        };
+
+        DECIMAL decVal;
+    } ;
+} VARIANT;
+
+typedef struct SAFEARR_VARIANT 
+{
+    ULONG Size;
+    [size_is(Size), ref] VARIANT * aVariant;
+} SAFEARR_VARIANT;
+
+typedef struct BRECORD 
+{
+    ULONG fFlags;
+    ULONG clSize;
+    IRecordInfo * pRecInfo;
+    [size_is(clSize)] byte * pRecord;
+} BRECORD;
+
+typedef struct SAFEARR_BRECORD 
+{
+    ULONG Size;
+    [size_is(Size), ref] BRECORD * aRecord;
+} SAFEARR_BRECORD;
+
+typedef struct SAFEARR_HAVEIID 
+{
+    ULONG Size;
+    [size_is(Size), ref] IUnknown ** apUnknown;
+    IID   iid;
+} SAFEARR_HAVEIID;
+
+typedef struct TYPEDESC 
+{
+    [switch_type(VARTYPE), switch_is(vt)] union 
+    {
+        [case(VT_PTR, VT_SAFEARRAY)] struct TYPEDESC * lptdesc;
+        [case(VT_CARRAY)] struct ARRAYDESC * lpadesc;
+        [case(VT_USERDEFINED)] HREFTYPE hreftype;
+        [default]   ;
+    };
+    VARTYPE vt;
+} TYPEDESC;
+
+typedef struct ARRAYDESC
+{
+    TYPEDESC tdescElem;  
+    USHORT cDims;       
+    [hidden]
+    short ___padding000;
+    /*[size_is(cDims)]*/ SAFEARRAYBOUND rgbounds[1]; 
+} ARRAYDESC;
+
+typedef struct PARAMDESCEX 
+{
+    ULONG cBytes;               
+    VARIANTARG varDefaultValue; 
+} PARAMDESCEX, * LPPARAMDESCEX;
+
+typedef struct PARAMDESC 
+{
+    LPPARAMDESCEX pparamdescex; 
+    USHORT wParamFlags;         
+} PARAMDESC, * LPPARAMDESC;
+
+typedef struct IDLDESC 
+{
+    ULONG_PTR dwReserved;
+    USHORT wIDLFlags;           
+} IDLDESC, * LPIDLDESC;
+
+typedef struct ELEMDESC 
+{    
+    TYPEDESC tdesc;             
+    PARAMDESC paramdesc;        
+} ELEMDESC;
+
+typedef struct TYPEATTR 
+{
+    GUID guid;                  
+    LCID lcid;                  
+    DWORD dwReserved;
+    MEMBERID memidConstructor;  
+    MEMBERID memidDestructor;   
+    LPOLESTR lpstrSchema;
+    ULONG cbSizeInstance;       
+    TYPEKIND typekind;          
+    WORD cFuncs;                
+    WORD cVars;                 
+    WORD cImplTypes;            
+    WORD cbSizeVft;             
+    WORD cbAlignment;                                
+    WORD wTypeFlags;
+    WORD wMajorVerNum;          
+    WORD wMinorVerNum;          
+    TYPEDESC tdescAlias;       
+    IDLDESC idldescType;        
+} TYPEATTR, * LPTYPEATTR;
+
+typedef struct DISPPARAMS 
+{
+    [size_is(cArgs)] VARIANTARG * rgvarg;
+    [size_is(cNamedArgs)] DISPID * rgdispidNamedArgs;
+    UINT cArgs;
+    UINT cNamedArgs;
+} DISPPARAMS;
+
+typedef struct EXCEPINFO
+{
+    WORD  wCode;           
+    WORD  wReserved;
+    BSTR  bstrSource;      
+    BSTR  bstrDescription; 
+    BSTR  bstrHelpFile;    
+    DWORD dwHelpContext;   
+    ULONG_PTR pvReserved;
+    ULONG_PTR pfnDeferredFillIn;
+    SCODE scode;
+} EXCEPINFO;
+
+typedef struct FUNCDESC 
+{
+    MEMBERID memid;
+    [size_is(cScodes)] SCODE * lprgscode;
+    [size_is(cParams)] ELEMDESC * lprgelemdescParam;
+    FUNCKIND funckind;
+    INVOKEKIND invkind;
+    CALLCONV callconv;
+    SHORT cParams;
+    SHORT cParamsOpt;
+    SHORT oVft;
+    SHORT cScodes;
+    ELEMDESC elemdescFunc;
+    WORD wFuncFlags;
+} FUNCDESC, * LPFUNCDESC;
+
+typedef struct VARDESC 
+{
+    MEMBERID memid;
+    LPOLESTR lpstrSchema;
+    [switch_type(VARKIND), switch_is(varkind)] union 
+    {
+        [case(VAR_PERINSTANCE, VAR_DISPATCH, VAR_STATIC)] ULONG oInst;
+        [case(VAR_CONST)] VARIANT * lpvarValue;
+    };
+    ELEMDESC elemdescVar;
+    WORD     wVarFlags;
+    VARKIND  varkind;
+} VARDESC, * LPVARDESC;
+
+typedef struct CLEANLOCALSTORAGE 
+{
+    IUnknown * pInterface; 
+    PVOID pStorage;        
+    DWORD flags;           
+} CLEANLOCALSTORAGE;
+
+typedef struct tagCUSTDATAITEM 
+{
+    GUID guid;          
+    VARIANTARG varValue;
+} CUSTDATAITEM, * LPCUSTDATAITEM;
+
+typedef struct CUSTDATA 
+{
+    DWORD cCustData;   
+    [size_is(cCustData)] LPCUSTDATAITEM prgCustData;
+} CUSTDATA, * LPCUSTDATA;
+
+typedef union BINDPTR 
+{
+    FUNCDESC  * lpfuncdesc;
+    VARDESC   * lpvardesc;
+    ITypeComp * lptcomp;
+} BINDPTR, * LPBINDPTR;
+
+typedef struct TLIBATTR 
+{
+    GUID guid;
+    LCID lcid;
+    SYSKIND syskind;
+    WORD wMajorVerNum;
+    WORD wMinorVerNum;
+    WORD wLibFlags;
+} TLIBATTR, * LPTLIBATTR;
+
+typedef struct FLAG_STGMEDIUM
+{
+    long                ContextFlags;
+    long                fPassOwnership;
+    STGMEDIUM           Stgmed;
+} FLAG_STGMEDIUM;
+
+typedef union GDI_NONREMOTE switch( long fContext ) u
+{
+case WDT_INPROC_CALL:   long        hInproc;
+case WDT_REMOTE_CALL:   DWORD_BLOB *hRemote;
+} GDI_NONREMOTE;
+
+typedef struct METAFILEPICT
+{
+    long            mm;
+    long            xExt;
+    long            yExt;
+    HMETAFILE * hMF;
+} METAFILEPICT;
+
+typedef struct BITMAP
+{
+    LONG            bmType;
+    LONG            bmWidth;
+    LONG            bmHeight;
+    LONG            bmWidthBytes;
+    WORD            bmPlanes;
+    WORD            bmBitsPixel;
+    ULONG                       cbSize;
+    [size_is(cbSize)]   byte    pBuffer[];
+} BITMAP;
+
+typedef union switch(DWORD tyspec)
+{
+case TYSPEC_CLSID:
+    CLSID   clsid;
+case TYSPEC_FILEEXT:
+    LPOLESTR pFileExt;
+case TYSPEC_MIMETYPE:
+    LPOLESTR pMimeType;
+case TYSPEC_PROGID:
+    LPOLESTR pProgId;
+case TYSPEC_FILENAME:
+    LPOLESTR pFileName;
+case TYSPEC_PACKAGENAME:
+    struct {
+        LPOLESTR pPackageName;
+        GUID     PolicyId;
+    } ByName;
+case TYSPEC_OBJECTID:
+    struct {
+        GUID     ObjectId;
+        GUID     PolicyId;
+    } ByObjectId;
+} uCLSSPEC;
+
+
+typedef union GDI_OBJECT switch( DWORD ObjectType ) u
+{
+case OBJ_BITMAP:    HBITMAP     hBitmap;
+case OBJ_PAL:       HPALETTE    hPalette;
+    default:        HGLOBAL     hGeneric;
+} GDI_OBJECT;
+
+typedef union SAFEARRAYUNION switch(ULONG sfType) u 
+{
+    case SF_BSTR:      SAFEARR_BSTR     BstrStr;
+    case SF_UNKNOWN:   SAFEARR_UNKNOWN  UnknownStr;
+    case SF_DISPATCH:  SAFEARR_DISPATCH DispatchStr;
+    case SF_VARIANT:   SAFEARR_VARIANT  VariantStr;
+    case SF_RECORD:    SAFEARR_BRECORD  RecordStr;
+    case SF_HAVEIID:   SAFEARR_HAVEIID  HaveIidStr;
+    case SF_I1:        BYTE_SIZEDARR    ByteStr;
+    case SF_I2:        WORD_SIZEDARR    WordStr;
+    case SF_I4:        DWORD_SIZEDARR   LongStr;
+    case SF_I8:        HYPER_SIZEDARR   HyperStr;
+} SAFEARRAYUNION;
+
+typedef struct VERSIONEDSTREAM
+    {
+    GUID guidVersion;
+    IStream *pStream;
+    } 	VERSIONEDSTREAM, *LPVERSIONEDSTREAM;
+
+typedef struct CAPROPVARIANT
+    {
+    ULONG cElems;
+    /* [size_is] */ /*PROPVARIANT*/ void *pElems;
+    } 	CAPROPVARIANT;
+
+typedef struct CAC
+    {
+    ULONG cElems;
+    /* [size_is] */ CHAR *pElems;
+    } 	CAC;
+
+typedef struct CAUB
+    {
+    ULONG cElems;
+    /* [size_is] */ UCHAR *pElems;
+    } 	CAUB;
+
+typedef struct CAI
+    {
+    ULONG cElems;
+    /* [size_is] */ SHORT *pElems;
+    } 	CAI;
+
+typedef struct CAUI
+    {
+    ULONG cElems;
+    /* [size_is] */ USHORT *pElems;
+    } 	CAUI;
+
+typedef struct CAL
+    {
+    ULONG cElems;
+    /* [size_is] */ LONG *pElems;
+    } 	CAL;
+
+typedef struct CAUL
+    {
+    ULONG cElems;
+    /* [size_is] */ ULONG *pElems;
+    } 	CAUL;
+
+typedef struct CAFLT
+    {
+    ULONG cElems;
+    /* [size_is] */ FLOAT *pElems;
+    } 	CAFLT;
+
+typedef struct CADBL
+    {
+    ULONG cElems;
+    /* [size_is] */ DOUBLE *pElems;
+    } 	CADBL;
+
+typedef struct CACY
+    {
+    ULONG cElems;
+    /* [size_is] */ CY *pElems;
+    } 	CACY;
+
+typedef struct CADATE
+    {
+    ULONG cElems;
+    /* [size_is] */ DATE *pElems;
+    } 	CADATE;
+
+typedef struct CABSTR
+    {
+    ULONG cElems;
+    /* [size_is] */ BSTR *pElems;
+    } 	CABSTR;
+
+typedef struct CABSTRBLOB
+    {
+    ULONG cElems;
+    /* [size_is] */ BSTRBLOB *pElems;
+    } 	CABSTRBLOB;
+
+typedef struct CABOOL
+    {
+    ULONG cElems;
+    /* [size_is] */ VARIANT_BOOL *pElems;
+    } 	CABOOL;
+
+typedef struct CASCODE
+    {
+    ULONG cElems;
+    /* [size_is] */ SCODE *pElems;
+    } 	CASCODE;
+
+typedef struct CAH
+    {
+    ULONG cElems;
+    /* [size_is] */ LARGE_INTEGER *pElems;
+    } 	CAH;
+
+typedef struct CAUH
+    {
+    ULONG cElems;
+    /* [size_is] */ ULARGE_INTEGER *pElems;
+    } 	CAUH;
+
+typedef struct CALPSTR
+    {
+    ULONG cElems;
+    /* [size_is] */ LPSTR *pElems;
+    } 	CALPSTR;
+
+typedef struct CALPWSTR
+    {
+    ULONG cElems;
+    /* [size_is] */ LPWSTR *pElems;
+    } 	CALPWSTR;
+
+typedef struct CAFILETIME
+    {
+    ULONG cElems;
+    /* [size_is] */ FILETIME *pElems;
+    } 	CAFILETIME;
+
+typedef struct CACLIPDATA
+    {
+    ULONG cElems;
+    /* [size_is] */ CLIPDATA *pElems;
+    } 	CACLIPDATA;
+
+typedef struct CACLSID
+    {
+    ULONG cElems;
+    /* [size_is] */ CLSID *pElems;
+    } 	CACLSID;
+
+typedef struct PROPVARIANT
+{
+  union 
+  {
+    struct 
+    {
+    VARTYPE vt;
+    WORD wReserved1;
+    WORD wReserved2;
+    WORD wReserved3;
+    /* [switch_is] */ /* [switch_type] */ union 
+        {
+        /* [case()] */  /* Empty union arm */ 
+        /* [case()] */ CHAR cVal;
+        /* [case()] */ UCHAR bVal;
+        /* [case()] */ SHORT iVal;
+        /* [case()] */ USHORT uiVal;
+        /* [case()] */ LONG lVal;
+        /* [case()] */ ULONG ulVal;
+        /* [case()] */ INT intVal;
+        /* [case()] */ UINT uintVal;
+        /* [case()] */ LARGE_INTEGER hVal;
+        /* [case()] */ ULARGE_INTEGER uhVal;
+        /* [case()] */ FLOAT fltVal;
+        /* [case()] */ DOUBLE dblVal;
+        /* [case()] */ VARIANT_BOOL boolVal;
+        ///* [case()] */ _VARIANT_BOOL bool;
+        /* [case()] */ SCODE scode;
+        /* [case()] */ CY cyVal;
+        /* [case()] */ DATE date;
+        /* [case()] */ FILETIME filetime;
+        /* [case()] */ CLSID *puuid;
+        /* [case()] */ CLIPDATA *pclipdata;
+        /* [case()] */ BSTR bstrVal;
+        /* [case()] */ BSTRBLOB bstrblobVal;
+        /* [case()] */ BLOB blob;
+        /* [case()] */ LPSTR pszVal;
+        /* [case()] */ LPWSTR pwszVal;
+        /* [case()] */ IUnknown *punkVal;
+        /* [case()] */ /*IDispatch*/ void *pdispVal;
+        /* [case()] */ IStream *pStream;
+        /* [case()] */ IStorage *pStorage;
+        /* [case()] */ LPVERSIONEDSTREAM pVersionedStream;
+        /* [case()] */ LPSAFEARRAY parray;
+        /* [case()] */ CAC cac;
+        /* [case()] */ CAUB caub;
+        /* [case()] */ CAI cai;
+        /* [case()] */ CAUI caui;
+        /* [case()] */ CAL cal;
+        /* [case()] */ CAUL caul;
+        /* [case()] */ CAH cah;
+        /* [case()] */ CAUH cauh;
+        /* [case()] */ CAFLT caflt;
+        /* [case()] */ CADBL cadbl;
+        /* [case()] */ CABOOL cabool;
+        /* [case()] */ CASCODE cascode;
+        /* [case()] */ CACY cacy;
+        /* [case()] */ CADATE cadate;
+        /* [case()] */ CAFILETIME cafiletime;
+        /* [case()] */ CACLSID cauuid;
+        /* [case()] */ CACLIPDATA caclipdata;
+        /* [case()] */ CABSTR cabstr;
+        /* [case()] */ CABSTRBLOB cabstrblob;
+        /* [case()] */ CALPSTR calpstr;
+        /* [case()] */ CALPWSTR calpwstr;
+        /* [case()] */ CAPROPVARIANT capropvar;
+        /* [case()] */ CHAR *pcVal;
+        /* [case()] */ UCHAR *pbVal;
+        /* [case()] */ SHORT *piVal;
+        /* [case()] */ USHORT *puiVal;
+        /* [case()] */ LONG *plVal;
+        /* [case()] */ ULONG *pulVal;
+        /* [case()] */ INT *pintVal;
+        /* [case()] */ UINT *puintVal;
+        /* [case()] */ FLOAT *pfltVal;
+        /* [case()] */ DOUBLE *pdblVal;
+        /* [case()] */ VARIANT_BOOL *pboolVal;
+        /* [case()] */ DECIMAL *pdecVal;
+        /* [case()] */ SCODE *pscode;
+        /* [case()] */ CY *pcyVal;
+        /* [case()] */ DATE *pdate;
+        /* [case()] */ BSTR *pbstrVal;
+        /* [case()] */ IUnknown **ppunkVal;
+        /* [case()] */ /*IDispatch*/ void **ppdispVal;
+        /* [case()] */ LPSAFEARRAY *pparray;
+        /* [case()] */ /*PROPVARIANT*/ void *pvarVal;
+        } 	;
+    } ;
+    DECIMAL decVal;
+  };
+} PROPVARIANT;
+
+[local, object, uuid(00000000-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IUnknown
+{
+    HRESULT QueryInterface(
+        [in] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] IUnknown **ppvObject);
+    ULONG AddRef();
+    ULONG Release();
+}
+
+[local, object, uuid(000e0000-0000-0000-C000-000000000046), pointer_default(unique)]
+interface AsyncIUnknown : IUnknown
+{
+    HRESULT Begin_QueryInterface([in] REFIID riid);
+    HRESULT Finish_QueryInterface([out, annotation("__RPC__deref_out")] void **ppvObject);
+
+    HRESULT Begin_AddRef();
+    ULONG   Finish_AddRef();
+
+    HRESULT Begin_Release();
+    ULONG   Finish_Release();
+}
+
+[object, uuid(00000001-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IClassFactory : IUnknown
+{
+    [local]
+    HRESULT CreateInstance(
+        [in, unique, annotation("_In_opt_")] IUnknown * pUnkOuter,
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] void **ppvObject);
+
+    [call_as(CreateInstance)]
+    HRESULT RemoteCreateInstance(
+        [in] REFIID riid,
+        [out, iid_is(riid)] IUnknown ** ppvObject);
+
+    [local]
+    HRESULT LockServer(
+        [in] BOOL fLock);
+
+    [call_as(LockServer)]
+    HRESULT __stdcall RemoteLockServer(
+        [in] BOOL fLock);
+}
+
+[    local,     object,
+    uuid(00000003-0000-0000-C000-000000000046)
+]
+interface IMarshal : IUnknown
+{
+
+    HRESULT GetUnmarshalClass
+        (
+        [in, annotation("_In_")] REFIID riid,
+        [in, unique, annotation("_In_opt_")] void *pv,
+        [in, annotation("_In_")] DWORD dwDestContext,
+        [in, unique, annotation("_Reserved_")] void *pvDestContext,
+        [in, annotation("_In_")] DWORD mshlflags,
+        [out, annotation("_Out_")] CLSID *pCid);
+
+    HRESULT GetMarshalSizeMax
+        (
+        [in, annotation("_In_")] REFIID riid,
+        [in, unique, annotation("_In_opt_")] void *pv,
+        [in, annotation("_In_")] DWORD dwDestContext,
+        [in, unique, annotation("_Reserved_")] void *pvDestContext,
+        [in, annotation("_In_")] DWORD mshlflags,
+        [out, annotation("_Out_")] DWORD *pSize);
+
+    HRESULT MarshalInterface
+        (
+        [in, unique, annotation("_In_")] IStream *pStm,
+        [in, annotation("_In_")] REFIID riid,
+        [in, unique, annotation("_In_opt_")] void *pv,
+        [in, annotation("_In_")] DWORD dwDestContext,
+        [in, unique, annotation("_Reserved_")] void *pvDestContext,
+        [in, annotation("_In_")] DWORD mshlflags);
+
+    HRESULT UnmarshalInterface
+        (
+        [in, unique, annotation("_In_")] IStream *pStm,
+        [in, annotation("_In_")] REFIID riid,
+        [out, annotation("_Outptr_")] void **ppv);
+
+    HRESULT ReleaseMarshalData
+        (
+        [in, unique, annotation("_In_")] IStream *pStm);
+
+    HRESULT DisconnectObject
+        (
+        [in, annotation("_In_")] DWORD dwReserved);
+}
+
+[local, object, uuid(ecc8691b-c1db-4dc0-855e-65f6c551af49)]
+interface INoMarshal : IUnknown
+{
+}
+
+[local, object, uuid(94ea2b94-e9cc-49e0-c0ff-ee64ca8f5b90)]
+interface IAgileObject : IUnknown
+{
+}
+
+[local, object, uuid(000001cf-0000-0000-C000-000000000046)]
+interface IMarshal2 : IMarshal
+{
+}
+
+[local, object, uuid(00000002-0000-0000-C000-000000000046)]
+interface IMalloc : IUnknown
+{
+
+    void *Alloc([in, annotation("_In_")] SIZE_T cb);
+
+    void *Realloc ([in, annotation("_In_opt_")] void *pv,
+        [in, annotation("_In_")] SIZE_T cb);
+
+    void Free([in, annotation("_In_opt_")] void *pv);
+
+    SIZE_T GetSize([in, annotation("_In_opt_")] void *pv);
+
+    int DidAlloc([in, annotation("_In_opt_")] void *pv);
+
+    void HeapMinimize(void);
+}
+
+[local, object, uuid(00000018-0000-0000-C000-000000000046)]
+interface IStdMarshalInfo : IUnknown
+{
+
+    HRESULT GetClassForHandler
+        (
+        [in, annotation("_In_")] DWORD dwDestContext,
+        [in, unique, annotation("_Reserved_")] void *pvDestContext,
+        [out, annotation("_Out_")] CLSID *pClsid);
+}
+
+[object,
+    local, uuid(00000019-0000-0000-C000-000000000046)]
+interface IExternalConnection : IUnknown
+{
+    DWORD AddConnection
+        (
+        [in, annotation("_In_")] DWORD extconn,
+        [in, annotation("_In_")] DWORD reserved);
+
+    DWORD ReleaseConnection
+        (
+        [in, annotation("_In_")] DWORD extconn,
+        [in, annotation("_In_")] DWORD reserved,
+        [in, annotation("_In_")] BOOL  fLastReleaseCloses);
+}
+
+[object,
+    local, uuid(00000020-0000-0000-C000-000000000046), async_uuid(000e0020-0000-0000-C000-000000000046)
+]
+interface IMultiQI : IUnknown
+{
+    HRESULT QueryMultipleInterfaces
+        (
+        [in, annotation("_In_")]     ULONG      cMQIs,
+        [in, out, annotation("_Inout_updates_(cMQIs)")] MULTI_QI  *pMQIs);
+}
+
+[object,
+    local, uuid(00000021-0000-0000-C000-000000000046)]
+interface IInternalUnknown : IUnknown
+{
+    HRESULT QueryInternalInterface(
+        [in, annotation("_In_")]  REFIID riid,
+        [out, annotation("_Outptr_")] void **ppv);
+}
+
+[object, uuid(00000100-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IEnumUnknown : IUnknown
+{
+
+    [local]
+    HRESULT Next(
+        [in, annotation("_In_")] ULONG celt,
+        [out, annotation("_Out_writes_to_(celt,*pceltFetched)")] IUnknown **rgelt,
+        [out, annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] IUnknown **rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumUnknown **ppenum);
+}
+
+[object, uuid(00000101-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IEnumString : IUnknown
+{
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")]
+    LPOLESTR *rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+    LPOLESTR *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumString **ppenum);
+}
+
+[object, uuid(0c733a30-2a1c-11ce-ade5-00aa0044773d), pointer_default(unique)]
+interface ISequentialStream : IUnknown
+{
+    [local]
+    HRESULT Read(
+        [annotation("_Out_writes_bytes_to_(cb, *pcbRead)")]
+    void *pv,
+        [in, annotation("_In_")] ULONG cb,
+        [annotation("_Out_opt_")] ULONG *pcbRead);
+
+    [call_as(Read)]
+    HRESULT RemoteRead(
+        [out, size_is(cb), length_is(*pcbRead)]
+    byte *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbRead);
+
+    [local]
+    HRESULT Write(
+        [annotation("_In_reads_bytes_(cb)")] void const *pv,
+        [in, annotation("_In_")] ULONG cb,
+        [annotation("_Out_opt_")] ULONG *pcbWritten);
+
+    [call_as(Write)]
+    HRESULT RemoteWrite(
+        [in, size_is(cb)] byte const *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbWritten);
+}
+
+[object, uuid(0000000c-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IStream : ISequentialStream
+{
+    [local]
+    HRESULT Seek(
+        [in] LARGE_INTEGER dlibMove,
+        [in] DWORD dwOrigin,
+        [annotation("_Out_opt_")] ULARGE_INTEGER *plibNewPosition);
+
+    [call_as(Seek)]
+    HRESULT RemoteSeek(
+        [in] LARGE_INTEGER dlibMove,
+        [in] DWORD dwOrigin,
+        [out] ULARGE_INTEGER *plibNewPosition);
+
+    HRESULT SetSize(
+        [in] ULARGE_INTEGER libNewSize);
+
+    [local]
+    HRESULT CopyTo(
+        [in, unique, annotation("_In_")] IStream *pstm,
+        [in] ULARGE_INTEGER cb,
+        [annotation("_Out_opt_")] ULARGE_INTEGER *pcbRead,
+        [annotation("_Out_opt_")] ULARGE_INTEGER *pcbWritten);
+
+    [call_as(CopyTo)]
+    HRESULT RemoteCopyTo(
+        [in, unique] IStream *pstm,
+        [in] ULARGE_INTEGER cb,
+        [out] ULARGE_INTEGER *pcbRead,
+        [out] ULARGE_INTEGER *pcbWritten);
+
+    HRESULT Commit(
+        [in] DWORD grfCommitFlags);
+
+    HRESULT Revert();
+
+    HRESULT LockRegion(
+        [in] ULARGE_INTEGER libOffset,
+        [in] ULARGE_INTEGER cb,
+        [in] DWORD dwLockType);
+
+    HRESULT UnlockRegion(
+        [in] ULARGE_INTEGER libOffset,
+        [in] ULARGE_INTEGER cb,
+        [in] DWORD dwLockType);
+
+    HRESULT Stat(
+        [out] STATSTG *pstatstg,
+        [in] DWORD grfStatFlag);
+
+    HRESULT Clone(
+        [out] IStream **ppstm);
+}
+
+[local, object, uuid(D5F56B60-593B-101A-B569-08002B2DBF7A)]
+interface IRpcChannelBuffer : IUnknown
+{
+    HRESULT GetBuffer
+        (
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMessage,
+        [in, annotation("_In_")] REFIID riid);
+
+    HRESULT SendReceive
+        (
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMessage,
+        [out, annotation("_Out_opt_")] ULONG *pStatus);
+
+    HRESULT FreeBuffer
+        (
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMessage);
+
+    HRESULT GetDestCtx
+        (
+        [out, annotation("_Out_")] DWORD *pdwDestContext,
+        [out, annotation("_Outptr_result_maybenull_")] void **ppvDestContext);
+
+    HRESULT IsConnected
+        (
+        void);
+}
+
+[local, object, uuid(594f31d0-7f19-11d0-b194-00a0c90dc8bf)]
+interface IRpcChannelBuffer2 : IRpcChannelBuffer
+{
+    HRESULT GetProtocolVersion
+        (
+        [out, annotation("_Out_")] DWORD *pdwVersion);
+}
+
+[local, object, uuid(a5029fb6-3c34-11d1-9c99-00c04fb998aa), pointer_default(unique)]
+interface IAsyncRpcChannelBuffer : IRpcChannelBuffer2
+{
+    HRESULT Send(
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMsg,
+        [in, annotation("_In_")]     ISynchronize *pSync,
+        [out, annotation("_Out_")]    ULONG *pulStatus);
+
+    HRESULT Receive(
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMsg,
+        [out, annotation("_Out_")]     ULONG *pulStatus);
+
+    HRESULT GetDestCtxEx
+        (
+        [in, annotation("_In_")] RPCOLEMESSAGE *pMsg,
+        [out, annotation("_Out_")] DWORD *pdwDestContext,
+        [out, annotation("_Outptr_")] void **ppvDestContext);
+};
+
+[local, object, uuid(25B15600-0115-11d0-BF0D-00AA00B8DFD2)]
+interface IRpcChannelBuffer3 : IRpcChannelBuffer2
+{
+    HRESULT Send
+        (
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMsg,
+        [out, annotation("_Out_")]    ULONG *pulStatus);
+
+    HRESULT Receive
+        (
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMsg,
+        [in, annotation("_In_")]     ULONG ulSize,
+        [out, annotation("_Out_")]    ULONG *pulStatus);
+
+    HRESULT Cancel
+        (
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMsg);
+
+    HRESULT GetCallContext
+        (
+        [in, annotation("_In_")]  RPCOLEMESSAGE *pMsg,
+        [in, annotation("_In_")]  REFIID riid,
+        [out, annotation("_Outptr_")] void **pInterface);
+
+    HRESULT GetDestCtxEx
+        (
+        [in, annotation("_In_")] RPCOLEMESSAGE *pMsg,
+        [out, annotation("_Out_")] DWORD *pdwDestContext,
+        [out, annotation("_Outptr_")] void **ppvDestContext);
+
+    HRESULT GetState
+        (
+        [in, annotation("_In_")]  RPCOLEMESSAGE   *pMsg,
+        [out, annotation("_Out_")] DWORD           *pState);
+
+    HRESULT RegisterAsync
+        (
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *pMsg,
+        [in, annotation("_In_")] IAsyncManager *pAsyncMgr);
+}
+
+[local, object, uuid(58a08519-24c8-4935-b482-3fd823333a4f)]
+interface IRpcSyntaxNegotiate : IUnknown
+{
+    HRESULT NegotiateSyntax ( [in,out, annotation("_Inout_")] RPCOLEMESSAGE * pMsg );
+}
+
+[local, object, uuid(D5F56A34-593B-101A-B569-08002B2DBF7A)]
+interface IRpcProxyBuffer : IUnknown
+{
+    HRESULT Connect
+        (
+        [in, unique, annotation("_In_")] IRpcChannelBuffer *pRpcChannelBuffer);
+
+    void Disconnect
+        (
+        void);
+}
+
+[local, object, uuid(D5F56AFC-593B-101A-B569-08002B2DBF7A)]
+interface IRpcStubBuffer : IUnknown
+{
+    HRESULT Connect
+        (
+        [in, annotation("_In_")] IUnknown *pUnkServer);
+
+    void Disconnect();
+
+    HRESULT Invoke
+        (
+        [in,out, annotation("_Inout_")] RPCOLEMESSAGE *_prpcmsg,
+        [in, annotation("_In_")] IRpcChannelBuffer *_pRpcChannelBuffer);
+
+    IRpcStubBuffer *IsIIDSupported
+        (
+        [in, annotation("_In_")] REFIID riid);
+
+    ULONG CountRefs
+        (
+        void);
+
+    HRESULT DebugServerQueryInterface
+        (
+        [out, annotation("_Outptr_")] void **ppv);
+
+    void DebugServerRelease
+        (
+        [in, annotation("_In_")] void *pv);
+}
+
+[local, object, uuid(D5F569D0-593B-101A-B569-08002B2DBF7A)]
+interface IPSFactoryBuffer : IUnknown
+{
+    HRESULT CreateProxy
+        (
+        [in, annotation("_In_")] IUnknown *pUnkOuter,
+        [in, annotation("_In_")] REFIID riid,
+        [out, annotation("_Outptr_")] IRpcProxyBuffer **ppProxy,
+        [out, annotation("_Outptr_")] void **ppv);
+
+    HRESULT CreateStub
+        (
+        [in, annotation("_In_")] REFIID riid,
+        [in, unique, annotation("_In_opt_")] IUnknown *pUnkServer,
+        [out, annotation("_Outptr_")] IRpcStubBuffer **ppStub);
+}
+
+[local, object, uuid(1008c4a0-7613-11cf-9af1-0020af6e72f4)]
+interface IChannelHook : IUnknown
+{
+    void ClientGetSize(
+        [in, annotation("_In_")]  REFGUID uExtent,
+        [in, annotation("_In_")]  REFIID  riid,
+        [out, annotation("_Out_")] ULONG  *pDataSize );
+
+    void ClientFillBuffer(
+        [in, annotation("_In_")]      REFGUID uExtent,
+        [in, annotation("_In_")]      REFIID  riid,
+        [in, out, annotation("_Inout_")] ULONG  *pDataSize,
+        [in, annotation("_In_")]      void   *pDataBuffer );
+
+    void ClientNotify(
+        [in, annotation("_In_")] REFGUID uExtent,
+        [in, annotation("_In_")] REFIID  riid,
+        [in, annotation("_In_")] ULONG   cbDataSize,
+        [in, annotation("_In_")] void   *pDataBuffer,
+        [in, annotation("_In_")] DWORD   lDataRep,
+        [in, annotation("_In_")] HRESULT hrFault );
+
+    void ServerNotify(
+        [in, annotation("_In_")] REFGUID uExtent,
+        [in, annotation("_In_")] REFIID  riid,
+        [in, annotation("_In_")] ULONG   cbDataSize,
+        [in, annotation("_In_")] void   *pDataBuffer,
+        [in, annotation("_In_")] DWORD   lDataRep );
+
+    void ServerGetSize(
+        [in, annotation("_In_")]  REFGUID uExtent,
+        [in, annotation("_In_")]  REFIID  riid,
+        [in, annotation("_In_")]  HRESULT hrFault,
+        [out, annotation("_Out_")] ULONG  *pDataSize );
+
+    void ServerFillBuffer(
+        [in, annotation("_In_")]      REFGUID uExtent,
+        [in, annotation("_In_")]      REFIID  riid,
+        [in, out, annotation("_Inout_")] ULONG  *pDataSize,
+        [in, annotation("_In_")]      void   *pDataBuffer,
+        [in, annotation("_In_")]      HRESULT hrFault );
+};
+
+[local, object, uuid(0000013D-0000-0000-C000-000000000046)]
+interface IClientSecurity : IUnknown
+{
+    HRESULT QueryBlanket
+        (
+        [in, annotation("_In_")]  IUnknown                *pProxy,
+        [out, annotation("_Out_")] DWORD                  *pAuthnSvc,
+        [out, annotation("_Out_opt_")] DWORD              *pAuthzSvc,
+        [out, annotation("__RPC__deref_out_opt")] 
+    OLECHAR                **pServerPrincName,
+        [out, annotation("_Out_opt_")] DWORD              *pAuthnLevel,
+        [out, annotation("_Out_opt_")] DWORD              *pImpLevel,
+        [out, annotation("_Outptr_result_maybenull_")] void        **pAuthInfo,
+        [out, annotation("_Out_opt_")] DWORD              *pCapabilites);
+
+    HRESULT SetBlanket
+        (
+        [in, annotation("_In_")] IUnknown                 *pProxy,
+        [in, annotation("_In_")] DWORD                     dwAuthnSvc,
+        [in, annotation("_In_")] DWORD                     dwAuthzSvc,
+        [in, annotation("__RPC__in_opt")] 
+    OLECHAR                  *pServerPrincName,
+        [in, annotation("_In_")] DWORD                     dwAuthnLevel,
+        [in, annotation("_In_")] DWORD                     dwImpLevel,
+        [in, annotation("_In_opt_")] void                 *pAuthInfo,
+        [in, annotation("_In_")] DWORD                     dwCapabilities);
+
+    HRESULT CopyProxy
+        (
+        [in, annotation("_In_")]         IUnknown  *pProxy,
+        [out, annotation("_Outptr_")] IUnknown **ppCopy);
+}
+
+[local, object, uuid(0000013E-0000-0000-C000-000000000046)]
+interface IServerSecurity : IUnknown
+{
+    HRESULT QueryBlanket
+        (
+        [out, annotation("_Out_opt_")] DWORD         *pAuthnSvc,
+        [out, annotation("_Out_opt_")] DWORD         *pAuthzSvc,
+        [out, annotation("__RPC__deref_out_opt")] 
+    OLECHAR **pServerPrincName,
+        [out, annotation("_Out_opt_")] DWORD         *pAuthnLevel,
+        [out, annotation("_Out_opt_")] DWORD         *pImpLevel,
+        [out, annotation("_Outptr_result_maybenull_")] void   **pPrivs,
+        [in,out, annotation("_Inout_opt_")] DWORD    *pCapabilities);
+
+    HRESULT ImpersonateClient();
+
+    HRESULT RevertToSelf();
+
+    BOOL IsImpersonating();
+}
+
+[object,
+    local, uuid(00000144-0000-0000-C000-000000000046)]
+interface IRpcOptions : IUnknown
+{
+    HRESULT Set([in, annotation("_In_")] IUnknown * pPrx,
+        [in, annotation("_In_")] RPCOPT_PROPERTIES dwProperty,
+        [in, annotation("_In_")] ULONG_PTR dwValue);
+
+    HRESULT Query([in, annotation("_In_")] IUnknown * pPrx,
+        [in, annotation("_In_")] RPCOPT_PROPERTIES dwProperty,
+        [out, annotation("_Out_")] ULONG_PTR * pdwValue);
+}
+
+[object,
+    local, pointer_default(unique), uuid(0000015B-0000-0000-C000-000000000046)]
+interface IGlobalOptions : IUnknown
+{
+    HRESULT Set([in, annotation("_In_")] GLOBALOPT_PROPERTIES dwProperty,
+        [in, annotation("_In_")] ULONG_PTR dwValue);
+    HRESULT Query([in, annotation("_In_")] GLOBALOPT_PROPERTIES dwProperty,
+        [out, annotation("_Out_")] ULONG_PTR * pdwValue);
+}
+
+[uuid(00000022-0000-0000-C000-000000000046),
+    version(1.0), pointer_default(unique)
+    , object]
+interface ISurrogate : IUnknown
+{
+    HRESULT LoadDllServer(
+        [in] REFCLSID           Clsid);
+    HRESULT FreeSurrogate();
+}
+
+[local, object, uuid(00000146-0000-0000-C000-000000000046)]
+interface IGlobalInterfaceTable : IUnknown
+{
+    HRESULT RegisterInterfaceInGlobal
+        (
+        [in, annotation("_In_")]  IUnknown *pUnk,
+        [in, annotation("_In_")]  REFIID    riid,
+        [out, annotation("_Out_")] DWORD    *pdwCookie);
+
+    HRESULT RevokeInterfaceFromGlobal
+        (
+        [in, annotation("_In_")] DWORD      dwCookie);
+
+    HRESULT GetInterfaceFromGlobal
+        (
+        [in, annotation("_In_")]  DWORD          dwCookie,
+        [in, annotation("_In_")]  REFIID         riid,
+        [out, iid_is(riid), annotation("_Outptr_")] void **ppv);
+};
+
+[object, uuid(00000030-0000-0000-C000-000000000046)]
+interface ISynchronize : IUnknown
+{
+    HRESULT Wait([in] DWORD dwFlags, [in] DWORD dwMilliseconds);
+    HRESULT Signal();
+    HRESULT Reset();
+}
+
+[local, object, uuid(00000031-0000-0000-C000-000000000046)]
+interface ISynchronizeHandle : IUnknown
+{
+    HRESULT GetHandle([out, annotation("_Out_")] HANDLE *ph );
+}
+
+[local, object, uuid(00000032-0000-0000-C000-000000000046)]
+interface ISynchronizeEvent : ISynchronizeHandle
+{
+    HRESULT SetEventHandle([in, annotation("_In_")] HANDLE *ph );
+}
+
+[local, object, uuid(00000033-0000-0000-C000-000000000046)]
+interface ISynchronizeContainer : IUnknown
+{
+    HRESULT AddSynchronize([in, annotation("_In_")] ISynchronize *pSync);
+
+    HRESULT WaitMultiple([in, annotation("_In_")] DWORD dwFlags,
+        [in, annotation("_In_")] DWORD dwTimeOut,
+        [out, annotation("_Outptr_")] ISynchronize **ppSync);
+}
+
+[local, object, uuid(00000025-0000-0000-C000-000000000046)]
+interface ISynchronizeMutex : ISynchronize
+{
+    HRESULT ReleaseMutex();
+}
+
+[local, object, uuid(00000029-0000-0000-C000-000000000046)]
+interface ICancelMethodCalls : IUnknown
+{
+    HRESULT Cancel          ([in, annotation("_In_")] ULONG ulSeconds);
+    HRESULT TestCancel      (void);
+}
+
+[local, object, uuid(0000002A-0000-0000-C000-000000000046)]
+interface IAsyncManager : IUnknown
+{
+    HRESULT CompleteCall  ( [in, annotation("_In_")] HRESULT Result );
+    HRESULT GetCallContext( 
+        [in, annotation("_In_")] REFIID riid, 
+        [out, annotation("_Outptr_")] void **pInterface );
+    HRESULT GetState      ( [out, annotation("_Out_")] ULONG *pulStateFlags);
+}
+
+[local, object, uuid(1c733a30-2a1c-11ce-ade5-00aa0044773d), pointer_default(unique)]
+interface ICallFactory : IUnknown
+{
+    HRESULT CreateCall(
+        [in, annotation("_In_")]     REFIID                riid,
+        [in, annotation("_In_opt_")] IUnknown             *pCtrlUnk,
+        [in, annotation("_In_")]     REFIID                riid2,
+        [out, iid_is(riid2), annotation("_Outptr_")] IUnknown **ppv );
+}
+
+[ uuid(00000149-0000-0000-C000-000000000046),
+    version(0.0), pointer_default(unique),
+    local, object]
+interface IRpcHelper : IUnknown
+{
+    HRESULT GetDCOMProtocolVersion(
+        [out, annotation("_Out_")] DWORD *pComVersion);
+
+    HRESULT GetIIDFromOBJREF(
+        [in, annotation("_In_")] void *pObjRef,
+        [out, annotation("_Outptr_")] IID **piid);
+}
+
+[local, object, uuid(eb0cb9e8-7996-11d2-872e-0000f8080859),]
+interface IReleaseMarshalBuffers : IUnknown
+{
+    HRESULT ReleaseMarshalBuffer(
+        [in,out, annotation("_Inout_")]  RPCOLEMESSAGE  *pMsg,
+        [in, annotation("_In_")]  DWORD                  dwFlags,
+        [in,unique, annotation("_In_opt_")] IUnknown    *pChnl);
+}
+
+[local, object, uuid(0000002B-0000-0000-C000-000000000046)]
+interface IWaitMultiple : IUnknown
+{
+    HRESULT WaitMultiple  (
+        [in, annotation("_In_")] DWORD timeout, 
+        [out, annotation("_Outptr_")] ISynchronize **pSync );
+    HRESULT AddSynchronize( [in, annotation("_In_")] ISynchronize *pSync );
+}
+
+[local, object, uuid(00000147-0000-0000-C000-000000000046)]
+interface IAddrTrackingControl : IUnknown
+{
+    HRESULT EnableCOMDynamicAddrTracking();
+    HRESULT DisableCOMDynamicAddrTracking();
+};
+
+[local, object, uuid(00000148-0000-0000-C000-000000000046)]
+interface IAddrExclusionControl : IUnknown
+{
+    HRESULT GetCurrentAddrExclusionList(
+        [in, annotation("_In_")]REFIID riid, 
+        [out, iid_is(riid), annotation("_Outptr_")]void** ppEnumerator);
+    HRESULT UpdateAddrExclusionList([in, annotation("_In_")]IUnknown* pEnumerator);
+};
+
+[local, object, uuid(000001c1-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IEnumContextProps : IUnknown
+{
+    HRESULT Next([in, annotation("_In_")] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched), annotation("_Out_writes_to_(celt, *pceltFetched)")] 
+    ContextProperty *pContextProperties,
+        [out, annotation("_Out_")] ULONG *pceltFetched);
+    HRESULT Skip([in, annotation("_In_")] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out, annotation("_Outptr_")] IEnumContextProps **ppEnumContextProps);
+    HRESULT Count([out, annotation("_Out_")] ULONG *pcelt);
+}
+
+[local, object, uuid(000001c0-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IContext : IUnknown
+{
+    HRESULT SetProperty([in, annotation("_In_")] REFGUID rpolicyId,
+        [in, annotation("_In_")] CPFLAGS flags,
+        [in, annotation("_In_")] IUnknown *pUnk);
+    HRESULT RemoveProperty([in, annotation("_In_")] REFGUID rPolicyId);
+    HRESULT GetProperty([in, annotation("_In_")] REFGUID rGuid,
+        [out, annotation("_Out_")] CPFLAGS *pFlags,
+        [out, annotation("_Outptr_")] IUnknown **ppUnk);
+    HRESULT EnumContextProps([out, annotation("_Outptr_")] IEnumContextProps **ppEnumContextProps);
+}
+
+[local, object, uuid(000001c6-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IObjContext : IContext
+{
+    void Reserved1();
+    void Reserved2();
+    void Reserved3();
+    void Reserved4();
+    void Reserved5();
+    void Reserved6();
+    void Reserved7();
+}
+
+[local, object, uuid(000001ce-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IComThreadingInfo : IUnknown
+{
+    HRESULT GetCurrentApartmentType( [out, annotation("_Out_")] APTTYPE* pAptType );
+    HRESULT GetCurrentThreadType( [out, annotation("_Out_")] THDTYPE* pThreadType );
+    HRESULT GetCurrentLogicalThreadId( [out, annotation("_Out_")] GUID* pguidLogicalThreadId );
+    HRESULT SetCurrentLogicalThreadId( [in, annotation("_In_")] REFGUID rguid );
+};
+
+[object, pointer_default(unique), uuid(72380d55-8d2b-43a3-8513-2b6ef31434e9)]
+interface IProcessInitControl : IUnknown
+{
+    HRESULT ResetInitializerTimeout([in] DWORD dwSecondsRemaining);
+};
+
+[object,
+    local, pointer_default(unique), uuid(00000040-0000-0000-C000-000000000046)]
+interface IFastRundown : IUnknown
+{
+};
+
+[local, object, uuid(D8F2F5E6-6102-4863-9F26-389A4676EFDE), pointer_default(unique)]
+interface IMarshalingStream : IStream
+{
+    HRESULT GetMarshalingContextAttribute
+        (
+        [in] CO_MARSHALING_CONTEXT_ATTRIBUTES attribute,
+        [out] ULONG_PTR *pAttributeValue);
+};
+
+[    local,     object,
+    uuid(0000001d-0000-0000-C000-000000000046)
+]
+interface IMallocSpy : IUnknown
+{
+    SIZE_T PreAlloc
+        (
+        [in, annotation("_In_")] SIZE_T cbRequest);
+
+    void  *PostAlloc
+        (
+        [in, annotation("_In_")] void *pActual);
+
+    void  *PreFree
+        (
+        [in, annotation("_In_")] void *pRequest,
+        [in, annotation("_In_")] BOOL  fSpyed);
+
+    void  PostFree
+        (
+        [in, annotation("_In_")] BOOL  fSpyed);
+
+    SIZE_T PreRealloc
+        (
+        [in, annotation("_In_")] void   *pRequest,
+        [in, annotation("_In_")] SIZE_T   cbRequest,
+        [out, annotation("_Outptr_")] void **ppNewRequest,
+        [in, annotation("_In_")] BOOL    fSpyed);
+
+    void  *PostRealloc
+        (
+        [in, annotation("_In_")] void *pActual,
+        [in, annotation("_In_")] BOOL  fSpyed);
+
+    void  *PreGetSize
+        (
+        [in, annotation("_In_")] void *pRequest,
+        [in, annotation("_In_")] BOOL  fSpyed);
+
+    SIZE_T PostGetSize
+        (
+        [in, annotation("_In_")] SIZE_T cbActual,
+        [in, annotation("_In_")] BOOL  fSpyed);
+
+    void  *PreDidAlloc
+        (
+        [in, annotation("_In_")] void *pRequest,
+        [in, annotation("_In_")] BOOL  fSpyed);
+
+    int   PostDidAlloc
+        (
+        [in, annotation("_In_")] void *pRequest,
+        [in, annotation("_In_")] BOOL  fSpyed,
+        [in, annotation("_In_")] int   fActual);
+
+    void  PreHeapMinimize(void);
+
+    void  PostHeapMinimize(void);
+}
+
+[object, uuid(0000000e-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IBindCtx : IUnknown
+{
+    HRESULT RegisterObjectBound
+        (
+        [in, unique] IUnknown *punk);
+
+    HRESULT RevokeObjectBound
+        (
+        [in, unique] IUnknown *punk);
+
+    HRESULT ReleaseBoundObjects
+        (
+        void);
+
+    [local]
+    HRESULT SetBindOptions
+        (
+        [in, annotation("_In_")] BIND_OPTS *pbindopts);
+
+    [call_as(SetBindOptions)]
+    HRESULT RemoteSetBindOptions
+        (
+        [in] BIND_OPTS2 *pbindopts);
+
+    [local]
+    HRESULT GetBindOptions
+        (
+        [in, out, annotation("_Inout_")] BIND_OPTS *pbindopts);
+
+    [call_as(GetBindOptions)]
+    HRESULT RemoteGetBindOptions
+        (
+        [in, out] BIND_OPTS2 *pbindopts);
+
+    HRESULT GetRunningObjectTable
+        (
+        [out] IRunningObjectTable **pprot);
+
+    HRESULT RegisterObjectParam(
+        [in] LPOLESTR pszKey,
+        [in, unique] IUnknown *punk);
+
+    HRESULT GetObjectParam(
+        [in] LPOLESTR pszKey,
+        [out] IUnknown **ppunk);
+
+    HRESULT EnumObjectParam
+        (
+        [out] IEnumString **ppenum);
+
+    HRESULT RevokeObjectParam
+        (
+        [in] LPOLESTR pszKey);
+}
+
+[object, uuid(00000102-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IEnumMoniker : IUnknown
+{
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")]
+    IMoniker **rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+    IMoniker **rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumMoniker **ppenum);
+}
+
+[object, uuid(00000126-0000-0000-C000-000000000046)]
+interface IRunnableObject : IUnknown
+{
+    HRESULT GetRunningClass(
+        [out] LPCLSID lpClsid);
+
+    HRESULT Run(
+        [in] LPBINDCTX pbc);
+
+    [local]
+    BOOL IsRunning();
+
+    [call_as(IsRunning)]
+    HRESULT RemoteIsRunning();
+
+    HRESULT LockRunning(
+        [in] BOOL fLock,
+        [in] BOOL fLastUnlockCloses);
+
+    HRESULT SetContainedObject(
+        [in] BOOL fContained);
+}
+
+[object, uuid(00000010-0000-0000-C000-000000000046)]
+interface IRunningObjectTable : IUnknown
+{
+    HRESULT Register
+        (
+        [in] DWORD grfFlags,
+        [in, unique] IUnknown *punkObject,
+        [in, unique] IMoniker *pmkObjectName,
+        [out] DWORD *pdwRegister);
+
+    HRESULT Revoke
+        (
+        [in] DWORD dwRegister);
+
+    HRESULT IsRunning
+        (
+        [in, unique] IMoniker *pmkObjectName);
+
+    HRESULT GetObject
+        (
+        [in, unique] IMoniker *pmkObjectName,
+        [out] IUnknown **ppunkObject);
+
+    HRESULT NoteChangeTime
+        (
+        [in] DWORD dwRegister,
+        [in] FILETIME *pfiletime);
+
+    HRESULT GetTimeOfLastChange
+        (
+        [in, unique] IMoniker *pmkObjectName,
+        [out] FILETIME *pfiletime);
+
+    HRESULT EnumRunning
+        (
+        [out] IEnumMoniker **ppenumMoniker);
+}
+
+[object, uuid(0000010c-0000-0000-C000-000000000046)]
+interface IPersist : IUnknown
+{
+    HRESULT GetClassID
+        (
+        [out] CLSID *pClassID);
+}
+
+[object, uuid(00000109-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IPersistStream : IPersist
+{
+    HRESULT IsDirty
+        (
+        void);
+
+    HRESULT Load
+        (
+        [in, unique] IStream *pStm);
+
+    HRESULT Save
+        (
+        [in, unique] IStream *pStm,
+        [in] BOOL fClearDirty);
+
+    HRESULT GetSizeMax
+        (
+        [out] ULARGE_INTEGER *pcbSize);
+}
+
+[object, uuid(0000000f-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IMoniker : IPersistStream
+{
+    [local]
+    HRESULT BindToObject(
+        [in, unique, annotation("_In_")] IBindCtx *pbc,
+        [in, unique, annotation("_In_opt_")] IMoniker *pmkToLeft,
+        [in, annotation("_In_")] REFIID riidResult,
+        [out, iid_is(riidResult), annotation("_Outptr_")] void **ppvResult);
+
+    [call_as(BindToObject)]
+    HRESULT RemoteBindToObject(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [in] REFIID riidResult,
+        [out, iid_is(riidResult)] IUnknown **ppvResult);
+
+    [local]
+    HRESULT BindToStorage(
+        [in, unique, annotation("_In_")] IBindCtx *pbc,
+        [in, unique, annotation("_In_opt_")] IMoniker *pmkToLeft,
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_Outptr_")] void **ppvObj);
+
+    [call_as(BindToStorage)]
+    HRESULT RemoteBindToStorage(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [in] REFIID riid,
+        [out, iid_is(riid)] IUnknown **ppvObj);
+
+    HRESULT Reduce(
+        [in, unique] IBindCtx *pbc,
+        [in] DWORD dwReduceHowFar,
+        [in, out, unique] IMoniker **ppmkToLeft,
+        [out] IMoniker **ppmkReduced);
+
+    HRESULT ComposeWith(
+        [in, unique] IMoniker *pmkRight,
+        [in] BOOL fOnlyIfNotGeneric,
+        [out] IMoniker **ppmkComposite);
+
+    HRESULT Enum(
+        [in] BOOL fForward,
+        [out] IEnumMoniker **ppenumMoniker);
+
+    HRESULT IsEqual(
+        [in, unique] IMoniker *pmkOtherMoniker);
+
+    HRESULT Hash(
+        [out] DWORD *pdwHash);
+
+    HRESULT IsRunning(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [in, unique] IMoniker *pmkNewlyRunning);
+
+    HRESULT GetTimeOfLastChange(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [out] FILETIME *pFileTime);
+
+    HRESULT Inverse(
+        [out] IMoniker **ppmk);
+
+    HRESULT CommonPrefixWith(
+        [in, unique] IMoniker *pmkOther,
+        [out] IMoniker **ppmkPrefix);
+
+    HRESULT RelativePathTo(
+        [in, unique] IMoniker *pmkOther,
+        [out] IMoniker **ppmkRelPath);
+
+    HRESULT GetDisplayName(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [out] LPOLESTR *ppszDisplayName);
+
+    HRESULT ParseDisplayName(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [in] LPOLESTR pszDisplayName,
+        [out] ULONG *pchEaten,
+        [out] IMoniker **ppmkOut);
+
+    HRESULT IsSystemMoniker(
+        [out] DWORD *pdwMksys);
+}
+
+[object, uuid(f29f6bc0-5021-11ce-aa15-00006901293f), pointer_default(unique)]
+interface IROTData : IUnknown
+{
+    HRESULT GetComparisonData(
+        [out, size_is(cbMax)] byte *pbData,
+        [in]  ULONG cbMax,
+        [out] ULONG *pcbData);
+}
+
+[object, uuid(0000000d-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IEnumSTATSTG : IUnknown
+{
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")] STATSTG *rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] STATSTG *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumSTATSTG **ppenum);
+}
+
+[object, uuid(0000000b-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IStorage : IUnknown
+{
+    HRESULT CreateStream(
+        [in, string] const OLECHAR *pwcsName,
+        [in] DWORD grfMode,
+        [in] DWORD reserved1,
+        [in] DWORD reserved2,
+        [out] IStream **ppstm);
+
+    [local]
+    HRESULT OpenStream(
+        [in, string, annotation("_In_z_")] const OLECHAR *pwcsName,
+        [in, unique, annotation("_Reserved_")] void *reserved1,
+        [in] DWORD grfMode,
+        [in] DWORD reserved2,
+        [out, annotation("_Outptr_")] IStream **ppstm);
+
+    [call_as(OpenStream)]
+    HRESULT RemoteOpenStream(
+        [in, string] const OLECHAR *pwcsName,
+        [in] unsigned long cbReserved1,
+        [in, unique, size_is(cbReserved1)] byte *reserved1,
+        [in] DWORD grfMode,
+        [in] DWORD reserved2,
+        [out] IStream **ppstm);
+
+    HRESULT CreateStorage(
+        [in, string] const OLECHAR *pwcsName,
+        [in] DWORD grfMode,
+        [in] DWORD reserved1,
+        [in] DWORD reserved2,
+        [out] IStorage **ppstg);
+
+    HRESULT OpenStorage(
+        [in, unique, string] const OLECHAR *pwcsName,
+        [in, unique] IStorage *pstgPriority,
+        [in] DWORD grfMode,
+        [in, unique] SNB snbExclude,
+        [in] DWORD reserved,
+        [out] IStorage **ppstg);
+
+    [local]
+    HRESULT CopyTo(
+        [in] DWORD ciidExclude,
+        [in, unique, size_is(ciidExclude), annotation("_In_reads_opt_(ciidExclude)")] IID const *rgiidExclude,
+        [in, unique, annotation("_In_opt_")] SNB snbExclude,
+        [in, unique, annotation("_In_")] IStorage *pstgDest);
+
+    [call_as(CopyTo)]
+    HRESULT RemoteCopyTo(
+        [in] DWORD ciidExclude,
+        [in, unique, size_is(ciidExclude) DISABLE_CONSISTENCY_CHK] IID const *rgiidExclude,
+        [in, unique] SNB snbExclude,
+        [in, unique] IStorage *pstgDest);
+
+    HRESULT MoveElementTo(
+        [in, string] const OLECHAR * pwcsName,
+        [in, unique] IStorage *pstgDest,
+        [in, string] const OLECHAR *pwcsNewName,
+        [in] DWORD grfFlags);
+
+    HRESULT Commit(
+        [in] DWORD grfCommitFlags);
+
+    HRESULT Revert();
+
+    [local]
+    HRESULT EnumElements(
+        [in, annotation("_Reserved_")] DWORD reserved1,
+        [in, unique, size_is(1), annotation("_Reserved_")] void *reserved2,
+        [in, annotation("_Reserved_")] DWORD reserved3,
+        [out, annotation("_Outptr_")] IEnumSTATSTG **ppenum);
+
+    [call_as(EnumElements)]
+    HRESULT RemoteEnumElements(
+        [in] DWORD reserved1,
+        [in] unsigned long cbReserved2,
+        [in, unique, size_is(cbReserved2)] byte *reserved2,
+        [in] DWORD reserved3,
+        [out] IEnumSTATSTG **ppenum);
+
+    HRESULT DestroyElement(
+        [in, string] const OLECHAR *pwcsName);
+
+    HRESULT RenameElement(
+        [in, string] const OLECHAR *pwcsOldName,
+        [in, string] const OLECHAR *pwcsNewName);
+
+    HRESULT SetElementTimes(
+        [in, unique, string] const OLECHAR *pwcsName,
+        [in, unique] FILETIME const *pctime,
+        [in, unique] FILETIME const *patime,
+        [in, unique] FILETIME const *pmtime);
+
+    HRESULT SetClass(
+        [in] REFCLSID clsid);
+
+    HRESULT SetStateBits(
+        [in] DWORD grfStateBits,
+        [in] DWORD grfMask);
+
+    HRESULT Stat(
+        [out] STATSTG *pstatstg,
+        [in] DWORD grfStatFlag);
+}
+
+[object, uuid(0000010b-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IPersistFile : IPersist
+{
+    HRESULT IsDirty
+        (
+        void);
+
+    HRESULT Load
+        (
+        [in] LPCOLESTR pszFileName,
+        [in] DWORD dwMode);
+
+    HRESULT Save
+        (
+        [in, unique] LPCOLESTR pszFileName,
+        [in] BOOL fRemember);
+
+    HRESULT SaveCompleted
+        (
+        [in, unique] LPCOLESTR pszFileName);
+
+    HRESULT GetCurFile
+        (
+        [out] LPOLESTR *ppszFileName);
+}
+
+[object, uuid(0000010a-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IPersistStorage : IPersist
+{
+    HRESULT IsDirty
+        (
+        void);
+
+    HRESULT InitNew
+        (
+        [in, unique] IStorage *pStg);
+
+    HRESULT Load
+        (
+        [in, unique] IStorage *pStg);
+
+    HRESULT Save
+        (
+        [in, unique] IStorage *pStgSave,
+        [in] BOOL fSameAsLoad);
+
+    HRESULT SaveCompleted
+        (
+        [in, unique] IStorage *pStgNew);
+
+    HRESULT HandsOffStorage
+        (
+        void);
+}
+
+[object, uuid(0000000a-0000-0000-C000-000000000046), pointer_default(unique)]
+interface ILockBytes : IUnknown
+{
+    [local]
+    HRESULT ReadAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [out, size_is(cb), length_is(*pcbRead), annotation("_Out_writes_bytes_to_(cb, *pcbRead)")]
+    void *pv,
+        [in] ULONG cb,
+        [out, annotation("_Out_opt_")] ULONG *pcbRead);
+
+    [call_as(ReadAt)]
+    HRESULT _stdcall RemoteReadAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [out, size_is(cb), length_is(*pcbRead)]
+    byte *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbRead);
+
+    [local]
+    HRESULT WriteAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [in, size_is(cb), annotation("_In_reads_bytes_(cb)")] void const *pv,
+        [in] ULONG cb,
+        [out, annotation("_Out_opt_")] ULONG *pcbWritten);
+
+    [call_as(WriteAt)]
+    HRESULT RemoteWriteAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [in, size_is(cb)] byte const *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbWritten);
+
+    HRESULT Flush();
+
+    HRESULT SetSize(
+        [in] ULARGE_INTEGER cb);
+
+    HRESULT LockRegion(
+        [in] ULARGE_INTEGER libOffset,
+        [in] ULARGE_INTEGER cb,
+        [in] DWORD dwLockType);
+
+    HRESULT UnlockRegion(
+        [in] ULARGE_INTEGER libOffset,
+        [in] ULARGE_INTEGER cb,
+        [in] DWORD dwLockType);
+
+    HRESULT Stat(
+        [out] STATSTG *pstatstg,
+        [in] DWORD grfStatFlag);
+}
+
+[object, uuid(00000103-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IEnumFORMATETC : IUnknown
+{
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")] FORMATETC *rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched )] FORMATETC *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumFORMATETC **ppenum);
+}
+
+[object, uuid(00000105-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IEnumSTATDATA : IUnknown
+{
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")] STATDATA *rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] STATDATA *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumSTATDATA **ppenum);
+}
+
+[object, uuid(00000012-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IRootStorage : IUnknown
+{
+
+    HRESULT SwitchToFile
+        (
+        [in] LPOLESTR pszFile);
+}
+
+[object, uuid(0000010f-0000-0000-C000-000000000046), async_uuid(00000150-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IAdviseSink : IUnknown
+{
+    [local]
+    void OnDataChange(
+        [in, unique, annotation("_In_")] FORMATETC *pFormatetc,
+        [in, unique, annotation("_In_")] STGMEDIUM *pStgmed);
+
+    [local]
+    void OnViewChange(
+        [in] DWORD dwAspect,
+        [in] LONG lindex);
+
+    [local]
+    void OnRename(
+        [in, annotation("_In_")] IMoniker *pmk);
+
+    [local]
+    void OnSave();
+
+    [local]
+    void OnClose();
+
+    [call_as(OnDataChange)]
+    HRESULT  RemoteOnDataChange(
+        [in, unique] FORMATETC *pFormatetc,
+        [in, unique] ASYNC_STGMEDIUM *pStgmed);
+
+    [call_as(OnViewChange)]
+    HRESULT  RemoteOnViewChange(
+        [in] DWORD dwAspect,
+        [in] LONG lindex);
+
+    [call_as(OnRename)]
+    HRESULT  RemoteOnRename(
+        [in] IMoniker *pmk);
+
+    [call_as(OnSave)]
+    HRESULT  RemoteOnSave();
+
+    [call_as(OnClose)]
+    HRESULT RemoteOnClose();
+}
+
+[object, uuid(00000125-0000-0000-C000-000000000046), async_uuid(00000151-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IAdviseSink2 : IAdviseSink
+{
+    [local]
+    void OnLinkSrcChange(
+        [in, unique, annotation("_In_")] IMoniker *pmk);
+
+    [call_as(OnLinkSrcChange)]
+    HRESULT RemoteOnLinkSrcChange(
+        [in, unique] IMoniker *pmk);
+}
+
+[object, uuid(0000010e-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IDataObject : IUnknown
+{
+    [local]
+    HRESULT GetData(
+        [in, unique, annotation("_In_")] FORMATETC *pformatetcIn,
+        [out, annotation("_Out_")] STGMEDIUM *pmedium);
+
+    [call_as(GetData)]
+    HRESULT RemoteGetData(
+        [in, unique] FORMATETC *pformatetcIn,
+        [out] STGMEDIUM *pRemoteMedium);
+
+    [local]
+    HRESULT GetDataHere(
+        [in, unique, annotation("_In_")] FORMATETC *pformatetc,
+        [in, out, annotation("_Inout_")] STGMEDIUM *pmedium);
+
+    [call_as(GetDataHere)]
+    HRESULT RemoteGetDataHere(
+        [in, unique] FORMATETC *pformatetc,
+        [in, out] STGMEDIUM *pRemoteMedium);
+
+    HRESULT QueryGetData(
+        [in, unique] FORMATETC *pformatetc);
+
+    HRESULT GetCanonicalFormatEtc(
+        [in, unique] FORMATETC *pformatectIn,
+        [out] FORMATETC *pformatetcOut);
+
+    [local]
+    HRESULT SetData(
+        [in, unique, annotation("_In_")] FORMATETC *pformatetc,
+        [in, unique, annotation("_In_")] STGMEDIUM *pmedium,
+        [in] BOOL fRelease);
+
+    [call_as(SetData)]
+    HRESULT RemoteSetData(
+        [in, unique] FORMATETC *pformatetc,
+        [in, unique] FLAG_STGMEDIUM *pmedium,
+        [in] BOOL fRelease);
+
+    HRESULT EnumFormatEtc(
+        [in] DWORD dwDirection,
+        [out] IEnumFORMATETC **ppenumFormatEtc);
+
+    HRESULT DAdvise(
+        [in] FORMATETC *pformatetc,
+        [in] DWORD advf,
+        [in, unique] IAdviseSink *pAdvSink,
+        [out] DWORD *pdwConnection);
+
+    HRESULT DUnadvise(
+        [in] DWORD dwConnection);
+
+    HRESULT EnumDAdvise(
+        [out] IEnumSTATDATA **ppenumAdvise);
+}
+
+[local, object, uuid(00000110-0000-0000-C000-000000000046)]
+interface IDataAdviseHolder : IUnknown
+{
+
+    HRESULT Advise
+        (
+        [in, unique, annotation("_In_opt_")] IDataObject *pDataObject,
+        [in, unique, annotation("_In_")] FORMATETC *pFetc,
+        [in, annotation("_In_")] DWORD advf,
+        [in, unique, annotation("_In_")] IAdviseSink *pAdvise,
+        [out, annotation("_Out_")] DWORD *pdwConnection);
+
+    HRESULT Unadvise
+        (
+        [in, annotation("_In_")] DWORD dwConnection);
+
+    HRESULT EnumAdvise
+        (
+        [out, annotation("_Outptr_")] IEnumSTATDATA **ppenumAdvise);
+
+    HRESULT SendOnDataChange
+        (
+        [in, unique, annotation("_In_")] IDataObject *pDataObject,
+        [in, annotation("_Reserved_")] DWORD dwReserved,
+        [in, annotation("_In_")] DWORD advf);
+}
+
+[local, object, uuid(00000016-0000-0000-C000-000000000046)]
+interface IMessageFilter : IUnknown
+{
+    DWORD HandleInComingCall
+        (
+        [in, annotation("_In_")] DWORD dwCallType,
+        [in, annotation("_In_")] HTASK htaskCaller,
+        [in, annotation("_In_")] DWORD dwTickCount,
+        [in, annotation("_In_opt_")] LPINTERFACEINFO lpInterfaceInfo);
+
+    DWORD RetryRejectedCall
+        (
+        [in, annotation("_In_")] HTASK htaskCallee,
+        [in, annotation("_In_")] DWORD dwTickCount,
+        [in, annotation("_In_")] DWORD dwRejectType);
+
+    DWORD MessagePending
+        (
+        [in, annotation("_In_")] HTASK htaskCallee,
+        [in, annotation("_In_")] DWORD dwTickCount,
+        [in, annotation("_In_")] DWORD dwPendingType);
+}
+
+[object, uuid(B196B286-BAB4-101A-B69C-00AA00341D07), pointer_default(unique)]
+interface IConnectionPoint : IUnknown
+{
+    HRESULT GetConnectionInterface
+        (
+        [out]           IID * piid);
+
+    HRESULT GetConnectionPointContainer
+        (
+        [out]           IConnectionPointContainer ** ppCPC);
+
+    HRESULT Advise
+        (
+        [in]    IUnknown * pUnkSink,
+        [out]   DWORD *    pdwCookie);
+
+    HRESULT Unadvise
+        (
+        [in]    DWORD dwCookie);
+
+    HRESULT EnumConnections
+        (
+        [out]   IEnumConnections ** ppEnum);
+}
+
+[object, uuid(B196B284-BAB4-101A-B69C-00AA00341D07), pointer_default(unique)]
+interface IConnectionPointContainer : IUnknown
+{
+    HRESULT EnumConnectionPoints
+        (
+        [out]   IEnumConnectionPoints ** ppEnum);
+
+    HRESULT FindConnectionPoint
+        (
+        [in]    REFIID riid,
+        [out]   IConnectionPoint ** ppCP);
+}
+
+[object, uuid(B196B287-BAB4-101A-B69C-00AA00341D07), pointer_default(unique)]
+interface IEnumConnections : IUnknown
+{
+    [local]
+    HRESULT Next(
+        [in, annotation("_In_")]    ULONG           cConnections,
+        [annotation("_Out_writes_to_(cConnections, *lpcFetched)")]
+    CONNECTDATA *   rgcd,
+        [annotation("_Out_opt_")]   ULONG *         lpcFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in]                            ULONG           cConnections,
+        [out,
+        size_is(cConnections),
+        length_is(*lpcFetched)]        CONNECTDATA *   rgcd,
+        [out]                           ULONG *         lpcFetched);
+
+    HRESULT Skip
+        (
+        [in]    ULONG cConnections);
+
+    HRESULT Reset
+        (
+        void);
+
+    HRESULT Clone
+        (
+        [out]   IEnumConnections ** ppEnum);
+}
+
+[object, uuid(B196B285-BAB4-101A-B69C-00AA00341D07), pointer_default(unique)]
+interface IEnumConnectionPoints : IUnknown
+{
+    [local]
+    HRESULT Next(
+        [in, annotation("_In_")]    ULONG               cConnections,
+        [annotation("_Out_writes_to_(cConnections,*lpcFetched)")]
+    IConnectionPoint ** rgpcn,
+        [annotation("_Out_opt_")]   ULONG *             lpcFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in]                        ULONG               cConnections,
+        [out,
+        size_is(cConnections),
+        length_is(*lpcFetched)]    IConnectionPoint ** rgpcn,
+        [out]                       ULONG *             lpcFetched);
+
+    HRESULT Skip
+        (
+        [in]    ULONG   cConnections);
+
+    HRESULT Reset
+        (
+        void);
+
+    HRESULT Clone
+        (
+        [out]   IEnumConnectionPoints **    ppEnum);
+}
+
+[object, uuid(00000140-0000-0000-C000-000000000046)]
+interface IClassActivator : IUnknown
+{
+    HRESULT GetClassObject(
+        [in] REFCLSID rclsid,
+        [in] DWORD dwClassContext,
+        [in] LCID locale,
+        [in] REFIID riid,
+        [out, iid_is(riid)] void **ppv);
+}
+
+[object, uuid(99caf010-415e-11cf-8814-00aa00b569f5), pointer_default(unique)]
+interface IFillLockBytes: IUnknown
+{
+    [local]
+    HRESULT FillAppend
+        (
+        [in, size_is(cb), annotation("_In_reads_bytes_(cb)")] void const *pv,
+        [in, annotation("_In_")] ULONG cb,
+        [out, annotation("_Out_")] ULONG *pcbWritten);
+
+    [call_as(FillAppend)]
+    HRESULT _stdcall RemoteFillAppend(
+        [in, size_is(cb)] byte const *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbWritten);
+
+    [local]
+    HRESULT FillAt
+        (
+        [in, annotation("_In_")] ULARGE_INTEGER ulOffset,
+        [in, size_is(cb), annotation("_In_reads_bytes_(cb)")] void const *pv,
+        [in, annotation("_In_")] ULONG cb,
+        [out, annotation("_Out_")] ULONG *pcbWritten);
+
+    [call_as(FillAt)]
+    HRESULT _stdcall RemoteFillAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [in, size_is(cb)] byte const *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbWritten);
+
+    HRESULT SetFillSize
+        (
+        [in] ULARGE_INTEGER ulSize);
+
+    HRESULT Terminate
+        (
+        [in] BOOL bCanceled);
+}
+
+[object, uuid(a9d758a0-4617-11cf-95fc-00aa00680db4), pointer_default(unique)]
+interface IProgressNotify: IUnknown
+{
+    HRESULT OnProgress
+        (
+        [in] DWORD dwProgressCurrent,
+        [in] DWORD dwProgressMaximum,
+        [in] BOOL  fAccurate,
+        [in] BOOL  fOwner);
+}
+
+[local, object, uuid(0e6d4d90-6738-11cf-9608-00aa00680db4), pointer_default(unique)]
+interface ILayoutStorage: IUnknown
+{
+    HRESULT __stdcall LayoutScript
+        (
+        [in, annotation("_In_reads_(nEntries)")] StorageLayout *pStorageLayout,
+        [in, annotation("_In_")] DWORD nEntries,
+        [in, annotation("_Reserved_")] DWORD glfInterleavedFlag);
+    HRESULT __stdcall BeginMonitor(void);
+
+    HRESULT __stdcall EndMonitor(void);
+
+    HRESULT __stdcall ReLayoutDocfile
+        (
+        [in, annotation("__RPC__in")] OLECHAR *pwcsNewDfName);
+
+    HRESULT __stdcall ReLayoutDocfileOnILockBytes
+        (
+        [in, annotation("_In_")] ILockBytes *pILockBytes);
+}
+
+[object, uuid(30f3d47a-6447-11d1-8e3c-00c04fb9386d)]
+interface IBlockingLock: IUnknown
+{
+    HRESULT Lock([in] DWORD dwTimeout);
+
+    HRESULT Unlock(void);
+}
+
+[object, uuid(bc0bf6ae-8878-11d1-83e9-00c04fc2c6d4)]
+interface ITimeAndNoticeControl: IUnknown
+{
+    HRESULT SuppressChanges([in] DWORD res1,
+        [in] DWORD res2);
+}
+
+[object, uuid(8d19c834-8879-11d1-83e9-00c04fc2c6d4)]
+interface IOplockStorage: IUnknown
+{
+    HRESULT CreateStorageEx([in] LPCWSTR pwcsName,
+        [in] DWORD grfMode,
+        [in] DWORD stgfmt,
+        [in] DWORD grfAttrs,
+        [in] REFIID riid,
+        [out, iid_is(riid)] void**ppstgOpen);
+
+    HRESULT OpenStorageEx([in] LPCWSTR pwcsName,
+        [in] DWORD grfMode,
+        [in] DWORD stgfmt,
+        [in] DWORD grfAttrs,
+        [in] REFIID riid,
+        [out, iid_is(riid)] void**ppstgOpen);
+}
+
+[object, uuid(0e6d4d92-6738-11cf-9608-00aa00680db4), pointer_default(unique)]
+interface IDirectWriterLock : IUnknown
+{
+    HRESULT WaitForWriteAccess ([in] DWORD dwTimeout);
+
+    HRESULT ReleaseWriteAccess ();
+
+    HRESULT HaveWriteAccess ();
+}
+
+[object, uuid(00000026-0000-0000-C000-000000000046)]
+interface IUrlMon : IUnknown
+{
+    HRESULT AsyncGetClassBits(
+        [in]         REFCLSID   rclsid,
+        [in, unique] LPCWSTR    pszTYPE,
+        [in, unique] LPCWSTR    pszExt,
+        [in]         DWORD      dwFileVersionMS,
+        [in]         DWORD      dwFileVersionLS,
+        [in, unique] LPCWSTR    pszCodeBase,
+        [in]         IBindCtx * pbc,
+        [in]         DWORD      dwClassContext,
+        [in]         REFIID     riid,
+        [in]         DWORD      flags);
+}
+
+[local, object, uuid(00000145-0000-0000-C000-000000000046)]
+interface IForegroundTransfer : IUnknown
+{
+    HRESULT AllowForegroundTransfer(
+        [in, annotation("_Reserved_")] void *lpvReserved);
+}
+
+[uuid(969dc708-5c76-11d1-8d86-0000f804b057),
+    object]
+interface IThumbnailExtractor : IUnknown
+{
+    HRESULT ExtractThumbnail (
+        [in] IStorage *pStg,
+        [in] ULONG ulLength,
+        [in] ULONG ulHeight,
+        [out] ULONG *pulOutputLength,
+        [out] ULONG *pulOutputHeight,
+        [out] HBITMAP *phOutputBitmap);
+
+    HRESULT OnFileUpdated (
+        [in] IStorage *pStg);
+}
+
+[object, pointer_default(unique), uuid(947990de-cc28-11d2-a0f7-00805f858fb1)]
+interface IDummyHICONIncluder : IUnknown
+{
+    HRESULT Dummy([in]HICON h1, [in] HDC h2);
+}
+
+[object,
+    local, uuid(000001d5-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IProcessLock : IUnknown
+{
+    ULONG AddRefOnProcess();
+    ULONG ReleaseRefOnProcess();
+}
+
+[object,
+    local, uuid(000001d4-0000-0000-C000-000000000046), pointer_default(unique)]
+interface ISurrogateService : IUnknown
+{
+    HRESULT Init( [in, annotation("_In_")] REFGUID rguidProcessID,
+        [in, annotation("_In_")] IProcessLock* pProcessLock,
+        [out, annotation("_Out_")] BOOL* pfApplicationAware );
+    HRESULT ApplicationLaunch( [in, annotation("_In_")] REFGUID rguidApplID, 
+        [in, annotation("_In_")] ApplicationType appType );
+    HRESULT ApplicationFree( [in, annotation("_In_")] REFGUID rguidApplID );
+    HRESULT CatalogRefresh( [in, annotation("_Reserved_")] ULONG ulReserved );
+    HRESULT ProcessShutdown( [in, annotation("_In_")] ShutdownType shutdownType );
+}
+
+[local, object, uuid(00000034-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IInitializeSpy : IUnknown
+{
+    HRESULT PreInitialize(
+        [in, annotation("_In_")] DWORD dwCoInit, 
+        [in, annotation("_In_")] DWORD dwCurThreadAptRefs);
+    HRESULT PostInitialize(
+        [in, annotation("_In_")] HRESULT hrCoInit, 
+        [in, annotation("_In_")] DWORD dwCoInit, 
+        [in, annotation("_In_")] DWORD dwNewThreadAptRefs);
+    HRESULT PreUninitialize([in, annotation("_In_")] DWORD dwCurThreadAptRefs);
+    HRESULT PostUninitialize([in, annotation("_In_")] DWORD dwNewThreadAptRefs);
+};
+
+[local, object, uuid(A2F05A09-27A2-42B5-BC0E-AC163EF49D9B), pointer_default(unique)]
+interface IApartmentShutdown : IUnknown
+{
+    void OnUninitialize(
+        [in, annotation("_In_")] UINT64 ui64ApartmentIdentifier);
+}
+
+[object, uuid(00020405-0000-0000-C000-000000000046), pointer_default(unique),
+    local]
+interface ICreateTypeInfo: IUnknown
+{
+    HRESULT SetGuid(
+        [in] REFGUID guid);
+
+    HRESULT SetTypeFlags(
+        [in] UINT uTypeFlags);
+
+    HRESULT SetDocString(
+        [in, annotation("__RPC__in")] LPOLESTR pStrDoc);
+
+    HRESULT SetHelpContext(
+        [in] DWORD dwHelpContext);
+
+    HRESULT SetVersion(
+        [in] WORD wMajorVerNum,
+        [in] WORD wMinorVerNum);
+
+    HRESULT AddRefTypeInfo(
+
+        [in] ITypeInfo * pTInfo,
+        [in] HREFTYPE * phRefType);
+
+    HRESULT AddFuncDesc(
+        [in] UINT index,
+        [in] FUNCDESC * pFuncDesc);
+
+    HRESULT AddImplType(
+        [in] UINT index,
+        [in] HREFTYPE hRefType);
+
+    HRESULT SetImplTypeFlags(
+        [in] UINT index,
+        [in] INT implTypeFlags);
+
+    HRESULT SetAlignment(
+        [in] WORD cbAlignment);
+
+    HRESULT SetSchema(
+        [in, annotation("__RPC__in")] LPOLESTR pStrSchema);
+
+    HRESULT AddVarDesc(
+        [in] UINT index,
+        [in] VARDESC * pVarDesc);
+
+    HRESULT SetFuncAndParamNames(
+        [in] UINT index,
+        [in, size_is((UINT) cNames)]
+    [in, annotation("__RPC__in_ecount(cNames)")] LPOLESTR * rgszNames,
+        [in] UINT cNames);
+
+    HRESULT SetVarName(
+        [in] UINT index,
+        [in, annotation("__RPC__in")] LPOLESTR szName);
+
+    HRESULT SetTypeDescAlias(
+        [in] TYPEDESC * pTDescAlias);
+
+    HRESULT DefineFuncAsDllEntry(
+        [in] UINT index,
+        [in, annotation("__RPC__in")] LPOLESTR szDllName,
+        [in, annotation("__RPC__in")] LPOLESTR szProcName);
+
+    HRESULT SetFuncDocString(
+        [in] UINT index,
+        [in, annotation("__RPC__in")] LPOLESTR szDocString);
+
+    HRESULT SetVarDocString(
+        [in] UINT index,
+        [in, annotation("__RPC__in")] LPOLESTR szDocString);
+
+    HRESULT SetFuncHelpContext(
+        [in] UINT index,
+        [in] DWORD dwHelpContext);
+
+    HRESULT SetVarHelpContext(
+        [in] UINT index,
+        [in] DWORD dwHelpContext);
+
+    HRESULT SetMops(
+        [in] UINT index,
+        [in] BSTR bstrMops);
+
+    HRESULT SetTypeIdldesc(
+        [in] IDLDESC * pIdlDesc);
+
+    HRESULT LayOut(
+        void);
+}
+
+[object, uuid(0002040E-0000-0000-C000-000000000046), pointer_default(unique),
+    local]
+interface ICreateTypeInfo2: ICreateTypeInfo
+{
+    HRESULT DeleteFuncDesc(
+        [in] UINT index);
+
+    HRESULT DeleteFuncDescByMemId(
+        [in] MEMBERID memid,
+        [in] INVOKEKIND invKind);
+
+    HRESULT DeleteVarDesc(
+        [in] UINT index);
+
+    HRESULT DeleteVarDescByMemId(
+        [in] MEMBERID memid);
+
+    HRESULT DeleteImplType(
+        [in] UINT index);
+
+    HRESULT SetCustData(
+        [in] REFGUID guid,
+        [in] VARIANT * pVarVal);
+
+    HRESULT SetFuncCustData( 
+        [in] UINT index, 
+        [in] REFGUID guid, 
+        [in] VARIANT * pVarVal);
+
+    HRESULT SetParamCustData( 
+        [in] UINT indexFunc, 
+        [in] UINT indexParam, 
+        [in] REFGUID guid, 
+        [in] VARIANT * pVarVal);
+
+    HRESULT SetVarCustData( 
+        [in] UINT index, 
+        [in] REFGUID guid, 
+        [in] VARIANT * pVarVal);
+
+    HRESULT SetImplTypeCustData( 
+        [in] UINT index, 
+        [in] REFGUID guid, 
+        [in] VARIANT * pVarVal);
+
+    HRESULT SetHelpStringContext(
+        [in] ULONG dwHelpStringContext);
+
+    HRESULT SetFuncHelpStringContext(
+        [in] UINT index,
+        [in] ULONG dwHelpStringContext);
+
+    HRESULT SetVarHelpStringContext(
+        [in] UINT index,
+        [in] ULONG dwHelpStringContext);
+
+    HRESULT Invalidate(
+        void);
+
+    HRESULT SetName(
+        [in, annotation("__RPC__in")]  LPOLESTR szName);
+}
+
+[object, uuid(00020406-0000-0000-C000-000000000046), pointer_default(unique),
+    local]
+interface ICreateTypeLib : IUnknown
+{
+    HRESULT CreateTypeInfo(
+        [in, annotation("__RPC__in")]  LPOLESTR szName,
+        [in]  TYPEKIND tkind,
+        [out] ICreateTypeInfo ** ppCTInfo);
+
+    HRESULT SetName(
+        [in, annotation("__RPC__in")]  LPOLESTR szName);
+
+    HRESULT SetVersion(
+        [in] WORD wMajorVerNum,
+        [in] WORD wMinorVerNum);
+
+    HRESULT SetGuid(
+        [in] REFGUID guid);
+
+    HRESULT SetDocString(
+        [in, annotation("__RPC__in")] LPOLESTR szDoc);
+
+    HRESULT SetHelpFileName(
+        [in, annotation("__RPC__in")] LPOLESTR szHelpFileName);
+
+    HRESULT SetHelpContext(
+        [in] DWORD dwHelpContext);
+
+    HRESULT SetLcid(
+        [in] LCID lcid);
+
+    HRESULT SetLibFlags(
+        [in] UINT uLibFlags);
+
+    HRESULT SaveAllChanges(
+        void);
+}
+
+[object, uuid(0002040F-0000-0000-C000-000000000046), pointer_default(unique),
+    local]
+interface ICreateTypeLib2 : ICreateTypeLib
+{
+    HRESULT DeleteTypeInfo(
+        [in, annotation("__RPC__in")] LPOLESTR szName);
+
+    HRESULT SetCustData(
+        [in] REFGUID guid,
+        [in] VARIANT * pVarVal);
+
+    HRESULT SetHelpStringContext(
+        [in] ULONG dwHelpStringContext);
+
+    HRESULT SetHelpStringDll(
+        [in, annotation("__RPC__in")] LPOLESTR szFileName);
+}
+
+[object, uuid(00020400-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IDispatch : IUnknown
+{
+    HRESULT GetTypeInfoCount(
+        [out] UINT * pctinfo);
+
+    HRESULT GetTypeInfo(
+        [in] UINT iTInfo,
+        [in] LCID lcid,
+        [out] ITypeInfo ** ppTInfo);
+
+    HRESULT GetIDsOfNames(
+        [in] REFIID riid,
+        [in, size_is(cNames)] LPOLESTR * rgszNames,
+        [in, range(0, 16384)] UINT cNames,
+        [in] LCID lcid,
+        [out, size_is(cNames)] DISPID * rgDispId);
+
+    [local]
+    HRESULT Invoke(
+        [in, annotation("_In_")] DISPID dispIdMember,
+        [in, annotation("_In_")] REFIID riid,
+        [in, annotation("_In_")] LCID lcid,
+        [in, annotation("_In_")] WORD wFlags,
+        [in, out, annotation("_In_")] DISPPARAMS * pDispParams,
+        [out, annotation("_Out_opt_")] VARIANT * pVarResult,
+        [out, annotation("_Out_opt_")] EXCEPINFO * pExcepInfo,
+        [out, annotation("_Out_opt_")] UINT * puArgErr);
+
+    [call_as(Invoke)]
+    HRESULT RemoteInvoke(
+        [in] DISPID dispIdMember,
+        [in] REFIID riid,
+        [in] LCID lcid,
+        [in] DWORD dwFlags,
+        [in] DISPPARAMS * pDispParams,
+        [out] VARIANT * pVarResult,
+        [out] EXCEPINFO * pExcepInfo,
+        [out] UINT * pArgErr,
+        [in] UINT cVarRef,
+        [in, size_is(cVarRef)] UINT * rgVarRefIdx, 
+        [in, out, size_is(cVarRef)] VARIANTARG * rgVarRef);
+}
+
+[object, uuid(00020404-0000-0000-C000-000000000046), pointer_default(unique)]
+interface IEnumVARIANT : IUnknown
+{
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pCeltFetched)] VARIANT * rgVar,
+        [out] ULONG * pCeltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pCeltFetched)] VARIANT * rgVar,
+        [out] ULONG * pCeltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumVARIANT ** ppEnum);
+}
+
+[object, uuid(00020403-0000-0000-C000-000000000046), pointer_default(unique)]
+interface ITypeComp : IUnknown
+{
+    [local]
+    HRESULT Bind(
+        [in, annotation("__RPC__in")] LPOLESTR szName,
+        [in] ULONG lHashVal,
+        [in] WORD wFlags,
+        [out] ITypeInfo ** ppTInfo,
+        [out] DESCKIND * pDescKind,
+        [out] BINDPTR * pBindPtr);
+
+    [call_as(Bind)]
+    HRESULT RemoteBind(
+        [in] LPOLESTR szName,
+        [in] ULONG lHashVal,
+        [in] WORD wFlags,
+        [out] ITypeInfo ** ppTInfo,
+        [out] DESCKIND * pDescKind,
+        [out] LPFUNCDESC * ppFuncDesc,
+        [out] LPVARDESC * ppVarDesc,
+        [out] ITypeComp ** ppTypeComp,
+        [out] CLEANLOCALSTORAGE * pDummy);
+
+    [local]
+    HRESULT BindType(
+        [in, annotation("__RPC__in")] LPOLESTR szName,
+        [in] ULONG lHashVal,
+        [out] ITypeInfo ** ppTInfo,
+        [out] ITypeComp ** ppTComp);
+
+    [call_as(BindType)]
+    HRESULT RemoteBindType(
+        [in] LPOLESTR szName,
+        [in] ULONG lHashVal,
+        [out] ITypeInfo ** ppTInfo);
+}
+
+[object, uuid(00020401-0000-0000-C000-000000000046), pointer_default(unique)]
+interface ITypeInfo : IUnknown
+{
+    [local]
+    HRESULT GetTypeAttr(
+        [out] TYPEATTR ** ppTypeAttr);
+
+    [call_as(GetTypeAttr)]
+    HRESULT RemoteGetTypeAttr(
+        [out] LPTYPEATTR * ppTypeAttr,
+        [out] CLEANLOCALSTORAGE * pDummy);
+
+    HRESULT GetTypeComp(
+        [out] ITypeComp ** ppTComp);
+
+    [local]
+    HRESULT GetFuncDesc(
+        [in] UINT index,
+        [out] FUNCDESC ** ppFuncDesc);
+
+    [call_as(GetFuncDesc)]
+    HRESULT RemoteGetFuncDesc(
+        [in] UINT index,
+        [out] LPFUNCDESC * ppFuncDesc,
+        [out] CLEANLOCALSTORAGE * pDummy);
+
+    [local]
+    HRESULT GetVarDesc(
+        [in] UINT index,
+        [out] VARDESC ** ppVarDesc);
+
+    [call_as(GetVarDesc)]
+    HRESULT RemoteGetVarDesc(
+        [in] UINT index,
+        [out] LPVARDESC * ppVarDesc,
+        [out] CLEANLOCALSTORAGE * pDummy);
+
+    [local]
+    HRESULT GetNames(
+        [in] MEMBERID memid,
+        [out,size_is(cMaxNames),length_is(*pcNames)] BSTR * rgBstrNames,
+        [in] UINT cMaxNames,
+        [out] UINT * pcNames);
+
+    [call_as(GetNames)]
+    HRESULT RemoteGetNames(
+        [in] MEMBERID memid,
+        [out,size_is(cMaxNames),length_is(*pcNames)] BSTR * rgBstrNames,
+        [in] UINT cMaxNames,
+        [out] UINT * pcNames);
+
+    HRESULT GetRefTypeOfImplType(
+        [in] UINT index,
+        [out] HREFTYPE * pRefType);
+
+    HRESULT GetImplTypeFlags(
+        [in] UINT index,
+        [out] INT * pImplTypeFlags);
+
+    [local]
+    HRESULT GetIDsOfNames(
+        [in, size_is(cNames), annotation("__RPC__in_ecount(cNames)")] LPOLESTR * rgszNames,
+        [in] UINT cNames,
+        [out, size_is(cNames)] MEMBERID * pMemId);
+
+    [call_as(GetIDsOfNames)]
+    HRESULT LocalGetIDsOfNames(
+        void);
+
+    [local]
+    HRESULT Invoke(
+        [in] PVOID pvInstance,
+        [in] MEMBERID memid,
+        [in] WORD wFlags,
+        [in, out] DISPPARAMS * pDispParams,
+        [out] VARIANT * pVarResult,
+        [out] EXCEPINFO * pExcepInfo,
+        [out] UINT * puArgErr);
+
+    [call_as(Invoke)]
+    HRESULT LocalInvoke (
+        void);
+
+    [local]
+    HRESULT GetDocumentation(
+        [in] MEMBERID memid,
+        [out] BSTR * pBstrName,
+        [out] BSTR * pBstrDocString,
+        [out] DWORD * pdwHelpContext,
+        [out] BSTR * pBstrHelpFile);
+
+    [call_as(GetDocumentation)]
+    HRESULT RemoteGetDocumentation(
+        [in] MEMBERID memid,
+        [in] DWORD refPtrFlags,
+        [out] BSTR * pBstrName,
+        [out] BSTR * pBstrDocString,
+        [out] DWORD * pdwHelpContext,
+        [out] BSTR * pBstrHelpFile);
+
+    [local]
+    HRESULT GetDllEntry(
+        [in] MEMBERID memid,
+        [in] INVOKEKIND invKind,
+        [out] BSTR * pBstrDllName,
+        [out] BSTR * pBstrName,
+        [out] WORD * pwOrdinal);
+
+    [call_as(GetDllEntry)]
+    HRESULT RemoteGetDllEntry(
+        [in] MEMBERID memid,
+        [in] INVOKEKIND invKind,
+        [in] DWORD refPtrFlags,
+        [out] BSTR * pBstrDllName,
+        [out] BSTR * pBstrName,
+        [out] WORD * pwOrdinal);
+
+    HRESULT GetRefTypeInfo(
+        [in] HREFTYPE hRefType,
+        [out] ITypeInfo ** ppTInfo);
+
+    [local]
+    HRESULT AddressOfMember(
+        [in] MEMBERID memid,
+        [in] INVOKEKIND invKind,
+        [out] PVOID * ppv);
+
+    [call_as(AddressOfMember)]
+    HRESULT LocalAddressOfMember(
+        void);
+
+    [local]
+    HRESULT CreateInstance(
+        [in] IUnknown * pUnkOuter,
+        [in] REFIID riid,
+        [out, iid_is(riid)] PVOID * ppvObj);
+
+    [call_as(CreateInstance)]
+    HRESULT RemoteCreateInstance(
+        [in] REFIID riid,
+        [out, iid_is(riid)] IUnknown ** ppvObj);
+
+    HRESULT GetMops(
+        [in] MEMBERID memid,
+        [out] BSTR * pBstrMops);
+
+    [local]
+    HRESULT GetContainingTypeLib(
+        [out] ITypeLib ** ppTLib,
+        [out] UINT * pIndex);
+
+    [call_as(GetContainingTypeLib)]
+    HRESULT RemoteGetContainingTypeLib(
+        [out] ITypeLib ** ppTLib,
+        [out] UINT * pIndex);
+
+    [local]
+    void ReleaseTypeAttr(
+        [in] TYPEATTR * pTypeAttr);
+
+    [call_as(ReleaseTypeAttr)]
+    HRESULT LocalReleaseTypeAttr(
+        void);
+
+    [local]
+    void ReleaseFuncDesc(
+        [in] FUNCDESC * pFuncDesc);
+
+    [call_as(ReleaseFuncDesc)]
+    HRESULT LocalReleaseFuncDesc(
+        void);
+
+    [local]
+    void ReleaseVarDesc(
+        [in] VARDESC * pVarDesc);
+
+    [call_as(ReleaseVarDesc)]
+    HRESULT LocalReleaseVarDesc(
+        void);
+}
+
+[object, uuid(00020412-0000-0000-C000-000000000046), pointer_default(unique)]
+interface ITypeInfo2 : ITypeInfo
+{
+    HRESULT GetTypeKind(
+        [out] TYPEKIND * pTypeKind);
+
+    HRESULT GetTypeFlags(
+        [out] ULONG * pTypeFlags);
+
+    HRESULT GetFuncIndexOfMemId(
+        [in] MEMBERID memid, 
+        [in] INVOKEKIND invKind, 
+        [out] UINT * pFuncIndex);
+
+    HRESULT GetVarIndexOfMemId(
+        [in] MEMBERID memid, 
+        [out] UINT * pVarIndex);
+
+    HRESULT GetCustData(
+        [in] REFGUID guid,
+        [out] VARIANT * pVarVal);
+
+    HRESULT GetFuncCustData(
+        [in] UINT index, 
+        [in] REFGUID guid, 
+        [out] VARIANT * pVarVal);
+
+    HRESULT GetParamCustData(
+        [in] UINT indexFunc, 
+        [in] UINT indexParam, 
+        [in] REFGUID guid, 
+        [out] VARIANT * pVarVal);
+
+    HRESULT GetVarCustData(
+        [in] UINT index, 
+        [in] REFGUID guid, 
+        [out] VARIANT * pVarVal);
+
+    HRESULT GetImplTypeCustData(
+        [in] UINT index, 
+        [in] REFGUID guid, 
+        [out] VARIANT * pVarVal);
+
+    [local]
+    HRESULT GetDocumentation2(
+        [in] MEMBERID memid,
+        [in] LCID lcid,
+        [out] BSTR *pbstrHelpString,
+        [out] DWORD *pdwHelpStringContext,
+        [out] BSTR *pbstrHelpStringDll);
+
+    [call_as(GetDocumentation2)]
+    HRESULT RemoteGetDocumentation2(
+        [in] MEMBERID memid,
+        [in] LCID lcid,
+        [in] DWORD refPtrFlags,
+        [out] BSTR *pbstrHelpString,
+        [out] DWORD *pdwHelpStringContext,
+        [out] BSTR *pbstrHelpStringDll);
+
+    HRESULT GetAllCustData(
+        [out] CUSTDATA * pCustData);
+
+    HRESULT GetAllFuncCustData(
+        [in] UINT index, 
+        [out] CUSTDATA * pCustData);
+
+    HRESULT GetAllParamCustData(
+        [in] UINT indexFunc, 
+        [in] UINT indexParam, 
+        [out] CUSTDATA * pCustData);
+
+    HRESULT GetAllVarCustData(
+        [in] UINT index, 
+        [out] CUSTDATA * pCustData);
+
+    HRESULT GetAllImplTypeCustData(
+        [in] UINT index, 
+        [out] CUSTDATA * pCustData);
+}
+
+[object, uuid(00020402-0000-0000-C000-000000000046), pointer_default(unique)]
+interface ITypeLib : IUnknown
+{
+    [local]
+    UINT GetTypeInfoCount(
+        void);
+
+    [call_as(GetTypeInfoCount)]
+    HRESULT RemoteGetTypeInfoCount(
+        [out]  UINT * pcTInfo);
+
+    HRESULT GetTypeInfo(
+        [in]  UINT index,
+        [out] ITypeInfo ** ppTInfo);
+
+    HRESULT GetTypeInfoType(
+        [in]  UINT index,
+        [out] TYPEKIND * pTKind);
+
+    HRESULT GetTypeInfoOfGuid(
+        [in]  REFGUID guid,
+        [out] ITypeInfo ** ppTinfo);
+
+    [local]
+    HRESULT GetLibAttr(
+        [out] TLIBATTR ** ppTLibAttr);
+
+    [call_as(GetLibAttr)]
+    HRESULT RemoteGetLibAttr(
+        [out] LPTLIBATTR * ppTLibAttr,
+        [out] CLEANLOCALSTORAGE * pDummy);
+
+    HRESULT GetTypeComp(
+        [out] ITypeComp ** ppTComp);
+
+    [local]
+    HRESULT GetDocumentation(
+        [in]  INT index,
+        [out] BSTR * pBstrName,
+        [out] BSTR * pBstrDocString,
+        [out] DWORD * pdwHelpContext,
+        [out] BSTR * pBstrHelpFile);
+
+    [call_as(GetDocumentation)]
+    HRESULT RemoteGetDocumentation(
+        [in]  INT index,
+        [in]  DWORD refPtrFlags,
+        [out] BSTR * pBstrName,
+        [out] BSTR * pBstrDocString,
+        [out] DWORD * pdwHelpContext,
+        [out] BSTR * pBstrHelpFile);
+
+    [local]
+    HRESULT IsName(
+        [in, out, annotation("__RPC__inout")] LPOLESTR szNameBuf,
+        [in] ULONG lHashVal,
+        [out] BOOL * pfName);
+
+    [call_as(IsName)]
+    HRESULT RemoteIsName(
+        [in] LPOLESTR szNameBuf,
+        [in] ULONG lHashVal,
+        [out] BOOL * pfName,
+        [out] BSTR * pBstrLibName);
+
+    [local]
+    HRESULT FindName(
+        [in, out, annotation("__RPC__inout")] LPOLESTR szNameBuf,
+        [in] ULONG lHashVal,
+        [out,size_is(*pcFound),length_is(*pcFound)] ITypeInfo **ppTInfo,
+        [out,size_is(*pcFound),length_is(*pcFound)] MEMBERID * rgMemId,
+        [in, out] USHORT * pcFound);
+
+    [call_as(FindName)]
+    HRESULT RemoteFindName(
+        [in] LPOLESTR szNameBuf,
+        [in] ULONG lHashVal,
+        [out,size_is(*pcFound),length_is(*pcFound)] ITypeInfo **ppTInfo,
+        [out,size_is(*pcFound),length_is(*pcFound)] MEMBERID * rgMemId,
+        [in, out] USHORT * pcFound,
+        [out] BSTR * pBstrLibName);
+
+    [local]
+    void ReleaseTLibAttr(
+        [in]  TLIBATTR * pTLibAttr);
+
+    [call_as(ReleaseTLibAttr)]
+    HRESULT LocalReleaseTLibAttr(
+        void);
+}
+
+[object, uuid(00020411-0000-0000-C000-000000000046), pointer_default(unique)]
+interface ITypeLib2 : ITypeLib
+{
+    HRESULT GetCustData(
+        [in] REFGUID guid,
+        [out] VARIANT * pVarVal);
+
+    [local]
+    HRESULT GetLibStatistics(
+        [out] ULONG * pcUniqueNames,
+        [out] ULONG * pcchUniqueNames);
+
+    [call_as(GetLibStatistics)]
+    HRESULT RemoteGetLibStatistics(
+        [out] ULONG * pcUniqueNames,
+        [out] ULONG * pcchUniqueNames);
+
+    [local]
+    HRESULT GetDocumentation2(
+        [in]  INT index,
+        [in]  LCID lcid,
+        [out] BSTR *pbstrHelpString,
+        [out] DWORD *pdwHelpStringContext,
+        [out] BSTR *pbstrHelpStringDll);
+
+    [call_as(GetDocumentation2)]
+    HRESULT RemoteGetDocumentation2(
+        [in]  INT index,
+        [in]  LCID lcid,
+        [in]  DWORD refPtrFlags,
+        [out] BSTR *pbstrHelpString,
+        [out] DWORD *pdwHelpStringContext,
+        [out] BSTR *pbstrHelpStringDll);
+
+    HRESULT GetAllCustData(
+        [out] CUSTDATA * pCustData);
+}
+
+[object, uuid(00020410-0000-0000-C000-000000000046), pointer_default(unique),
+    local]
+interface ITypeChangeEvents: IUnknown
+{
+    HRESULT RequestTypeChange(
+        [in] CHANGEKIND changeKind,
+        [in] ITypeInfo * pTInfoBefore,
+        [in, annotation("__RPC__in")] LPOLESTR pStrName,
+        [out] INT * pfCancel);
+
+    HRESULT AfterTypeChange(
+        [in] CHANGEKIND changeKind,
+        [in] ITypeInfo * pTInfoAfter,
+        [in, annotation("__RPC__in")] LPOLESTR pStrName);
+}
+
+[object, uuid(1CF2B120-547D-101B-8E65-08002B2BD119), pointer_default(unique)]
+interface IErrorInfo: IUnknown
+{
+    HRESULT GetGUID(
+        [out] GUID * pGUID);
+
+    HRESULT GetSource(
+        [out] BSTR * pBstrSource);
+
+    HRESULT GetDescription(
+        [out] BSTR * pBstrDescription);
+
+    HRESULT GetHelpFile(
+        [out] BSTR * pBstrHelpFile);
+
+    HRESULT GetHelpContext(
+        [out] DWORD * pdwHelpContext);
+}
+
+[object, uuid(22F03340-547D-101B-8E65-08002B2BD119), pointer_default(unique)]
+interface ICreateErrorInfo: IUnknown
+{
+    HRESULT SetGUID(
+        [in] REFGUID rguid);
+
+    HRESULT SetSource(
+        [in] LPOLESTR szSource);
+
+    HRESULT SetDescription(
+        [in] LPOLESTR szDescription);
+
+    HRESULT SetHelpFile(
+        [in] LPOLESTR szHelpFile);
+
+    HRESULT SetHelpContext(
+        [in] DWORD dwHelpContext);
+}
+
+[object, uuid(DF0B3D60-548F-101B-8E65-08002B2BD119), pointer_default(unique)]
+interface ISupportErrorInfo: IUnknown
+{
+    HRESULT InterfaceSupportsErrorInfo(
+        [in]  REFIID riid);
+}
+
+[object, uuid(0000002E-0000-0000-C000-000000000046)]
+interface ITypeFactory : IUnknown
+{
+    HRESULT CreateFromTypeInfo(
+        [in] ITypeInfo *pTypeInfo,
+        [in] REFIID riid,
+        [out, iid_is(riid)] IUnknown **ppv);
+}
+
+[local, object, uuid(0000002D-0000-0000-C000-000000000046)]
+interface ITypeMarshal : IUnknown
+{
+    HRESULT Size(
+        [in]  PVOID pvType,
+        [in]  DWORD dwDestContext,
+        [in]  PVOID pvDestContext,
+        [out] ULONG * pSize);
+
+    HRESULT Marshal(
+        [in]  PVOID pvType,
+        [in]  DWORD dwDestContext,
+        [in]  PVOID pvDestContext,
+        [in]  ULONG cbBufferLength,
+        [out, annotation("_Out_writes_bytes_to_(cbBufferLength, *pcbWritten)")] BYTE  * pBuffer,
+        [out, annotation("_Out_")] ULONG * pcbWritten);
+
+    HRESULT Unmarshal(
+        [out] PVOID pvType,
+        [in]  DWORD dwFlags,
+        [in]  ULONG cbBufferLength,
+        [in, annotation("_In_reads_(cbBufferLength)")]  BYTE  * pBuffer,
+        [out, annotation("_Out_")] ULONG * pcbRead);
+
+    HRESULT Free(
+        [in] PVOID pvType);
+}
+
+[local, object, uuid(0000002F-0000-0000-C000-000000000046)]
+interface IRecordInfo: IUnknown
+{
+    HRESULT RecordInit(
+        [out] PVOID pvNew);
+
+    HRESULT RecordClear(
+        [in]  PVOID pvExisting);
+
+    HRESULT RecordCopy(
+        [in]  PVOID pvExisting,
+        [out] PVOID pvNew);
+
+    HRESULT GetGuid(
+        [out] GUID * pguid);
+
+    HRESULT GetName(
+        [out] BSTR * pbstrName);
+
+    HRESULT GetSize(
+        [out] ULONG * pcbSize);
+
+    HRESULT GetTypeInfo(
+        [out] ITypeInfo ** ppTypeInfo);
+
+    HRESULT GetField(
+        [in]  PVOID pvData,
+        [in]  LPCOLESTR szFieldName,
+        [out] VARIANT * pvarField);
+
+    HRESULT GetFieldNoCopy(
+        [in]  PVOID pvData,
+        [in]  LPCOLESTR szFieldName,
+        [out] VARIANT * pvarField,
+        [out] PVOID * ppvDataCArray);
+
+    HRESULT PutField(
+        [in] ULONG wFlags,
+        [in,out] PVOID pvData,
+        [in]  LPCOLESTR szFieldName,
+        [in]  VARIANT * pvarField);
+
+    HRESULT PutFieldNoCopy(
+        [in] ULONG wFlags,
+        [in,out] PVOID pvData,
+        [in]  LPCOLESTR szFieldName,
+        [in]  VARIANT * pvarField);
+
+    HRESULT GetFieldNames(
+        [in,out] ULONG * pcNames,
+        [out,size_is(*pcNames),length_is(*pcNames)] BSTR * rgBstrNames);
+
+    BOOL IsMatchingType(
+        [in] IRecordInfo * pRecordInfo);
+
+    PVOID RecordCreate();
+
+    HRESULT RecordCreateCopy(
+        [in] PVOID pvSource,
+        [out] PVOID * ppvDest);
+
+    HRESULT RecordDestroy(
+        [in] PVOID pvRecord);
+}
+
+[object, uuid(3127CA40-446E-11CE-8135-00AA004BB851), pointer_default(unique)]
+interface IErrorLog : IUnknown
+{
+    HRESULT AddError(
+        [in] LPCOLESTR pszPropName,
+        [in] EXCEPINFO * pExcepInfo);
+}
+
+[object, uuid(55272A00-42CB-11CE-8135-00AA004BB851), pointer_default(unique)]
+interface IPropertyBag : IUnknown
+{
+    [local]
+    HRESULT Read(
+        [in] LPCOLESTR pszPropName,
+        [in, out] VARIANT * pVar,
+        [in, unique] IErrorLog * pErrorLog);
+
+    [call_as(Read)]
+    HRESULT RemoteRead(
+        [in] LPCOLESTR pszPropName,
+        [out] VARIANT * pVar,
+        [in, unique] IErrorLog * pErrorLog,
+        [in] DWORD varType,
+        [in] IUnknown * pUnkObj);
+
+    HRESULT Write(
+        [in] LPCOLESTR pszPropName,
+        [in] VARIANT * pVar);
+}
+
+typedef struct PROPBAG2
+{
+    DWORD dwType;
+    VARTYPE vt;
+    CLIPFORMAT cfType;
+    DWORD dwHint;
+    LPOLESTR pstrName;
+    CLSID clsid;
+} 	PROPBAG2;
+
+[uuid(22F55882-280B-11d0-A8A9-00A0C90C2004), object, local, pointer_default(unique)]
+interface IPropertyBag2 : IUnknown
+{
+    HRESULT Read( 
+        /* [in] */ ULONG cProperties,
+        /* [size_is][in] */ [annotation("__RPC__in_ecount_full(cProperties)")] PROPBAG2 *pPropBag,
+        /* [unique][in] */ [annotation("__RPC__in_opt")] IErrorLog *pErrLog,
+        /* [size_is][out] */ [annotation("__RPC__out_ecount_full(cProperties)")] VARIANT *pvarValue,
+        /* [size_is][unique][out][in] */ [annotation("__RPC__inout_ecount_full_opt(cProperties)")] HRESULT *phrError);
+    
+    HRESULT Write( 
+        /* [in] */ ULONG cProperties,
+        /* [size_is][in] */ [annotation("__RPC__in_ecount_full(cProperties)")] PROPBAG2 *pPropBag,
+        /* [size_is][in] */ [annotation("__RPC__in_ecount_full(cProperties)")] VARIANT *pvarValue);
+    
+    HRESULT CountProperties( 
+        /* [out] */ [annotation("__RPC__out")] ULONG *pcProperties);
+    
+    HRESULT GetPropertyInfo( 
+        /* [in] */ ULONG iProperty,
+        /* [in] */ ULONG cProperties,
+        /* [size_is][out] */ [annotation("__RPC__out_ecount_full(cProperties)")] PROPBAG2 *pPropBag,
+        /* [out] */ [annotation("__RPC__out")] ULONG *pcProperties);
+    
+    HRESULT LoadObject( 
+        /* [in] */ [annotation("__RPC__in")] LPCOLESTR pstrName,
+        /* [in] */ DWORD dwHint,
+        /* [in] */ [annotation("__RPC__in_opt")] IUnknown *pUnkObject,
+        /* [unique][in] */ [annotation("__RPC__in_opt")] IErrorLog *pErrLog);
+};

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E403DE99-BC87-42AD-B7A9-DA82811DEBF6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>idl2cs</RootNamespace>
+    <AssemblyName>idl2cs</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\InternalTools\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\InternalTools\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DebugSymbols>false</DebugSymbols>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>idl2cs.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CustomMarshalers" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="inject\inject.vcxproj">
+      <Project>{34EDF5B4-A845-446F-9CFE-6830FADC296B}</Project>
+      <Name>inject</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Declarations\AccessModifierType.cs" />
+    <Compile Include="Declarations\ArrayWrapperDeclararation.cs" />
+    <Compile Include="Declarations\BaseTypeDeclaration.cs" />
+    <Compile Include="Declarations\CodeWriter.cs" />
+    <Compile Include="CommandLineArguments.cs" />
+    <Compile Include="CompiledLibrary.cs" />
+    <Compile Include="Declarations\ConstDeclaration.cs" />
+    <Compile Include="Declarations\DelegateWrapperDeclaration.cs" />
+    <Compile Include="Declarations\DelegateDeclaration.cs" />
+    <Compile Include="Declarations\InterfaceVtblDeclaration.cs" />
+    <Compile Include="Declarations\InterfaceWrapperDeclaration.cs" />
+    <Compile Include="Declarations\InterfaceDeclaration.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TypeLib\Native.cs" />
+    <Compile Include="Declarations\NativeConstantsDeclaration.cs" />
+    <Compile Include="Declarations\EnumDeclaration.cs" />
+    <Compile Include="Declarations\FieldDeclaration.cs" />
+    <Compile Include="TypeLib\LibDesc.cs" />
+    <Compile Include="Declarations\MethodDeclaration.cs" />
+    <Compile Include="TypeLib\MethodDesc.cs" />
+    <Compile Include="TypeLib\ParameterDesc.cs" />
+    <Compile Include="Declarations\NativeMethodsDeclaration.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Declarations\StructDeclaration.cs" />
+    <Compile Include="Declarations\TextBlock.cs" />
+    <Compile Include="TypeLib\TypeDesc.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="WorkingFolder.cs" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <TextStylePolicy TabWidth="4" EolMarker="Unix" inheritsSet="Mono" inheritsScope="text/plain" scope="text/plain" />
+          <TextStylePolicy FileWidth="120" TabWidth="4" EolMarker="Unix" inheritsSet="Mono" inheritsScope="text/plain" scope="text/x-csharp" />
+          <CSharpFormattingPolicy inheritsSet="1TBS" inheritsScope="text/x-csharp" scope="text/x-csharp" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Content Include="inject\bin\inject.dll" />
+    <Content Include="midl\1033\clui.dll" />
+    <Content Include="midl\c1.dll" />
+    <Content Include="midl\cl.exe" />
+    <Content Include="midl\midl.exe" />
+    <Content Include="midl\midlc.exe" />
+    <Content Include="midl\mspdb120.dll" />
+    <Content Include="midl\oaidl.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TransformIDL.tt">
+      <LastGenOutput>TransformIDL.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,185 @@
+//SuppressedTypes:  IUnknown;Guid;SIZE;POINT;RECT;BOOL;BOOLEAN;FILETIME;LUID;SECURITY_ATTRIBUTES;FARPROC
+//Namespaces:       Win32
+/* <#@ include file="..\InternalTools\TransformIDL.tt" #> */
+
+[
+    uuid(00000000-0000-0000-0000-000000000001),
+    version(1.0),
+    helpstring("Import"),
+    hidden
+]
+library Import
+{
+    //ignore
+    [uuid(D4B7BFAF-5B5D-4A9E-B234-6F8DCAAE9B22), object, local, pointer_default(unique)]
+    interface FARPROC : __Delegate
+    {
+        void FARPROC();
+    }
+
+    module NativeConstants_kernel32
+    {
+        const UINT DONT_RESOLVE_DLL_REFERENCES         = 0x00000001;
+        const UINT LOAD_LIBRARY_AS_DATAFILE            = 0x00000002;
+        const UINT LOAD_WITH_ALTERED_SEARCH_PATH       = 0x00000008;
+        const UINT LOAD_IGNORE_CODE_AUTHZ_LEVEL        = 0x00000010;
+        const UINT LOAD_LIBRARY_AS_IMAGE_RESOURCE      = 0x00000020;
+        const UINT LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE  = 0x00000040;
+        const UINT LOAD_LIBRARY_REQUIRE_SIGNED_TARGET  = 0x00000080;
+        const UINT LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR    = 0x00000100;
+        const UINT LOAD_LIBRARY_SEARCH_APPLICATION_DIR = 0x00000200;
+        const UINT LOAD_LIBRARY_SEARCH_USER_DIRS       = 0x00000400;
+        const UINT LOAD_LIBRARY_SEARCH_SYSTEM32        = 0x00000800;
+        const UINT LOAD_LIBRARY_SEARCH_DEFAULT_DIRS    = 0x00001000;
+        const UINT GET_MODULE_HANDLE_EX_FLAG_PIN                = (0x00000001);
+        const UINT GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT = (0x00000002);
+        const UINT GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS       = (0x00000004);
+    }
+
+    typedef IntPtr DLL_DIRECTORY_COOKIE;
+
+    midl_pragma warning(disable: 2495)
+
+    [dllname("psapi.dll")]
+    module NativeMethods_psapi
+    {
+        [entry("GetModuleFileNameExA")]
+        [annotation("_Success_(return != 0) _Ret_range_(1, nSize)")]
+        DWORD GetModuleFileNameEx___overloaded000(
+            [annotation("_In_opt_")] HANDLE hProcess,
+            [annotation("_In_opt_")] HMODULE hModule,
+            [annotation("_When_(return < nSize, _Out_writes_to_(nSize, return + 1)) _When_(return == nSize, _Out_writes_all_(nSize))")] LPSTR lpFilename,
+            [annotation("_In_")] DWORD nSize);
+
+        [entry("GetModuleFileNameExW")]
+        [annotation("_Success_(return != 0) _Ret_range_(1, nSize)")]
+        DWORD GetModuleFileNameEx(
+            [annotation("_In_opt_")] HANDLE hProcess,
+            [annotation("_In_opt_")] HMODULE hModule,
+            [annotation("_When_(return < nSize, _Out_writes_to_(nSize, return + 1)) _When_(return == nSize, _Out_writes_all_(nSize))")] LPWSTR lpFilename,
+            [annotation("_In_")] DWORD nSize);
+    }
+
+    [dllname("kernel32.dll")]
+    module NativeMethods_kernel32
+    {
+        [entry("AddDllDirectory")]
+        DLL_DIRECTORY_COOKIE AddDllDirectory(
+            [annotation("_In_")] LPCWSTR NewDirectory);
+
+        [entry("DisableThreadLibraryCalls")]
+        BOOL DisableThreadLibraryCalls(
+            [annotation("_In_")] HMODULE hLibModule);
+
+        [entry("FreeLibrary")]
+        BOOL FreeLibrary(
+            [annotation("_In_")] HMODULE hLibModule);
+
+        [entry("FreeLibraryAndExitThread")]
+        void FreeLibraryAndExitThread(
+            [annotation("_In_")] HMODULE hLibModule,
+            [annotation("_In_")] DWORD dwExitCode);
+
+        [entry("GetDllDirectoryA")]
+        [annotation("_Success_(return != 0 && return < nBufferLength)")]
+        DWORD GetDllDirectory___overloaded000(
+            [annotation("_In_")] DWORD nBufferLength,
+            [annotation("_Out_writes_to_opt_(nBufferLength, return + 1)")] LPSTR lpBuffer);
+
+        [entry("GetDllDirectoryW")]
+        [annotation("_Success_(return != 0 && return < nBufferLength)")]
+        DWORD GetDllDirectory(
+            [annotation("_In_")] DWORD nBufferLength,
+            [annotation("_Out_writes_to_opt_(nBufferLength, return + 1)")] LPWSTR lpBuffer);
+
+        [entry("GetModuleFileNameA")]
+        [annotation("_Success_(return != 0) _Ret_range_(1, nSize)")]
+        DWORD GetModuleFileName_overloaded000(
+            [annotation("_In_opt_")] HMODULE hModule,
+            [annotation("_Out_writes_to_(nSize, ((return < nSize) ? (return + 1) : nSize))")] LPSTR lpFilename,
+            [annotation("_In_")] DWORD nSize);
+
+        [entry("GetModuleFileNameW")]
+        [annotation("_Success_(return != 0) _Ret_range_(1, nSize)")]
+        DWORD GetModuleFileName(
+            [annotation("_In_opt_")] HMODULE hModule,
+            [annotation("_Out_writes_to_(nSize, ((return < nSize) ? (return + 1) : nSize))")] LPWSTR lpFilename,
+            [annotation("_In_")] DWORD nSize);
+
+        [entry("GetModuleHandleA")]
+        [annotation("_When_(lpModuleName == NULL, _Ret_notnull_) _When_(lpModuleName != NULL, _Ret_maybenull_)")]
+        HMODULE GetModuleHandle___overloaded000(
+            [annotation("_In_opt_")] LPCSTR lpModuleName);
+
+        [entry("GetModuleHandleW")]
+        [annotation("_When_(lpModuleName == NULL, _Ret_notnull_) _When_(lpModuleName != NULL, _Ret_maybenull_)")]
+        HMODULE GetModuleHandle(
+            [annotation("_In_opt_")] LPCWSTR lpModuleName);
+
+        [entry("GetModuleHandleExA")]
+        BOOL GetModuleHandleEx_overloaded000(
+            [annotation("_In_")] DWORD dwFlags,
+            [annotation("_In_opt_")] LPCSTR lpModuleName,
+            [annotation("_Out_")] HMODULE * phModule);
+
+        [entry("GetModuleHandleExW")]
+        BOOL GetModuleHandleEx(
+            [annotation("_In_")] DWORD dwFlags,
+            [annotation("_In_opt_")] LPCWSTR lpModuleName,
+            [annotation("_Out_")] HMODULE * phModule);
+
+        [entry("GetProcAddress")]
+        FARPROC GetProcAddress(
+            [annotation("_In_")] HMODULE hModule,
+            [annotation("_In_")] LPCSTR lpProcName);
+
+        [entry("LoadLibraryA")]
+        [annotation("_Ret_maybenull_")]
+        HMODULE LoadLibrary_overloaded000(
+            [annotation("_In_")] LPCSTR lpLibFileName);
+
+        [entry("LoadLibraryW")]
+        [annotation("_Ret_maybenull_")]
+        HMODULE LoadLibrary(
+            [annotation("_In_")] LPCWSTR lpLibFileName);
+
+        [entry("LoadLibraryExA")]
+        [annotation("_Ret_maybenull_")]
+        HMODULE LoadLibraryEx___overloaded000(
+            [annotation("_In_")] LPCSTR lpLibFileName,
+            [annotation("_Reserved_")] HANDLE hFile,
+            [annotation("_In_")] DWORD dwFlags);
+
+        [entry("LoadLibraryExW")]
+        [annotation("_Ret_maybenull_")]
+        HMODULE LoadLibraryEx(
+            [annotation("_In_")] LPCWSTR lpLibFileName,
+            [annotation("_Reserved_")] HANDLE hFile,
+            [annotation("_In_")] DWORD dwFlags);
+
+        [entry("LoadPackagedLibrary")]
+        [annotation("_Ret_maybenull_")]
+        HMODULE LoadPackagedLibrary(
+            [annotation("_In_")]       LPCWSTR lpwLibFileName,
+            [annotation("_Reserved_")] DWORD Reserved);
+
+        [entry("RemoveDllDirectory")]
+        BOOL RemoveDllDirectory(
+            [annotation("_In_")] DLL_DIRECTORY_COOKIE Cookie);
+
+        [entry("SetDefaultDllDirectories")]
+        BOOL SetDefaultDllDirectories(
+            [annotation("_In_")] DWORD DirectoryFlags);
+
+        [entry("SetDllDirectoryA")]
+        BOOL SetDllDirectory___overloaded000(
+            [annotation("_In_opt_")] LPCSTR lpPathName);
+
+        [entry("SetDllDirectoryW")]
+        BOOL SetDllDirectory(
+            [annotation("_In_opt_")] LPCWSTR lpPathName);
+    }
+
+    midl_pragma warning(enable: 2495)
+}
+

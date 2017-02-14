@@ -1,0 +1,342 @@
+//SuppressedTypes:  IUnknown;Guid;SIZE;POINT;RECT;BOOL;BOOLEAN
+//Namespaces:       Win32  
+/* <#@ include file="..\InternalTools\TransformIDL.tt" #> */
+
+[
+    uuid(00000000-0000-0000-0000-000000000000),
+    version(1.0),
+    helpstring("Import"),
+    hidden
+]
+[hidden] library Import
+{
+    module NativeConstants_win32
+    {        
+        const UINT WS_OVERLAPPED = 0x00000000;
+        const UINT WS_POPUP = 0x80000000;
+        const UINT WS_CHILD = 0x40000000;
+        const UINT WS_MINIMIZE = 0x20000000;
+        const UINT WS_VISIBLE = 0x10000000;
+        const UINT WS_DISABLED = 0x08000000;
+        const UINT WS_CLIPSIBLINGS = 0x04000000;
+        const UINT WS_CLIPCHILDREN = 0x02000000;
+        const UINT WS_MAXIMIZE = 0x01000000;
+        const UINT WS_CAPTION = 0x00C00000;
+        const UINT WS_BORDER = 0x00800000;
+        const UINT WS_DLGFRAME = 0x00400000;
+        const UINT WS_VSCROLL = 0x00200000;
+        const UINT WS_HSCROLL = 0x00100000;
+        const UINT WS_SYSMENU = 0x00080000;
+        const UINT WS_THICKFRAME = 0x00040000;
+        const UINT WS_GROUP = 0x00020000;
+        const UINT WS_TABSTOP = 0x00010000;
+        const UINT WS_MINIMIZEBOX = 0x00020000;
+        const UINT WS_MAXIMIZEBOX = 0x00010000;
+        const UINT WS_TILED = 0x00000000;
+        const UINT WS_ICONIC = 0x20000000;
+        const UINT WS_SIZEBOX = 0x00040000;
+        const UINT WS_TILEDWINDOW = 0x00CF0000;
+        const UINT WS_OVERLAPPEDWINDOW = 0x00CF0000;
+        const UINT WS_POPUPWINDOW = 0x80880000;
+        const UINT WS_CHILDWINDOW = 0x40000000;
+
+        const UINT WS_EX_DLGMODALFRAME = 0x00000001;
+        const UINT WS_EX_NOPARENTNOTIFY = 0x00000004;
+        const UINT WS_EX_TOPMOST = 0x00000008;
+        const UINT WS_EX_ACCEPTFILES = 0x00000010;
+        const UINT WS_EX_TRANSPARENT = 0x00000020;
+        const UINT WS_EX_MDICHILD = 0x00000040;
+        const UINT WS_EX_TOOLWINDOW = 0x00000080;
+        const UINT WS_EX_WINDOWEDGE = 0x00000100;
+        const UINT WS_EX_CLIENTEDGE = 0x00000200;
+        const UINT WS_EX_CONTEXTHELP = 0x00000400;
+        const UINT WS_EX_RIGHT = 0x00001000;
+        const UINT WS_EX_LEFT = 0x00000000;
+        const UINT WS_EX_RTLREADING = 0x00002000;
+        const UINT WS_EX_LTRREADING = 0x00000000;
+        const UINT WS_EX_LEFTSCROLLBAR = 0x00004000;
+        const UINT WS_EX_RIGHTSCROLLBAR = 0x00000000;
+        const UINT WS_EX_CONTROLPARENT = 0x00010000;
+        const UINT WS_EX_STATICEDGE = 0x00020000;
+        const UINT WS_EX_APPWINDOW = 0x00040000;
+        const UINT WS_EX_OVERLAPPEDWINDOW = 0x00000300;
+        const UINT WS_EX_PALETTEWINDOW = 0x00000188;
+        const UINT WS_EX_LAYERED = 0x00080000;
+        const UINT WS_EX_NOINHERITLAYOUT = 0x00100000;
+        const UINT WS_EX_NOREDIRECTIONBITMAP = 0x00200000;
+        const UINT WS_EX_LAYOUTRTL = 0x00400000;
+        const UINT WS_EX_COMPOSITED = 0x02000000;
+        const UINT WS_EX_NOACTIVATE = 0x08000000;
+
+        const UINT CS_VREDRAW = 0x0001;
+        const UINT CS_HREDRAW = 0x0002;
+        const UINT CS_DBLCLKS = 0x0008;
+        const UINT CS_OWNDC = 0x0020;
+        const UINT CS_CLASSDC = 0x0040;
+        const UINT CS_PARENTDC = 0x0080;
+        const UINT CS_NOCLOSE = 0x0200;
+        const UINT CS_SAVEBITS = 0x0800;
+        const UINT CS_BYTEALIGNCLIENT = 0x1000;
+        const UINT CS_BYTEALIGNWINDOW = 0x2000;
+        const UINT CS_GLOBALCLASS = 0x4000;
+        const UINT CS_IME = 0x00010000;
+        const UINT CS_DROPSHADOW = 0x00020000;
+
+        const INT CW_USEDEFAULT = 0x80000000;
+
+        const UINT SW_HIDE = 0;
+        const UINT SW_SHOWNORMAL = 1;
+        const UINT SW_NORMAL = 1;
+        const UINT SW_SHOWMINIMIZED = 2;
+        const UINT SW_SHOWMAXIMIZED = 3;
+        const UINT SW_MAXIMIZE = 3;
+        const UINT SW_SHOWNOACTIVATE = 4;
+        const UINT SW_SHOW = 5;
+        const UINT SW_MINIMIZE = 6;
+        const UINT SW_SHOWMINNOACTIVE = 7;
+        const UINT SW_SHOWNA = 8;
+        const UINT SW_RESTORE = 9;
+        const UINT SW_SHOWDEFAULT = 10;
+        const UINT SW_FORCEMINIMIZE = 11;
+        const UINT SW_MAX = 11;
+
+        const UINT QS_KEY = 0x0001;
+        const UINT QS_MOUSEMOVE = 0x0002;
+        const UINT QS_MOUSEBUTTON = 0x0004;
+        const UINT QS_POSTMESSAGE = 0x0008;
+        const UINT QS_TIMER = 0x0010;
+        const UINT QS_PAINT = 0x0020;
+        const UINT QS_SENDMESSAGE = 0x0040;
+        const UINT QS_HOTKEY = 0x0080;
+        const UINT QS_ALLPOSTMESSAGE = 0x0100;
+        const UINT QS_RAWINPUT = 0x0400;
+        const UINT QS_TOUCH = 0x0800;
+        const UINT QS_POINTER = 0x1000;
+        const UINT QS_MOUSE = 0x0006;
+        const UINT QS_INPUT = 0x1C07;
+        const UINT QS_ALLEVENTS = 0x1CBF;
+        const UINT QS_ALLINPUT = 0x1CFF;
+
+        const UINT PM_NOREMOVE = 0x0000;
+        const UINT PM_REMOVE = 0x0001;
+        const UINT PM_NOYIELD = 0x0002;
+        const UINT PM_QS_INPUT = 0x1C070000;
+        const UINT PM_QS_POSTMESSAGE = 0x00980000;
+        const UINT PM_QS_PAINT = 0x00200000;
+        const UINT PM_QS_SENDMESSAGE = 0x00400000;
+
+        const UINT WA_INACTIVE = 0;
+        const UINT WA_ACTIVE = 1;
+        const UINT WA_CLICKACTIVE = 2;
+
+        const UINT WM_NULL = 0x0000;
+        const UINT WM_CREATE = 0x0001;
+        const UINT WM_DESTROY = 0x0002;
+        const UINT WM_MOVE = 0x0003;
+        const UINT WM_SIZE = 0x0005;
+        const UINT WM_ACTIVATE = 0x0006;
+        const UINT WM_SETFOCUS = 0x0007;
+        const UINT WM_KILLFOCUS = 0x0008;
+        const UINT WM_ENABLE = 0x000A;
+        const UINT WM_SETREDRAW = 0x000B;
+        const UINT WM_SETTEXT = 0x000C;
+        const UINT WM_GETTEXT = 0x000D;
+        const UINT WM_GETTEXTLENGTH = 0x000E;
+        const UINT WM_PAINT = 0x000F;
+        const UINT WM_CLOSE = 0x0010;
+        const UINT WM_QUERYENDSESSION = 0x0011;
+        const UINT WM_QUERYOPEN = 0x0013;
+        const UINT WM_ENDSESSION = 0x0016;
+        const UINT WM_QUIT = 0x0012;
+        const UINT WM_ERASEBKGND = 0x0014;
+        const UINT WM_SYSCOLORCHANGE = 0x0015;
+        const UINT WM_SHOWWINDOW = 0x0018;
+        const UINT WM_WININICHANGE = 0x001A;
+        const UINT WM_SETTINGCHANGE = 0x001A;
+        const UINT WM_DEVMODECHANGE = 0x001B;
+        const UINT WM_ACTIVATEAPP = 0x001C;
+        const UINT WM_FONTCHANGE = 0x001D;
+        const UINT WM_TIMECHANGE = 0x001E;
+        const UINT WM_CANCELMODE = 0x001F;
+        const UINT WM_SETCURSOR = 0x0020;
+        const UINT WM_MOUSEACTIVATE = 0x0021;
+        const UINT WM_CHILDACTIVATE = 0x0022;
+        const UINT WM_QUEUESYNC = 0x0023;
+        const UINT WM_GETMINMAXINFO = 0x0024;
+
+        const LPCWSTR CLSID_UserNotification = "0010890e-8789-413c-adbc-48f5b511b3af";
+    }
+
+    typedef CLSCTX CLSCTX;
+
+    [uuid(C17B0B13-6E49-4268-B699-2D083BAE88F9), object, local, pointer_default(unique)]
+    interface WNDPROC : __Delegate
+    {
+        LRESULT WNDPROC(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+    }
+
+    typedef struct PAINTSTRUCT 
+    {
+        HDC         hdc;
+        BOOL        fErase;
+        RECT        rcPaint;
+        BOOL        fRestore;
+        BOOL        fIncUpdate;
+        BYTE        rgbReserved[32];
+    } PAINTSTRUCT, *LPPAINTSTRUCT;
+
+    typedef MSG MSG;
+
+    typedef struct WNDCLASSEX
+    {
+        UINT        cbSize;
+        UINT        style;
+        WNDPROC     lpfnWndProc;
+        int         cbClsExtra;
+        int         cbWndExtra;
+        HINSTANCE   hInstance;
+        HICON       hIcon;
+        HCURSOR     hCursor;
+        HBRUSH      hbrBackground;
+        LPCWSTR     lpszMenuName;
+        LPCWSTR     lpszClassName;
+        HICON       hIconSm;
+    } WNDCLASSEX;
+   
+    typedef struct LOGFONTW
+    {
+        LONG      lfHeight;
+        LONG      lfWidth;
+        LONG      lfEscapement;
+        LONG      lfOrientation;
+        LONG      lfWeight;
+        BYTE      lfItalic;
+        BYTE      lfUnderline;
+        BYTE      lfStrikeOut;
+        BYTE      lfCharSet;
+        BYTE      lfOutPrecision;
+        BYTE      lfClipPrecision;
+        BYTE      lfQuality;
+        BYTE      lfPitchAndFamily;
+        WCHAR     lfFaceName[32];
+    } LOGFONTW;
+
+    [uuid("7307055c-b24a-486b-9f25-163e597a28a9")]
+    interface IQueryContinue : IUnknown
+    {
+        HRESULT QueryContinue();
+    };
+
+    [uuid("ba9711ba-5893-4787-a7e1-41277151550b")]
+    interface IUserNotification : IUnknown
+    {
+        HRESULT SetBalloonInfo(
+            /* [string][unique][in] */ LPCWSTR pszTitle,
+            /* [string][unique][in] */ LPCWSTR pszText,
+            /* [in] */ DWORD dwInfoFlags);
+
+        HRESULT SetBalloonRetry(
+            /* [in] */ DWORD dwShowTime,
+            /* [in] */ DWORD dwInterval,
+            /* [in] */ UINT cRetryCount);
+
+        HRESULT SetIconInfo(
+            /* [unique][in] */ HICON hIcon,
+            /* [string][unique][in] */ LPCWSTR pszToolTip);
+
+        HRESULT Show(
+            /* [unique][in] */ IQueryContinue *pqc,
+            /* [in] */ DWORD dwContinuePollInterval);
+
+        HRESULT PlaySound(
+            /* [string][in] */ LPCWSTR pszSoundName);
+
+    };
+    
+    midl_pragma warning(disable: 2495)
+
+    [dllname("user32.dll")]
+    module NativeMethods_user32_dll
+    {
+        [entry("RegisterClassExW")]   
+        ATOM RegisterClassEx(
+            [annotation("_In_")] const WNDCLASSEX * lpwcx);
+
+        [entry("AdjustWindowRect")]  
+        BOOL AdjustWindowRect(
+            [annotation("_Inout_")] LPRECT lpRect,
+            [annotation("_In_")] DWORD dwStyle,
+            [annotation("_In_")] BOOL bMenu);
+        
+        [entry("CreateWindowExW")]  
+        HWND CreateWindowEx(
+            [annotation("_In_")] DWORD dwExStyle,
+            [annotation("_In_opt_")] LPCWSTR lpClassName,
+            [annotation("_In_opt_")] LPCWSTR lpWindowName,
+            [annotation("_In_")] DWORD dwStyle,
+            [annotation("_In_")] int X,
+            [annotation("_In_")] int Y,
+            [annotation("_In_")] int nWidth,
+            [annotation("_In_")] int nHeight,
+            [annotation("_In_opt_")] HWND hWndParent,
+            [annotation("_In_opt_")] HMENU hMenu,
+            [annotation("_In_opt_")] HINSTANCE hInstance,
+            [annotation("_In_opt_")] LPVOID lpParam);
+        
+        [entry("ShowWindow")]  
+        BOOL ShowWindow(
+            [annotation("_In_")] HWND hWnd,
+            [annotation("_In_")] int nCmdShow);
+        
+        [entry("BeginPaint")]  
+        HDC BeginPaint(
+            [annotation("_In_")] HWND hWnd,
+            [annotation("_Out_")] LPPAINTSTRUCT lpPaint);
+        
+        [entry("EndPaint")]  
+        BOOL EndPaint(
+            [annotation("_In_")] HWND hWnd,
+            [annotation("_In_")] const PAINTSTRUCT *lpPaint);
+        
+        [entry("PostQuitMessage")]  
+        void PostQuitMessage(
+            [annotation("_In_")] int nExitCode);
+        
+        [entry("DefWindowProcW")]
+        LRESULT DefWindowProc(
+            [annotation("_In_")] HWND hWnd,
+            [annotation("_In_")] UINT Msg,
+            [annotation("_In_")] WPARAM wParam,
+            [annotation("_In_")] LPARAM lParam);
+        
+        [entry("PeekMessageW")]
+        BOOL PeekMessage(
+            [annotation("_Out_")] LPMSG lpMsg,
+            [annotation("_In_opt_")] HWND hWnd,
+            [annotation("_In_")] UINT wMsgFilterMin,
+            [annotation("_In_")] UINT wMsgFilterMax,
+            [annotation("_In_")] UINT wRemoveMsg);
+        
+        [entry("TranslateMessage")]
+        BOOL TranslateMessage(
+            [annotation("_In_")] const MSG *lpMsg);
+        
+        [entry("DispatchMessageW")]
+        LRESULT DispatchMessage(
+            [annotation("_In_")] const MSG *lpMsg);
+    }
+
+    [dllname("ole32.dll")]
+    module NativeMethods_ole32_dll
+    {
+        [entry("CoCreateInstance")]
+        HRESULT CoCreateInstance(
+            REFCLSID rclsid,
+            LPUNKNOWN pUnkOuter,
+            DWORD dwClsContext,
+            REFIID riid,
+            LPVOID *ppv);
+    }
+
+    midl_pragma warning(enable: 2495)
+}

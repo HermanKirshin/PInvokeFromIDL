@@ -1,0 +1,91 @@
+//SuppressedTypes:  Guid
+//Namespaces:       Win32
+/* <#@ include file="..\InternalTools\TransformIDL.tt" #> */
+
+[
+    uuid(00000000-0000-0000-0000-000000000000),
+    version(1.0),
+    helpstring("Import"),
+    hidden
+]
+[hidden] library Import
+{
+    module NativeConstants
+    {          
+        
+    }
+    
+    typedef BOOL BOOL;
+    typedef BOOLEAN BOOLEAN;
+
+    [uuid(D4B7BFAF-5B5D-4A9E-B234-6F8DCAAE9B22), object, local, pointer_default(unique)]
+    interface FARPROC : __Delegate
+    {
+        void FARPROC();
+    }
+
+    typedef LUID LUID;
+    typedef SECURITY_ATTRIBUTES SECURITY_ATTRIBUTES;
+
+    typedef SIZE SIZE; 
+    typedef POINT POINT; 
+    typedef RECT RECT; 
+
+    typedef FILETIME FILETIME;
+    typedef SYSTEMTIME SYSTEMTIME;
+    typedef STATSTG STATSTG;   
+
+    typedef PROPVARIANT PROPVARIANT;
+    typedef VARIANT VARIANT;
+    
+    interface IStream;
+    interface IEnumUnknown;
+    interface IEnumString;
+    interface IPropertyBag2;
+
+#pragma pack(push, 1)
+
+    typedef struct WAVEFORMATEX
+    {
+        WORD        wFormatTag;       
+        WORD        nChannels;        
+        DWORD       nSamplesPerSec;   
+        DWORD       nAvgBytesPerSec;  
+        WORD        nBlockAlign;      
+        WORD        wBitsPerSample;   
+        WORD        cbSize;                                                 
+    } WAVEFORMATEX;
+
+#pragma pack(pop)
+
+    midl_pragma warning(disable: 2495)
+		
+	[dllname("ntdll.dll")]
+    module NativeMethods_ntdll
+    {
+        [entry("RtlCompareMemory")]
+        SIZE_T RtlCompareMemory(
+            [annotation("_In_")]  const void *Source1,
+            [annotation("_In_")]  const void *Source2,
+            [annotation("_In_")]  SIZE_T Length);
+        
+        [entry("RtlFillMemory")]
+        void RtlFillMemory(
+            [annotation("_Out_")]  void *Destination,
+            [annotation("_In_")]   SIZE_T Length,
+            [annotation("_In_")]   UCHAR Fill);
+
+        [entry("RtlMoveMemory")]
+        void RtlMoveMemory(
+            [annotation("_Out_")]  void *Destination,
+            [annotation("_In_")]   const void *Source,
+            [annotation("_In_")]   SIZE_T Length);
+
+        [entry("RtlZeroMemory")]
+        void RtlZeroMemory(
+            [annotation("_Out_")]  void *Destination,
+            [annotation("_In_")]   SIZE_T Length);
+    }
+
+    midl_pragma warning(enable: 2495)
+}
